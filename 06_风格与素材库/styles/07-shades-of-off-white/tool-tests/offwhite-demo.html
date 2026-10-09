@@ -1,0 +1,13 @@
+<!doctype html><meta charset=utf-8><link rel=stylesheet href="node_modules/@fontsource/instrument-serif/index.css">
+<style>body{margin:0;width:1200px;background:#F7F4EE;font-family:system-ui,'PingFang SC',sans-serif;color:#2B2925}
+.sw{display:flex;gap:0;margin:0}.sw div{flex:1;height:210px;padding:14px;box-sizing:border-box;font:13px ui-monospace,monospace;display:flex;flex-direction:column;justify-content:flex-end}
+.hero{padding:56px 64px;display:grid;grid-template-columns:1.3fr 1fr;gap:40px;background:url(out-grain.png);}
+h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:84px;line-height:1;margin:0;letter-spacing:-1px}
+.card{background:#FFFDF8;border:1px solid #E6E0D4;border-radius:18px;padding:24px;box-shadow:0 1px 0 #fff inset,0 12px 30px #6b5d4310}
+.btn{display:inline-block;margin-top:28px;background:#2B2925;color:#F7F4EE;padding:14px 26px;border-radius:999px}.btn2{background:transparent;color:#2B2925;border:1px solid #CFC6B5;margin-left:10px}
+p{color:#6E675C;font-size:18px;line-height:1.6}</style>
+<div class=sw id=sw></div>
+<div class=hero><div><h1>Shades of<br>off-white</h1><p>米白、象牙、燕麦、亚麻、骨白。低饱和暖白做底，深咖啡灰做字，留白多，靠细线和纸张颗粒做质感。</p><span class=btn>开始游戏</span><span class="btn btn2">了解更多</span></div>
+<div class=card><div style="font-family:'Instrument Serif';font-size:36px">Linen UI card</div><p>bg #FFFDF8 · border #E6E0D4 · text #2B2925 / #6E675C</p><div style="height:120px;border-radius:12px;background:linear-gradient(135deg,#EFE9DD,#E4DACA)"></div></div></div>
+<script>const C=[['Paper','#FBF9F4'],['Porcelain','#F7F4EE'],['Ivory','#F4EFE3'],['Linen','#EFE9DD'],['Oat','#E8DFCF'],['Bone','#E4DACA'],['Parchment','#D9CDB6'],['Stone','#B9AE9A'],['Ink','#2B2925']];
+sw.innerHTML=C.map(([n,h])=>`<div style="background:${h};color:${n=='Ink'||n=='Stone'?'#F7F4EE':'#2B2925'}"><b>${n}</b>${h}</div>`).join('');window.DONE=1</script>

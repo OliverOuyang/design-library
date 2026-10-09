@@ -1,0 +1,38 @@
+[
+ {
+  "name": "Paper",
+  "hex": "#FBF9F4"
+ },
+ {
+  "name": "Porcelain",
+  "hex": "#F7F4EE"
+ },
+ {
+  "name": "Ivory",
+  "hex": "#F4EFE3"
+ },
+ {
+  "name": "Linen",
+  "hex": "#EFE9DD"
+ },
+ {
+  "name": "Oat",
+  "hex": "#E8DFCF"
+ },
+ {
+  "name": "Bone",
+  "hex": "#E4DACA"
+ },
+ {
+  "name": "Parchment",
+  "hex": "#D9CDB6"
+ },
+ {
+  "name": "Stone",
+  "hex": "#B9AE9A"
+ },
+ {
+  "name": "Ink",
+  "hex": "#2B2925"
+ }
+]

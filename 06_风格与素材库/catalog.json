@@ -1,0 +1,4418 @@
+{
+ "version": 3,
+ "updated": "2026-10-09",
+ "schema_note": "files[].kind: official=项目官方图, reference=参考作品图, asset=可直接用的素材, tool-test=本库工具实测; ai_used 记录是否用了 AI 生成（不要做原则 §9）；v3 新增 spdx（SPDX 许可证标识，自定义用 LicenseRef-*）、sha256、bytes、attribution_required；用 tools/check-catalog.py 校验",
+ "entries": [
+  {
+   "kind": "library",
+   "slug": "01-web-motion",
+   "title": "网页动效（视频里推荐的 4 个）",
+   "path": "library/01-web-motion/",
+   "summary": "做独立站、游戏官网的\"高级感\"动效骨架：平滑滚动 + 滚动驱动动画 + 现成动效组件。视频里推荐的就是这一组。",
+   "fit": "独立站落地页、游戏官网、作品集；录屏后可当视频片头/转场。",
+   "principles": [
+    "不要劫持滚动：Lenis 只做惯性平滑，不分页、不改方向；`prefers-reduced-motion: reduce` 时不初始化 Lenis（demo 源码已这样改，并实测开启“减少动效”后键盘能滚到页脚）。（§7）",
+    "别做成 AI 默认模板：Inter + 紫色渐变 + 居中大标题 + 三张图标卡。demo 里的极光紫渐变只是技术测试，正式站点按 styles/ 里的风格定主色。（§1）",
+    "入场动画编排一次就好，不要每个区块都淡入。（§1）"
+   ],
+   "tools": [
+    {
+     "name": "Lenis",
+     "url": "[darkroomengineering/lenis](https://github.com/darkroomengineering/lenis)",
+     "license": "MIT",
+     "use": "平滑滚动",
+     "status": "已实测"
+    },
+    {
+     "name": "GSAP + ScrollTrigger",
+     "url": "[greensock/GSAP](https://github.com/greensock/GSAP)",
+     "license": "GSAP 标准免费许可（所有插件免费，非 MIT）",
+     "use": "动画引擎、滚动动画、SplitText、MorphSVG",
+     "status": "已实测"
+    },
+    {
+     "name": "React Bits",
+     "url": "[DavidHDev/react-bits](https://github.com/DavidHDev/react-bits)",
+     "license": "MIT + Commons Clause（可商用，不可转卖组件）",
+     "use": "约 210 个动效组件：文字/背景/卡片/光标",
+     "status": "已实测 6 个组件"
+    },
+    {
+     "name": "Cameras UI",
+     "url": "未确认",
+     "license": "—",
+     "use": "视频里提到，名字可能是听写误差",
+     "status": "待确认"
+    },
+    {
+     "name": "Magic UI",
+     "url": "[magicuidesign/magicui](https://github.com/magicuidesign/magicui)",
+     "license": "MIT",
+     "use": "shadcn 风格动效组件",
+     "status": "已核对"
+    },
+    {
+     "name": "Uiverse Galaxy",
+     "url": "[uiverse-io/galaxy](https://github.com/uiverse-io/galaxy)",
+     "license": "MIT",
+     "use": "3800+ 纯 CSS 按钮/卡片/加载动画",
+     "status": "已核对"
+    }
+   ],
+   "files": [
+    {
+     "path": "library/01-web-motion/official/reactbits-demo-cs1.webp",
+     "kind": "official",
+     "title": "React Bits 官网演示图",
+     "author": "David Haz",
+     "source_url": "https://github.com/DavidHDev/react-bits",
+     "license": "MIT + Commons Clause",
+     "ai_used": false,
+     "sha256": "4c24a87920ac4ffde414736c6f544452d4c7a196ca0aedc31c909790b7977daa",
+     "bytes": 680994,
+     "spdx": "LicenseRef-MIT-Commons-Clause",
+     "attribution_required": false
+    },
+    {
+     "path": "library/01-web-motion/official/reactbits-demo-cs2.webp",
+     "kind": "official",
+     "title": "React Bits 官网演示图",
+     "author": "David Haz",
+     "source_url": "https://github.com/DavidHDev/react-bits",
+     "license": "MIT + Commons Clause",
+     "ai_used": false,
+     "sha256": "05f4b5505ac1df3dcdc4c3c4f351dd54d6d6f9d58c5542be048745758419615e",
+     "bytes": 653542,
+     "spdx": "LicenseRef-MIT-Commons-Clause",
+     "attribution_required": false
+    },
+    {
+     "path": "library/01-web-motion/official/reactbits-demo-cs3.webp",
+     "kind": "official",
+     "title": "React Bits 官网演示图",
+     "author": "David Haz",
+     "source_url": "https://github.com/DavidHDev/react-bits",
+     "license": "MIT + Commons Clause",
+     "ai_used": false,
+     "sha256": "8556bb18a7793eaf22acf21e036ebe709e8f7760ef7d8a1846fc3eff7ebb5ac9",
+     "bytes": 649280,
+     "spdx": "LicenseRef-MIT-Commons-Clause",
+     "attribution_required": false
+    },
+    {
+     "path": "library/01-web-motion/lenis-gsap-reactbits-demo-src.tar.gz",
+     "kind": "asset",
+     "author": "本库",
+     "source_url": "",
+     "license": "LicenseRef-mixed（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "ab67c77527303b60c496f1f3b931491a20aae2f097834273191a07ede209914b",
+     "bytes": 1376740,
+     "spdx": "LicenseRef-mixed",
+     "attribution_required": false,
+     "title": "lenis-gsap-reactbits-demo-src.tar.gz"
+    },
+    {
+     "path": "library/01-web-motion/tool-tests/demo-screens.png",
+     "kind": "tool-test",
+     "author": "本库测试",
+     "source_url": "",
+     "license": "自制",
+     "ai_used": false,
+     "sha256": "327f73ae6c2bbab683d6f4f0a35ca932010ab48e1efaeb20477dd828479d07d3",
+     "bytes": 264635,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "demo-screens.png"
+    },
+    {
+     "path": "library/01-web-motion/tool-tests/demo-scroll.mp4",
+     "kind": "tool-test",
+     "author": "本库测试",
+     "source_url": "",
+     "license": "自制",
+     "ai_used": false,
+     "sha256": "b3a3b4051d65e48ccdc9a9c613a625d77409f5ea07b013320e35d037a58bd7b3",
+     "bytes": 686165,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "demo-scroll.mp4"
+    }
+   ]
+  },
+  {
+   "kind": "library",
+   "slug": "02-icons",
+   "title": "图标",
+   "path": "library/02-icons/",
+   "summary": "UI 图标和品牌 logo。站点主图标建议 Lucide 或 Phosphor 二选一，保持线宽统一。",
+   "fit": "独立站、游戏 UI 菜单、视频字幕旁的小图标。",
+   "principles": [
+    "同一产品只用一套图标（线宽、圆角统一），不要 Lucide 和 Tabler 混用。（§3）",
+    "Lobe Icons 里是别人的商标，只用来指代对应产品。"
+   ],
+   "tools": [
+    {
+     "name": "ui-icons-hub（215 套图标聚合，支持中文搜索）",
+     "url": "[sitong-zhang/farewell](https://github.com/sitong-zhang/farewell) · [在线](https://sitong-zhang.github.io/ui-icons-hub/)",
+     "license": "按每套上游许可",
+     "use": "找图标的总入口",
+     "status": "已实测"
+    },
+    {
+     "name": "Lucide",
+     "url": "[lucide-icons/lucide](https://github.com/lucide-icons/lucide)",
+     "license": "ISC",
+     "use": "~2400 线性图标",
+     "status": "已实测"
+    },
+    {
+     "name": "Tabler Icons",
+     "url": "[tabler/tabler-icons](https://github.com/tabler/tabler-icons)",
+     "license": "MIT",
+     "use": "~6400 线性+填充",
+     "status": "已实测"
+    },
+    {
+     "name": "Phosphor",
+     "url": "[phosphor-icons/core](https://github.com/phosphor-icons/core)",
+     "license": "MIT",
+     "use": "6 种粗细",
+     "status": "已核对"
+    },
+    {
+     "name": "Heroicons",
+     "url": "[tailwindlabs/heroicons](https://github.com/tailwindlabs/heroicons)",
+     "license": "MIT",
+     "use": "Tailwind 官方配套",
+     "status": "已核对"
+    },
+    {
+     "name": "Lobe Icons",
+     "url": "[lobehub/lobe-icons](https://github.com/lobehub/lobe-icons)",
+     "license": "MIT（品牌商标归各方）",
+     "use": "AI 品牌 logo（Claude/OpenAI/可灵/MJ…）",
+     "status": "已实测"
+    }
+   ],
+   "files": [
+    {
+     "path": "library/02-icons/official/tabler-og.png",
+     "kind": "official",
+     "title": "Tabler Icons 官方展示图",
+     "author": "Paweł Kuna",
+     "source_url": "https://github.com/tabler/tabler-icons",
+     "license": "MIT",
+     "ai_used": false,
+     "sha256": "fdac359a2c787f2d292280fd2261e78eba435e4a1bbf3f75312889fc0644f8ef",
+     "bytes": 67833,
+     "spdx": "MIT",
+     "attribution_required": false
+    },
+    {
+     "path": "library/02-icons/official/tabler-icons-stroke.png",
+     "kind": "official",
+     "title": "Tabler Icons 线性图标条",
+     "author": "Paweł Kuna",
+     "source_url": "https://github.com/tabler/tabler-icons",
+     "license": "MIT",
+     "ai_used": false,
+     "sha256": "db5da994371a5d25f79b8a73b187df6bb690a027b3826ed485b925a62fe28f1c",
+     "bytes": 35742,
+     "spdx": "MIT",
+     "attribution_required": false
+    },
+    {
+     "path": "library/02-icons/gamepad-2.svg",
+     "kind": "asset",
+     "author": "Lucide",
+     "source_url": "https://github.com/lucide-icons/lucide",
+     "license": "ISC（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "9b04ec6fe2ef28fa1e434e57f04e7db4aa207c13d56f210c7d440b2bb287ffb7",
+     "bytes": 8454,
+     "spdx": "ISC",
+     "attribution_required": false,
+     "title": "gamepad-2.svg"
+    },
+    {
+     "path": "library/02-icons/shopping-cart.svg",
+     "kind": "asset",
+     "author": "Lucide",
+     "source_url": "https://github.com/lucide-icons/lucide",
+     "license": "ISC（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "3e5f93bf9ed88c8df50437a2cfdd0ec0d0358390ce37dc02fc9c98fea7f08a86",
+     "bytes": 8231,
+     "spdx": "ISC",
+     "attribution_required": false,
+     "title": "shopping-cart.svg"
+    },
+    {
+     "path": "library/02-icons/sparkles.svg",
+     "kind": "asset",
+     "author": "Lucide",
+     "source_url": "https://github.com/lucide-icons/lucide",
+     "license": "ISC（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "e08ed1735568f5f52fb3003065c3e2022e52966a0f5705f16c29c786f20cc0c8",
+     "bytes": 8341,
+     "spdx": "ISC",
+     "attribution_required": false,
+     "title": "sparkles.svg"
+    },
+    {
+     "path": "library/02-icons/tb-device-gamepad-2.svg",
+     "kind": "asset",
+     "author": "Tabler Icons",
+     "source_url": "https://github.com/tabler/tabler-icons",
+     "license": "MIT（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "be08f5b8b2297bf7c1a55f9b09e74b6c74a3b6e7e4261f1539ee85cb582ad2d9",
+     "bytes": 8414,
+     "spdx": "MIT",
+     "attribution_required": false,
+     "title": "tb-device-gamepad-2.svg"
+    },
+    {
+     "path": "library/02-icons/tb-movie.svg",
+     "kind": "asset",
+     "author": "Tabler Icons",
+     "source_url": "https://github.com/tabler/tabler-icons",
+     "license": "MIT（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "8e99acd9b68f651059afe6855176ba0048071999c2553e853b34717602fcac78",
+     "bytes": 8395,
+     "spdx": "MIT",
+     "attribution_required": false,
+     "title": "tb-movie.svg"
+    },
+    {
+     "path": "library/02-icons/tb-shopping-cart.svg",
+     "kind": "asset",
+     "author": "Tabler Icons",
+     "source_url": "https://github.com/tabler/tabler-icons",
+     "license": "MIT（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "178ee40c0140d91d8b8798618d8f266e34b1abb4b8bd331a597682182e750995",
+     "bytes": 8313,
+     "spdx": "MIT",
+     "attribution_required": false,
+     "title": "tb-shopping-cart.svg"
+    },
+    {
+     "path": "library/02-icons/video.svg",
+     "kind": "asset",
+     "author": "Lucide",
+     "source_url": "https://github.com/lucide-icons/lucide",
+     "license": "ISC（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "bd1e48a8be3188d8332ba7cda8a8f30319dbc3e2c987a2c2f8596fbb0f7e872f",
+     "bytes": 8124,
+     "spdx": "ISC",
+     "attribution_required": false,
+     "title": "video.svg"
+    },
+    {
+     "path": "library/02-icons/tool-tests/preview-ai-logos.png",
+     "kind": "tool-test",
+     "author": "本库测试",
+     "source_url": "",
+     "license": "自制",
+     "ai_used": false,
+     "sha256": "5442e23ca4e861fe35f02c639d7f7c7b83a9195dd6a5b56ea4f2108648feb309",
+     "bytes": 36877,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "preview-ai-logos.png"
+    },
+    {
+     "path": "library/02-icons/tool-tests/preview-ui-icons.png",
+     "kind": "tool-test",
+     "author": "本库测试",
+     "source_url": "",
+     "license": "自制",
+     "ai_used": false,
+     "sha256": "7c1b89449b847398986516169dcdee1ad50dd4b7374372a6f446861c3b2aabcb",
+     "bytes": 42299,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "preview-ui-icons.png"
+    }
+   ]
+  },
+  {
+   "kind": "library",
+   "slug": "03-emoji-stickers",
+   "title": "3D / 动态 Emoji 贴纸",
+   "path": "library/03-emoji-stickers/",
+   "summary": "立体感强的 emoji，做视频贴纸、落地页插图、游戏成就图标都很好用。",
+   "fit": "视频贴纸和片头、独立站插图、游戏成就/奖励弹窗。",
+   "principles": [
+    "同一画面不要混用 Fluent 和 Noto 两套 emoji。（§3）",
+    "Animated Fluent Emojis 仅限个人使用，商用换 Noto 动态版并署名（CC BY 4.0）。"
+   ],
+   "tools": [
+    {
+     "name": "Fluent Emoji（微软）",
+     "url": "[microsoft/fluentui-emoji](https://github.com/microsoft/fluentui-emoji)",
+     "license": "MIT",
+     "use": "3D PNG + 彩色/扁平 SVG",
+     "status": "已实测"
+    },
+    {
+     "name": "Noto 动态 Emoji（Google）",
+     "url": "https://googlefonts.github.io/noto-emoji-animation/",
+     "license": "CC BY 4.0（需署名）",
+     "use": "动态 webp/Lottie，可商用",
+     "status": "已实测下载"
+    },
+    {
+     "name": "Animated Fluent Emojis",
+     "url": "[Tarikul-Islam-Anik/Animated-Fluent-Emojis](https://github.com/Tarikul-Islam-Anik/Animated-Fluent-Emojis)",
+     "license": "仅限个人使用",
+     "use": "❌ 商用别用",
+     "status": "已核对"
+    }
+   ],
+   "files": [
+    {
+     "path": "library/03-emoji-stickers/official/fluentui-emoji-banner.webp",
+     "kind": "official",
+     "title": "Fluent Emoji 官方横幅",
+     "author": "Microsoft",
+     "source_url": "https://github.com/microsoft/fluentui-emoji",
+     "license": "MIT",
+     "ai_used": false,
+     "sha256": "db4c22cf5f91905a566a44602782bdbc1673a86a160a015901beff9e91c6e3cf",
+     "bytes": 754194,
+     "spdx": "MIT",
+     "attribution_required": false
+    },
+    {
+     "path": "library/03-emoji-stickers/fluent-crossed_swords_3d.png",
+     "kind": "asset",
+     "author": "Microsoft",
+     "source_url": "https://github.com/microsoft/fluentui-emoji",
+     "license": "MIT（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "bdb4cd076ea505a021d1f9cbcc0bea91212cc30d873ca8eb4e83848e8a8a005e",
+     "bytes": 38123,
+     "spdx": "MIT",
+     "attribution_required": false,
+     "title": "fluent-crossed_swords_3d.png"
+    },
+    {
+     "path": "library/03-emoji-stickers/fluent-fire_3d.png",
+     "kind": "asset",
+     "author": "Microsoft",
+     "source_url": "https://github.com/microsoft/fluentui-emoji",
+     "license": "MIT（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "f479c79791a15d65085d44df4751f4b2c5f48fc72c6139d2f6208ef825f18031",
+     "bytes": 32596,
+     "spdx": "MIT",
+     "attribution_required": false,
+     "title": "fluent-fire_3d.png"
+    },
+    {
+     "path": "library/03-emoji-stickers/fluent-rocket_3d.png",
+     "kind": "asset",
+     "author": "Microsoft",
+     "source_url": "https://github.com/microsoft/fluentui-emoji",
+     "license": "MIT（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "dba2d8dce932d938f8fcf235883b89f2113ad54c085c61b24d45bdc30919d1d6",
+     "bytes": 42044,
+     "spdx": "MIT",
+     "attribution_required": false,
+     "title": "fluent-rocket_3d.png"
+    },
+    {
+     "path": "library/03-emoji-stickers/fluent-shopping_cart_3d.png",
+     "kind": "asset",
+     "author": "Microsoft",
+     "source_url": "https://github.com/microsoft/fluentui-emoji",
+     "license": "MIT（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "652d87cdf55f45774d7fa8f888c95642dede68352abe92e53f1431f7163192fd",
+     "bytes": 35609,
+     "spdx": "MIT",
+     "attribution_required": false,
+     "title": "fluent-shopping_cart_3d.png"
+    },
+    {
+     "path": "library/03-emoji-stickers/fluent-sparkles_3d.png",
+     "kind": "asset",
+     "author": "Microsoft",
+     "source_url": "https://github.com/microsoft/fluentui-emoji",
+     "license": "MIT（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "7bd862a7898ac9655f8285e35f9d4149f40e7bd482b2d0e73792e5c9e7ce2e68",
+     "bytes": 27718,
+     "spdx": "MIT",
+     "attribution_required": false,
+     "title": "fluent-sparkles_3d.png"
+    },
+    {
+     "path": "library/03-emoji-stickers/fluent-video_game_3d.png",
+     "kind": "asset",
+     "author": "Microsoft",
+     "source_url": "https://github.com/microsoft/fluentui-emoji",
+     "license": "MIT（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "13eb09aaf20b63e4e13c1d73b67af21c1285a7e9cd332226bf9c529e8cdc6a3d",
+     "bytes": 37277,
+     "spdx": "MIT",
+     "attribution_required": false,
+     "title": "fluent-video_game_3d.png"
+    },
+    {
+     "path": "library/03-emoji-stickers/noto-animated-1f389.webp",
+     "kind": "asset",
+     "author": "Google",
+     "source_url": "https://googlefonts.github.io/noto-emoji-animation/",
+     "license": "CC-BY-4.0（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "4a1f15d9a76437bc734f5c12ca881d9759ea40a3cb1bd52cd83624c6e483dcd6",
+     "bytes": 310108,
+     "spdx": "CC-BY-4.0",
+     "attribution_required": true,
+     "title": "noto-animated-1f389.webp"
+    },
+    {
+     "path": "library/03-emoji-stickers/noto-animated-1f525.webp",
+     "kind": "asset",
+     "author": "Google",
+     "source_url": "https://googlefonts.github.io/noto-emoji-animation/",
+     "license": "CC-BY-4.0（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "bd339c70720890594719b75100bddee3c146fdb4190e700457c94c1226e0cef5",
+     "bytes": 195520,
+     "spdx": "CC-BY-4.0",
+     "attribution_required": true,
+     "title": "noto-animated-1f525.webp"
+    },
+    {
+     "path": "library/03-emoji-stickers/noto-animated-1f680.webp",
+     "kind": "asset",
+     "author": "Google",
+     "source_url": "https://googlefonts.github.io/noto-emoji-animation/",
+     "license": "CC-BY-4.0（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "17ea753498da220616030f60e3d2fac7f11f0675221f153333778a05a2b462eb",
+     "bytes": 191574,
+     "spdx": "CC-BY-4.0",
+     "attribution_required": true,
+     "title": "noto-animated-1f680.webp"
+    },
+    {
+     "path": "library/03-emoji-stickers/noto-animated-2728.webp",
+     "kind": "asset",
+     "author": "Google",
+     "source_url": "https://googlefonts.github.io/noto-emoji-animation/",
+     "license": "CC-BY-4.0（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "15937dfe85423adf85e61af04d3b1d68605f446c72b0f7a3f8202397a6e73619",
+     "bytes": 193608,
+     "spdx": "CC-BY-4.0",
+     "attribution_required": true,
+     "title": "noto-animated-2728.webp"
+    },
+    {
+     "path": "library/03-emoji-stickers/tool-tests/preview-fluent-3d.png",
+     "kind": "tool-test",
+     "author": "本库测试",
+     "source_url": "",
+     "license": "自制",
+     "ai_used": false,
+     "sha256": "4b24860707087d3712447ec0c4cbd91da528a3b4d1ff1560ea240d307e4a07e1",
+     "bytes": 46855,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "preview-fluent-3d.png"
+    }
+   ]
+  },
+  {
+   "kind": "library",
+   "slug": "04-game-assets",
+   "title": "游戏素材（3D 角色 / 场景 / 游戏图标）",
+   "path": "library/04-game-assets/",
+   "summary": "可商用的低多边形 3D 角色、场景件和游戏道具图标。",
+   "fit": "独立游戏原型和正式版、游戏官网角色展示、视频里的 3D 角色镜头。",
+   "principles": [
+    "优先用 CC0 成套资源（KayKit、Kenney）保证风格统一。（§6）",
+    "AI 生成的 3D 不能直接进引擎：先重拓扑、展 UV、烘焙贴图、控制面数。（§6）",
+    "AI 占位图文件名加 `_AI占位` 前缀，打包前扫描。（§2、§6）",
+    "game-icons 是 CC BY 3.0，致谢页要署名。"
+   ],
+   "tools": [
+    {
+     "name": "KayKit 冒险者角色包",
+     "url": "[KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0](https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0)",
+     "license": "CC0",
+     "use": "5 个已绑骨角色、76 个动画，glb/gltf/fbx",
+     "status": "已实测（three.js 加载播放）"
+    },
+    {
+     "name": "KayKit 地牢包",
+     "url": "[KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0](https://github.com/KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0)",
+     "license": "CC0",
+     "use": "地牢墙地板道具",
+     "status": "已核对"
+    },
+    {
+     "name": "game-icons.net",
+     "url": "[game-icons/icons](https://github.com/game-icons/icons)",
+     "license": "CC BY 3.0（需署名）",
+     "use": "4000+ 道具/技能 SVG",
+     "status": "已实测"
+    },
+    {
+     "name": "Kenney",
+     "url": "https://kenney.nl/assets",
+     "license": "CC0",
+     "use": "2D/3D/UI/音效全套",
+     "status": "未测（云端访问不到）"
+    },
+    {
+     "name": "Quaternius",
+     "url": "https://quaternius.com",
+     "license": "CC0",
+     "use": "低多边形角色/动物/场景",
+     "status": "未测"
+    },
+    {
+     "name": "Poly Haven",
+     "url": "https://polyhaven.com",
+     "license": "CC0",
+     "use": "HDRI、PBR 材质、写实模型",
+     "status": "未测"
+    }
+   ],
+   "files": [
+    {
+     "path": "library/04-game-assets/official/kaykit-adventurers-knight.png",
+     "kind": "official",
+     "title": "KayKit Adventurers · knight",
+     "author": "Kay Lousberg",
+     "source_url": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+     "license": "CC0",
+     "ai_used": false,
+     "sha256": "aae0a3db84f422cfa7eb48584b0baf8896444ef686edde943ee74d168c2c6cd2",
+     "bytes": 708750,
+     "spdx": "CC0-1.0",
+     "attribution_required": false
+    },
+    {
+     "path": "library/04-game-assets/official/kaykit-adventurers-barbarian.png",
+     "kind": "official",
+     "title": "KayKit Adventurers · barbarian",
+     "author": "Kay Lousberg",
+     "source_url": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+     "license": "CC0",
+     "ai_used": false,
+     "sha256": "545f3e136b0fed55a8c3ffeee8b52e0e8c3f1f058afce00c1ac3c6eca16262cc",
+     "bytes": 641664,
+     "spdx": "CC0-1.0",
+     "attribution_required": false
+    },
+    {
+     "path": "library/04-game-assets/official/kaykit-adventurers-mage.png",
+     "kind": "official",
+     "title": "KayKit Adventurers · mage",
+     "author": "Kay Lousberg",
+     "source_url": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+     "license": "CC0",
+     "ai_used": false,
+     "sha256": "7f10d6968b1b03b6e70f7f11fbe0703fa6b0b0826e18115ba371f326569524c4",
+     "bytes": 630777,
+     "spdx": "CC0-1.0",
+     "attribution_required": false
+    },
+    {
+     "path": "library/04-game-assets/official/kaykit-adventurers-rogue.png",
+     "kind": "official",
+     "title": "KayKit Adventurers · rogue",
+     "author": "Kay Lousberg",
+     "source_url": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+     "license": "CC0",
+     "ai_used": false,
+     "sha256": "c81d60d258417beab5118d5229066733ffd5316d488c5e9db46b4c54e43d32d0",
+     "bytes": 574025,
+     "spdx": "CC0-1.0",
+     "attribution_required": false
+    },
+    {
+     "path": "library/04-game-assets/official/kaykit-adventurers-druid.png",
+     "kind": "official",
+     "title": "KayKit Adventurers · druid",
+     "author": "Kay Lousberg",
+     "source_url": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+     "license": "CC0",
+     "ai_used": false,
+     "sha256": "9da5d30ec51c83ad4a57d7f594b63c607c24fae3ae52b893e18dfa5cc1527ad8",
+     "bytes": 756814,
+     "spdx": "CC0-1.0",
+     "attribution_required": false
+    },
+    {
+     "path": "library/04-game-assets/official/kaykit-adventurers-engineer.png",
+     "kind": "official",
+     "title": "KayKit Adventurers · engineer",
+     "author": "Kay Lousberg",
+     "source_url": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+     "license": "CC0",
+     "ai_used": false,
+     "sha256": "1990d05a6af9acd8cf6d54cc1ccadf7664ae5a37da2d05a135e98c1c38667b23",
+     "bytes": 800452,
+     "spdx": "CC0-1.0",
+     "attribution_required": false
+    },
+    {
+     "path": "library/04-game-assets/official/kaykit-dungeon-sample1.png",
+     "kind": "official",
+     "title": "KayKit Dungeon Remastered 场景 1",
+     "author": "Kay Lousberg",
+     "source_url": "https://github.com/KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+     "license": "CC0",
+     "ai_used": false,
+     "sha256": "1d21b7b3012f41f0c3cb5ad595ca614676fdc826f53a4ee83576745662c56ffe",
+     "bytes": 1025919,
+     "spdx": "CC0-1.0",
+     "attribution_required": false
+    },
+    {
+     "path": "library/04-game-assets/official/kaykit-dungeon-sample2.png",
+     "kind": "official",
+     "title": "KayKit Dungeon Remastered 场景 2",
+     "author": "Kay Lousberg",
+     "source_url": "https://github.com/KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+     "license": "CC0",
+     "ai_used": false,
+     "sha256": "b7f55bf557ff9c29e4cb79ed80eec4964884a8c684de91c37aec1a4bd3f4f7a6",
+     "bytes": 1253231,
+     "spdx": "CC0-1.0",
+     "attribution_required": false
+    },
+    {
+     "path": "library/04-game-assets/official/kaykit-dungeon-sample3.png",
+     "kind": "official",
+     "title": "KayKit Dungeon Remastered 场景 3",
+     "author": "Kay Lousberg",
+     "source_url": "https://github.com/KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+     "license": "CC0",
+     "ai_used": false,
+     "sha256": "e841ec80729c6a4c78e8f18cd64a79e651b68111fd2e3d5b0313712620984530",
+     "bytes": 1156975,
+     "spdx": "CC0-1.0",
+     "attribution_required": false
+    },
+    {
+     "path": "library/04-game-assets/official/kaykit-dungeon-sample4.png",
+     "kind": "official",
+     "title": "KayKit Dungeon Remastered 场景 4",
+     "author": "Kay Lousberg",
+     "source_url": "https://github.com/KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+     "license": "CC0",
+     "ai_used": false,
+     "sha256": "cb51e88b0fb4f8697a108f51873c722cbcd8efe14e97c371258488ba8885a3d0",
+     "bytes": 1346689,
+     "spdx": "CC0-1.0",
+     "attribution_required": false
+    },
+    {
+     "path": "library/04-game-assets/official/kaykit-dungeon-sample10.png",
+     "kind": "official",
+     "title": "KayKit Dungeon Remastered 场景 10",
+     "author": "Kay Lousberg",
+     "source_url": "https://github.com/KayKit-Game-Assets/KayKit-Dungeon-Remastered-1.0",
+     "license": "CC0",
+     "ai_used": false,
+     "sha256": "68ede77aaa5630fab9292801bc0b550b63307ea6d393d1e35495ed2f10dbef30",
+     "bytes": 1196904,
+     "spdx": "CC0-1.0",
+     "attribution_required": false
+    },
+    {
+     "path": "library/04-game-assets/broadsword.svg",
+     "kind": "asset",
+     "author": "lorc",
+     "source_url": "https://game-icons.net/1x1/lorc/broadsword.html",
+     "license": "CC-BY-3.0（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "4ad36a83af6100df6c61917c67e8bad3bbeea68630b5f75d065e01b6c554ae63",
+     "bytes": 9088,
+     "spdx": "CC-BY-3.0",
+     "attribution_required": true,
+     "title": "broadsword.svg"
+    },
+    {
+     "path": "library/04-game-assets/crossed-swords.svg",
+     "kind": "asset",
+     "author": "lorc",
+     "source_url": "https://game-icons.net/1x1/lorc/crossed-swords.html",
+     "license": "CC-BY-3.0（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "07211df577952feb3bb34478997d3ec340bf25f7ddbacf879a96e0d02c486500",
+     "bytes": 9028,
+     "spdx": "CC-BY-3.0",
+     "attribution_required": true,
+     "title": "crossed-swords.svg"
+    },
+    {
+     "path": "library/04-game-assets/dragon-head.svg",
+     "kind": "asset",
+     "author": "lorc",
+     "source_url": "https://game-icons.net/1x1/lorc/dragon-head.html",
+     "license": "CC-BY-3.0（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "66b0d9ff02abeb0e29de01d4081290f197eb37696fe468637cc263bd83542d91",
+     "bytes": 10620,
+     "spdx": "CC-BY-3.0",
+     "attribution_required": true,
+     "title": "dragon-head.svg"
+    },
+    {
+     "path": "library/04-game-assets/health-potion.svg",
+     "kind": "asset",
+     "author": "delapouite",
+     "source_url": "https://game-icons.net/1x1/delapouite/health-potion.html",
+     "license": "CC-BY-3.0（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "34e764c4fba6386ced4e547cd18fe662b17d604bd658eefd81553c345d6a9f01",
+     "bytes": 8862,
+     "spdx": "CC-BY-3.0",
+     "attribution_required": true,
+     "title": "health-potion.svg"
+    },
+    {
+     "path": "library/04-game-assets/kaykit-Knight.glb",
+     "kind": "asset",
+     "author": "Kay Lousberg (KayKit)",
+     "source_url": "https://github.com/KayKit-Game-Assets/KayKit-Character-Pack-Adventures-1.0",
+     "license": "CC0-1.0（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "60428e3abc09ba83e595d256e3af8c5c976b46cdae599f0802fc82b4a3445168",
+     "bytes": 3659532,
+     "spdx": "CC0-1.0",
+     "attribution_required": false,
+     "title": "kaykit-Knight.glb"
+    },
+    {
+     "path": "library/04-game-assets/treasure-map.svg",
+     "kind": "asset",
+     "author": "lorc",
+     "source_url": "https://game-icons.net/1x1/lorc/treasure-map.html",
+     "license": "CC-BY-3.0（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "4ff9a741437dafdcf354752fd3df92d8aee24063d759c48c25ec1359e8c2a94b",
+     "bytes": 9919,
+     "spdx": "CC-BY-3.0",
+     "attribution_required": true,
+     "title": "treasure-map.svg"
+    },
+    {
+     "path": "library/04-game-assets/tool-tests/preview-game-icons.png",
+     "kind": "tool-test",
+     "author": "本库测试",
+     "source_url": "",
+     "license": "自制",
+     "ai_used": false,
+     "sha256": "012a19d9e550b48759bfe7b09082bbc5036acf80b772a0ff5db95bb79ea4ad31",
+     "bytes": 38704,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "preview-game-icons.png"
+    },
+    {
+     "path": "library/04-game-assets/tool-tests/preview-kaykit-knight.png",
+     "kind": "tool-test",
+     "author": "本库测试",
+     "source_url": "",
+     "license": "自制",
+     "ai_used": false,
+     "sha256": "cfa246fdb73ac6621d109e1816a26c40053e66f7af2450ab8bfadb0651c5af7f",
+     "bytes": 82392,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "preview-kaykit-knight.png"
+    }
+   ]
+  },
+  {
+   "kind": "library",
+   "slug": "05-fonts",
+   "title": "字体（全部可商用）",
+   "path": "library/05-fonts/",
+   "summary": "中文为主的免费可商用字体，按场景挑。",
+   "fit": "见下表\"用途\"。",
+   "principles": [
+    "画面里需要文字的地方，一律后期用这里的真字体排，不让模型画字。（§1、§8）",
+    "网页里中文字体用 @fontsource 分包或子集化，不要直接引 25MB 的 ttf。"
+   ],
+   "tools": [
+    {
+     "name": "得意黑 Smiley Sans",
+     "url": "[atelier-anchor/smiley-sans](https://github.com/atelier-anchor/smiley-sans)",
+     "license": "OFL 1.1",
+     "use": "标题、视频大字",
+     "status": "已实测"
+    },
+    {
+     "name": "霞鹜文楷 LXGW WenKai",
+     "url": "[lxgw/LxgwWenKai](https://github.com/lxgw/LxgwWenKai)",
+     "license": "OFL 1.1",
+     "use": "正文、字幕（网页需子集化，原文件 25MB）",
+     "status": "已实测"
+    },
+    {
+     "name": "融合像素 Fusion Pixel",
+     "url": "[TakWolf/fusion-pixel-font](https://github.com/TakWolf/fusion-pixel-font)",
+     "license": "OFL 1.1",
+     "use": "像素游戏 UI",
+     "status": "已实测"
+    },
+    {
+     "name": "站酷快乐体 ZCOOL KuaiLe",
+     "url": "[fontsource](https://fontsource.org/fonts/zcool-kuaile)",
+     "license": "OFL 1.1",
+     "use": "手绘、可爱风",
+     "status": "已实测"
+    },
+    {
+     "name": "Caveat",
+     "url": "[fontsource](https://fontsource.org/fonts/caveat)",
+     "license": "OFL 1.1",
+     "use": "英文手写批注",
+     "status": "已实测"
+    },
+    {
+     "name": "Instrument Serif",
+     "url": "[fontsource](https://fontsource.org/fonts/instrument-serif)",
+     "license": "OFL 1.1",
+     "use": "米白高级感英文标题",
+     "status": "已实测"
+    }
+   ],
+   "files": [
+    {
+     "path": "library/05-fonts/official/lxgw-wenkai-1.png",
+     "kind": "official",
+     "title": "霞鹜文楷官方样张 1",
+     "author": "LXGW",
+     "source_url": "https://github.com/lxgw/LxgwWenKai",
+     "license": "OFL 1.1",
+     "ai_used": false,
+     "sha256": "0a5de166aa1a3b4a738fd3edda7af0c69cac75d9dbbf4b227d4097a4eaa710eb",
+     "bytes": 146416,
+     "spdx": "OFL-1.1",
+     "attribution_required": false
+    },
+    {
+     "path": "library/05-fonts/official/lxgw-wenkai-2.png",
+     "kind": "official",
+     "title": "霞鹜文楷官方样张 2",
+     "author": "LXGW",
+     "source_url": "https://github.com/lxgw/LxgwWenKai",
+     "license": "OFL 1.1",
+     "ai_used": false,
+     "sha256": "3366dad8bb5114466cfe4a5882618ffbbee5170ef4156a4a2b294552ba8ba5ed",
+     "bytes": 269914,
+     "spdx": "OFL-1.1",
+     "attribution_required": false
+    },
+    {
+     "path": "library/05-fonts/official/lxgw-wenkai-3.png",
+     "kind": "official",
+     "title": "霞鹜文楷官方样张 3",
+     "author": "LXGW",
+     "source_url": "https://github.com/lxgw/LxgwWenKai",
+     "license": "OFL 1.1",
+     "ai_used": false,
+     "sha256": "b5b66c1415b36871a2261d88a369435bc82ae42447307e06cb3b63e6d1b3bd5c",
+     "bytes": 721209,
+     "spdx": "OFL-1.1",
+     "attribution_required": false
+    },
+    {
+     "path": "library/05-fonts/official/lxgw-wenkai-4.png",
+     "kind": "official",
+     "title": "霞鹜文楷官方样张 4",
+     "author": "LXGW",
+     "source_url": "https://github.com/lxgw/LxgwWenKai",
+     "license": "OFL 1.1",
+     "ai_used": false,
+     "sha256": "3a3c493cd28e108721bba084751ec8f5d1acb90990d151c50f23cdeb4c754fe1",
+     "bytes": 170424,
+     "spdx": "OFL-1.1",
+     "attribution_required": false
+    },
+    {
+     "path": "library/05-fonts/official/fusion-pixel-banner.png",
+     "kind": "official",
+     "title": "融合像素字体官方横幅",
+     "author": "TakWolf",
+     "source_url": "https://github.com/TakWolf/fusion-pixel-font",
+     "license": "OFL 1.1",
+     "ai_used": false,
+     "sha256": "81b97ed14b620ee86d6a58151aa78b5efcb12069ca3b070f733130a741c8b029",
+     "bytes": 15644,
+     "spdx": "OFL-1.1",
+     "attribution_required": false
+    },
+    {
+     "path": "library/05-fonts/official/smiley-sans-logo.svg",
+     "kind": "official",
+     "title": "得意黑官方字标",
+     "author": "atelierAnchor",
+     "source_url": "https://github.com/atelier-anchor/smiley-sans",
+     "license": "OFL 1.1",
+     "ai_used": false,
+     "sha256": "68871ea0b6d17335408326d91d6298e16b075121b919aec4dd26ec0610f24e5b",
+     "bytes": 12485,
+     "spdx": "OFL-1.1",
+     "attribution_required": false
+    },
+    {
+     "path": "library/05-fonts/SmileySans-Oblique.ttf",
+     "kind": "asset",
+     "author": "atelier-anchor",
+     "source_url": "https://github.com/atelier-anchor/smiley-sans",
+     "license": "OFL-1.1（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "b447d7e781f08bc95c4c9f23ba71ed2b8ebb639aa7184485c71c4ca5afcd25c4",
+     "bytes": 2629764,
+     "spdx": "OFL-1.1",
+     "attribution_required": false,
+     "title": "SmileySans-Oblique.ttf"
+    },
+    {
+     "path": "library/05-fonts/SmileySans-Oblique.woff2",
+     "kind": "asset",
+     "author": "atelier-anchor",
+     "source_url": "https://github.com/atelier-anchor/smiley-sans",
+     "license": "OFL-1.1（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "731f22973349404b15a88a99ef3b5dd4104c0965c23b7e485c1f11e84fea99e2",
+     "bytes": 1150924,
+     "spdx": "OFL-1.1",
+     "attribution_required": false,
+     "title": "SmileySans-Oblique.woff2"
+    },
+    {
+     "path": "library/05-fonts/tool-tests/specimen.png",
+     "kind": "tool-test",
+     "author": "本库测试",
+     "source_url": "",
+     "license": "自制",
+     "ai_used": false,
+     "sha256": "7608a5d4a1c424f168ab284fc2981e1005c098c05413c5222c5123ea18387714",
+     "bytes": 96308,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "specimen.png"
+    }
+   ]
+  },
+  {
+   "kind": "library",
+   "slug": "06-illustrations",
+   "title": "插画",
+   "path": "library/06-illustrations/",
+   "summary": "扁平/手绘人物插画，填充落地页空状态、404 页、教程配图。",
+   "fit": "独立站、产品说明页。",
+   "principles": [
+    "商品本身用实拍，插画只用于氛围、空状态和说明。（§7）"
+   ],
+   "tools": [
+    {
+     "name": "unDraw",
+     "url": "https://undraw.co",
+     "license": "自有许可（可商用免署名）",
+     "use": "扁平插画，可改主色",
+     "status": "未测"
+    },
+    {
+     "name": "Open Peeps",
+     "url": "https://www.openpeeps.com",
+     "license": "CC0",
+     "use": "手绘人物拼装",
+     "status": "未测"
+    },
+    {
+     "name": "Open Doodles",
+     "url": "https://www.opendoodles.com",
+     "license": "CC0",
+     "use": "涂鸦人物",
+     "status": "未测"
+    },
+    {
+     "name": "独立开发者素材清单",
+     "url": "[YOYZHANG/design-material](https://github.com/YOYZHANG/design-material)",
+     "license": "—（链接清单）",
+     "use": "插画/动效/logo 工具导航",
+     "status": "已读"
+    }
+   ],
+   "files": []
+  },
+  {
+   "kind": "library",
+   "slug": "07-video-kits",
+   "title": "视频素材包与配方",
+   "path": "library/07-video-kits/",
+   "summary": "把上面的素材直接合成短视频的配方：Fluent 3D Emoji + 得意黑 + 霞鹜文楷，ffmpeg 一条命令出竖屏片段。",
+   "fit": "抖音/小红书竖屏、AI 视频的片头片尾和字幕条。",
+   "principles": [
+    "短镜头、一个镜头一个动作；字幕和 logo 后期加。（§8）",
+    "成片 0.25 倍速完整看一遍再发。（§0 第 4 条）"
+   ],
+   "tools": [
+    {
+     "name": "ffmpeg",
+     "url": "https://ffmpeg.org",
+     "license": "LGPL/GPL",
+     "use": "合成、加字、转码",
+     "status": "已实测"
+    },
+    {
+     "name": "Playwright 录屏",
+     "url": "[microsoft/playwright](https://github.com/microsoft/playwright)",
+     "license": "Apache-2.0",
+     "use": "把网页动效录成视频素材",
+     "status": "已实测"
+    }
+   ],
+   "files": [
+    {
+     "path": "library/07-video-kits/make-vertical.sh",
+     "kind": "asset",
+     "author": "本库",
+     "source_url": "",
+     "license": "LicenseRef-own-work（原为“见上方工具表”，已按工具表落实）",
+     "ai_used": false,
+     "sha256": "0c445abf4e878fbe8a6ad3aa45f4e4a21ca328e7845974b5dbf28739abea5101",
+     "bytes": 734,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "make-vertical.sh"
+    },
+    {
+     "path": "library/07-video-kits/tool-tests/all-assets-contact-sheet.png",
+     "kind": "tool-test",
+     "author": "本库测试",
+     "source_url": "",
+     "license": "自制",
+     "ai_used": false,
+     "sha256": "ca44b47c42c20065821b4b84bb652abd1a067708d66718492b250fb25ecb5c1d",
+     "bytes": 250991,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "all-assets-contact-sheet.png"
+    },
+    {
+     "path": "library/07-video-kits/tool-tests/contact-sheet-source.html",
+     "kind": "tool-test",
+     "author": "本库测试",
+     "source_url": "",
+     "license": "自制",
+     "ai_used": false,
+     "sha256": "e90035369d05112f8d972dd1a6986a06a9c2d5d32cb767b78205de9e44363733",
+     "bytes": 3316,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "contact-sheet-source.html"
+    },
+    {
+     "path": "library/07-video-kits/tool-tests/vertical-emoji-title.mp4",
+     "kind": "tool-test",
+     "author": "本库测试",
+     "source_url": "",
+     "license": "自制",
+     "ai_used": false,
+     "sha256": "dc6ccf454835c5616c3d99d234f70dfe1ce4179c43ba8651f52ea0565f7f2ad7",
+     "bytes": 8357207,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "vertical-emoji-title.mp4"
+    }
+   ]
+  },
+  {
+   "kind": "styles",
+   "slug": "01-ascii-pixel",
+   "title": "ASCII 与像素 · ASCII & Pixels",
+   "path": "styles/01-ascii-pixel/",
+   "summary": "以严格像素网格或等宽字符为最小单位、限定调色板、靠手工逐点排布来表达形体与光影的低分辨率风格。",
+   "principles": [
+    "§5 像素图是假像素",
+    "§1 AI 味严重"
+   ],
+   "references": [
+    {
+     "title": "Celeste",
+     "creator": "Maddy Makes Games（像素美术 Pedro \"Saint11\" Medeiros / Amora B.）",
+     "year": 2018,
+     "type": "game",
+     "url": "https://www.celestegame.com/",
+     "why_zh": "现代独立游戏像素美术标杆：小角色+高可读性动画，配色克制，适合平台跳跃类参考。",
+     "use_for": [
+      "game",
+      "site"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Hyper Light Drifter",
+     "creator": "Heart Machine",
+     "year": 2016,
+     "type": "game",
+     "url": "https://www.heartmachine.com/hyper-light-drifter",
+     "why_zh": "高饱和限定色+大面积留白的像素氛围画面，示范像素风也能做出电影感构图。",
+     "use_for": [
+      "game",
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Eastward",
+     "creator": "Pixpil（Chucklefish 发行）",
+     "year": 2021,
+     "type": "game",
+     "url": "https://www.eastwardgame.com/",
+     "why_zh": "极致细腻的手绘像素场景与光照，是“高密度像素场景”的上限参考。",
+     "use_for": [
+      "game",
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Dwarf Fortress",
+     "creator": "Bay 12 Games（Tarn & Zach Adams）",
+     "year": 2006,
+     "type": "game",
+     "url": "http://www.bay12games.com/dwarves/",
+     "why_zh": "最具代表性的 ASCII 文字图形游戏，Classic 模式完全用字符表达世界。",
+     "use_for": [
+      "game"
+     ],
+     "license_note": "官方页说明 Premium 版可在图形与 Classic（ASCII）模式间切换",
+     "image_url": ""
+    },
+    {
+     "title": "Caves of Qud",
+     "creator": "Freehold Games",
+     "year": 2024,
+     "type": "game",
+     "url": "https://www.cavesofqud.com/",
+     "why_zh": "ASCII/字符瓦片 roguelike 的美学代表，展示字符画如何做出统一的色彩体系。",
+     "use_for": [
+      "game",
+      "site"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "eBoy",
+     "creator": "eBoy（1997 年至今）",
+     "year": 1997,
+     "type": "artist",
+     "url": "https://www.eboy.com/",
+     "why_zh": "等距像素城市插画的开山团队，适合做网站主视觉、海报类像素插画参考。",
+     "use_for": [
+      "site",
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Paul Robertson（Pirate Baby's Cabana Battle Street Fight 2006 / Kings of Power 4 Billion% / Scott Pilgrim 游戏）",
+     "creator": "Paul Robertson",
+     "year": 2006,
+     "type": "artist",
+     "url": "https://en.wikipedia.org/wiki/Paul_Robertson_(animator)",
+     "why_zh": "像素动画大师，其像素短片是“像素风动画/MV”最常被引用的参考。",
+     "use_for": [
+      "video",
+      "game"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Pixel Art Tutorials（Saint11）",
+     "creator": "Pedro Medeiros",
+     "year": "",
+     "type": "artist",
+     "url": "https://saint11.art/blog/pixel-art-tutorials/",
+     "why_zh": "Celeste 美术本人的系列像素教程，可直接当作团队的像素规范教材。",
+     "use_for": [
+      "game"
+     ],
+     "license_note": "免费访问，© Pedro Medeiros，未声明开放许可",
+     "image_url": ""
+    },
+    {
+     "title": "Lospec Palette List",
+     "creator": "Lospec 社区",
+     "year": "",
+     "type": "website",
+     "url": "https://lospec.com/palette-list",
+     "why_zh": "4000+ 套免费限定调色板（可按颜色数筛选），是锁定 4/8/16/32 色色板的首选来源。",
+     "use_for": [
+      "game",
+      "site",
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Play — ASCII Art playground（play.core）",
+     "creator": "Andreas Gysin（ertdfgcvb）",
+     "year": "",
+     "type": "demo",
+     "url": "https://play.ertdfgcvb.xyz/",
+     "why_zh": "浏览器内实时 ASCII 动画的代表作，适合网站做 ASCII 动效/字符渲染。",
+     "use_for": [
+      "site",
+      "video"
+     ],
+     "license_note": "源码 github.com/ertdfgcvb/play.core，Apache-2.0",
+     "image_url": ""
+    },
+    {
+     "title": "three.js webgl_effects_ascii（AsciiEffect）",
+     "creator": "three.js / mrdoob",
+     "year": "",
+     "type": "demo",
+     "url": "https://github.com/mrdoob/three.js/blob/dev/examples/webgl_effects_ascii.html",
+     "why_zh": "官方示例：把 3D 场景实时渲染成字符（字符集 ' .:-+*=%@#'），网站接入 ASCII 3D 的最短路径。",
+     "use_for": [
+      "site"
+     ],
+     "license_note": "three.js 为 MIT 许可",
+     "image_url": ""
+    },
+    {
+     "title": "Aseprite",
+     "creator": "Igara Studio",
+     "year": "",
+     "type": "demo",
+     "url": "https://www.aseprite.org/",
+     "why_zh": "业界标准像素绘制/动画工具，支持像素完美笔触、调色板编辑、抖动笔刷与精灵表导出。",
+     "use_for": [
+      "game"
+     ],
+     "license_note": "",
+     "image_url": ""
+    }
+   ],
+   "prompts": [
+    {
+     "prompt": "clean pixel art, post apocalyptic city, style of metal slug 1996 --ar 3:2 --v 4",
+     "model": "Midjourney v4",
+     "source_url": "https://aituts.com/midjourney-pixel-art/",
+     "note_zh": "用具体游戏+年份锁定像素密度与美术流派，比泛泛的“pixel art”更可控。"
+    },
+    {
+     "prompt": "house in the trees, top down 2d game, pixel art, style of Legend of Zelda: A Link to the Past (SNES, Game Boy Color) 1991 --v 4",
+     "model": "Midjourney v4",
+     "source_url": "https://aituts.com/midjourney-pixel-art/",
+     "note_zh": "指定视角（top down）+平台（SNES）+年代，适合生成游戏地图概念。"
+    },
+    {
+     "prompt": "clean pixel art, greek temple with statue of apollo, style of castlevania 1986 --v 4",
+     "model": "Midjourney v4",
+     "source_url": "https://aituts.com/midjourney-pixel-art/",
+     "note_zh": "8-bit 时代参照，适合低色数场景。"
+    },
+    {
+     "prompt": "pixel art, a cute corgi, simple, flat colors",
+     "model": "SDXL + Pixel Art XL LoRA（nerijs）",
+     "source_url": "https://huggingface.co/nerijs/pixel-art-xl",
+     "note_zh": "官方用法：出图后用最近邻缩小 8 倍得到真像素；LCM 版负面词为 \"3d render, realistic\"。许可 creativeml-openrail-m。"
+    },
+    {
+     "prompt": "top-down forest path with trees and rocks, classic JRPG map",
+     "model": "Retro Diffusion（RD Tile/Plus，经 Scenario）",
+     "source_url": "https://help.scenario.com/en/articles/retro-diffusion-models-the-essentials/",
+     "note_zh": "专为真像素训练（≤256×256）；可传入调色板图限制颜色，RD Tile 经典 RPG 瓦片为 32×32。"
+    },
+    {
+     "prompt": "small pirate character with parrot, walking animation, pixel art",
+     "model": "Retro Diffusion（RD Animation，经 Scenario）",
+     "source_url": "https://help.scenario.com/en/articles/retro-diffusion-models-the-essentials/",
+     "note_zh": "行走动画风格固定 48×48，小精灵 32×32；尺寸要匹配游戏格子。"
+    },
+    {
+     "prompt": "ASCII art, a small boat on a calm lake, surrounded by trees",
+     "model": "FLUX.1-dev + ASCII Art v1 LoRA（martintomov）",
+     "source_url": "https://huggingface.co/martintomov/ascii-flux-v1",
+     "note_zh": "触发词 \"ascii art\"；许可为 flux-1-dev-non-commercial，商用需注意。网站正式使用建议改用 play.core/AsciiEffect 等真字符渲染。"
+    }
+   ],
+   "sref": [],
+   "palettes": [],
+   "dont": [
+    {
+     "text_zh": "不要混用不同像素尺寸（mixels）：同一画面/同一图层内像素大小必须一致，背景层若放大须整层统一。",
+     "source_url": "https://community.flowlab.io/t/mini-rant-stop-using-mixels/38287"
+    },
+    {
+     "text_zh": "不要非整数缩放：放大只用整数倍+最近邻，否则像素宽窄不一、模糊。",
+     "source_url": "https://emulation.gametechwiki.com/index.php/Scaling"
+    },
+    {
+     "text_zh": "避免错误抗锯齿（过多导致发糊）、锯齿乱点（jaggies）、色带对齐（banding）和沿轮廓的枕形明暗（pillow shading）。",
+     "source_url": "https://pixeljoint.com/forum/forum_posts.asp?TID=11299"
+    },
+    {
+     "text_zh": "颜色不要过多、不要用模糊/涂抹工具、不要存 JPG：高色数通常是“脏”像素的信号，应锁定限定色板。",
+     "source_url": "https://pixeljoint.com/forum/forum_posts.asp?TID=11299"
+    },
+    {
+     "text_zh": "AI 出图不要直接当像素用：须按原生分辨率生成并用最近邻缩回网格；超出原生尺寸放大会产生像素重复与颜色渗色（假像素）。",
+     "source_url": "https://help.scenario.com/en/articles/retro-diffusion-models-the-essentials/"
+    }
+   ],
+   "tools": [
+    {
+     "name": "ascii-image-converter",
+     "url": "[TheZoraiz/ascii-image-converter](https://github.com/TheZoraiz/ascii-image-converter)",
+     "license": "Apache-2.0",
+     "use": "命令行图片转 ASCII（彩色/盲文）",
+     "status": "已核对"
+    },
+    {
+     "name": "Pixelorama",
+     "url": "[Orama-Interactive/Pixelorama](https://github.com/Orama-Interactive/Pixelorama)",
+     "license": "MIT",
+     "use": "免费像素画编辑器（动画/图层）",
+     "status": "已核对"
+    },
+    {
+     "name": "pixelit",
+     "url": "[giventofly/pixelit](https://github.com/giventofly/pixelit)",
+     "license": "MIT",
+     "use": "网页里把图片像素化",
+     "status": "已核对"
+    },
+    {
+     "name": "融合像素字体",
+     "url": "[TakWolf/fusion-pixel-font](https://github.com/TakWolf/fusion-pixel-font)",
+     "license": "OFL",
+     "use": "中文像素字体",
+     "status": "已实测"
+    },
+    {
+     "name": "Lospec 调色板库",
+     "url": "https://lospec.com/palette-list",
+     "license": "—",
+     "use": "像素调色板合集",
+     "status": "未测"
+    },
+    {
+     "name": "React Bits：ASCIIText / PixelBlast / LetterGlitch / PixelTrail",
+     "url": "[DavidHDev/react-bits](https://github.com/DavidHDev/react-bits)",
+     "license": "MIT + Commons Clause",
+     "use": "网页直接用的同风格组件",
+     "status": "已核对"
+    }
+   ],
+   "files": [
+    {
+     "path": "styles/01-ascii-pixel/tool-tests/ascii-astronaut.txt",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "6c65ba11792dff2cf5ebce2d7a3b3ff0ad21a5796dcca9b2fbec050fbd5efb0a",
+     "bytes": 8469,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/01-ascii-pixel/tool-tests/ascii-chelsea.txt",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "395c8620bf21bbf582d777ffc729a2fca77f2621a443b3d4f009cf7bd8173581",
+     "bytes": 6549,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/01-ascii-pixel/tool-tests/ascii-color-astronaut.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "b43122c2a14fab69cb27de79f40885ce2c09290c35fd40f175ad314c650ab641",
+     "bytes": 386765,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/01-ascii-pixel/tool-tests/ascii-color-chelsea.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "c1cb0792cc6355f3d78084476b98932615f762ed14ba94d46fc95b5da764cf5f",
+     "bytes": 479973,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/01-ascii-pixel/tool-tests/ascii-green-astronaut.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "47656fa2ecacd6656f6c6bfcb06e8eb8906499b33d9c40dc50925043c8c4a46c",
+     "bytes": 243238,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/01-ascii-pixel/tool-tests/ascii-green-chelsea.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "599f43e14cb020d0c840cb9b7e57b436798c621229b77a367781fa92e1c03b38",
+     "bytes": 276894,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/01-ascii-pixel/tool-tests/pixel-pico8-astronaut.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "b454d00c3cdd295a0f986cd29b6c9c91c0ff702561b51b1b17bb111615f1d532",
+     "bytes": 17052,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/01-ascii-pixel/tool-tests/pixel-pico8-chelsea.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "3cc0e321f0e78ea9676ef07d78706b966716385fef30bffbf8189f53b5f6d52a",
+     "bytes": 13052,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    }
+   ]
+  },
+  {
+   "kind": "styles",
+   "slug": "02-sketch-scribble",
+   "title": "手绘涂鸦 · Sketch & Scribble",
+   "path": "styles/02-sketch-scribble/",
+   "summary": "以铅笔、圆珠笔、马克笔的手绘线条和涂鸦为主体，保留线条抖动（boiling line）、重描、留白与纸面质感，刻意不完美的手作感。",
+   "principles": [
+    "§1 AI 味严重（画面里的字后期排）",
+    "§3 风格不一致"
+   ],
+   "references": [
+    {
+     "title": "Take On Me (a-ha) 音乐录像带",
+     "creator": "Steve Barron（导演）",
+     "year": 1985,
+     "type": "video",
+     "url": "https://en.wikipedia.org/wiki/Take_On_Me",
+     "why_zh": "铅笔素描转描（rotoscoping）与真人实拍交替的经典之作，约3000帧手工描线，获1986年MTV VMA六项大奖，是素描动态感的教科书。",
+     "use_for": [
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Squigglevision（Dr. Katz / Home Movies）",
+     "creator": "Tom Snyder / Soup2Nuts",
+     "year": 1995,
+     "type": "video",
+     "url": "https://en.wikipedia.org/wiki/Squigglevision",
+     "why_zh": "让轮廓线持续颤动的'抖线'动画技术，是 boiling line 风格的标准参照，适合低成本做出手绘呼吸感。",
+     "use_for": [
+      "video",
+      "game"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Paperman",
+     "creator": "John Kahrs / Walt Disney Animation Studios",
+     "year": 2012,
+     "type": "video",
+     "url": "https://en.wikipedia.org/wiki/Paperman",
+     "why_zh": "用 Meander 系统把手绘线条叠加在CG上，获奥斯卡最佳动画短片，展示了'3D骨架+手绘线稿'的高级做法。",
+     "use_for": [
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "The Mitchells vs. the Machines（米切尔一家）",
+     "creator": "Sony Pictures Animation",
+     "year": 2021,
+     "type": "video",
+     "url": "https://en.wikipedia.org/wiki/The_Mitchells_vs._the_Machines",
+     "why_zh": "在3D画面上叠加2D涂鸦、潦草线条和水彩笔触（Katie-Vision），是把 doodle 当叙事语言使用的优秀长片范例。",
+     "use_for": [
+      "video",
+      "site"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Chicory: A Colorful Tale",
+     "creator": "Greg Lobanov 等",
+     "year": 2021,
+     "type": "game",
+     "url": "https://chicorygame.com/",
+     "why_zh": "黑白线稿世界由玩家用画笔上色，线稿即玩法，是独立游戏里'线条+涂色'风格的代表。",
+     "use_for": [
+      "game"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Pentiment",
+     "creator": "Obsidian Entertainment",
+     "year": 2022,
+     "type": "game",
+     "url": "https://en.wikipedia.org/wiki/Pentiment_(video_game)",
+     "why_zh": "以中世纪手抄本插图与木刻为视觉语言，获2023年皮博迪奖，示范了手绘线条如何承载叙事和UI。",
+     "use_for": [
+      "game",
+      "site"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Mr Doodle（Sam Cox）",
+     "creator": "Sam Cox",
+     "year": null,
+     "type": "artist",
+     "url": "https://www.mrdoodle.com/",
+     "why_zh": "单色、密集、无中心焦点的满版涂鸦，可直接作为涂鸦纹理、海报与场景铺满式构图的参照。",
+     "use_for": [
+      "site",
+      "game",
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Rough.js",
+     "creator": "Preet Shihn",
+     "year": null,
+     "type": "demo",
+     "url": "https://roughjs.com/",
+     "why_zh": "把线、圆、多边形、SVG路径渲染成手绘草图效果的轻量JS库，网页与小游戏可直接使用。",
+     "use_for": [
+      "site",
+      "game"
+     ],
+     "license_note": "MIT（GitHub: rough-stuff/rough）",
+     "image_url": ""
+    },
+    {
+     "title": "Excalidraw",
+     "creator": "Excalidraw 团队",
+     "year": null,
+     "type": "demo",
+     "url": "https://excalidraw.com/",
+     "why_zh": "手绘感白板工具，抖动线条和手写字体的UI范例，适合参考'草图感界面'的分寸。",
+     "use_for": [
+      "site"
+     ],
+     "license_note": "MIT（GitHub: excalidraw/excalidraw）",
+     "image_url": ""
+    },
+    {
+     "title": "Wired Elements",
+     "creator": "Preet Shihn",
+     "year": null,
+     "type": "demo",
+     "url": "https://github.com/rough-stuff/wired-elements",
+     "why_zh": "一套手绘草图风的Web组件（按钮、输入框等），可直接做草稿感网站或游戏UI。",
+     "use_for": [
+      "site",
+      "game"
+     ],
+     "license_note": "MIT",
+     "image_url": ""
+    },
+    {
+     "title": "chart.xkcd",
+     "creator": "Tim Qian",
+     "year": 2019,
+     "type": "demo",
+     "url": "https://github.com/timqian/chart.xkcd",
+     "why_zh": "xkcd漫画风的手绘图表库，适合在网站里用草图风展示数据。",
+     "use_for": [
+      "site"
+     ],
+     "license_note": "MIT",
+     "image_url": "https://raw.githubusercontent.com/timqian/images/master/20190819131226.gif"
+    },
+    {
+     "title": "How to Create Dynamic and Fun Line Boil Animations",
+     "creator": "Jason Boone / PremiumBeat",
+     "year": 2020,
+     "type": "demo",
+     "url": "https://www.premiumbeat.com/blog/how-to-create-line-boil-animations/",
+     "why_zh": "逐步讲解如何手工描线制作 line boil 循环（作者最终用8fps），是视频和游戏里做抖线的实操教程。",
+     "use_for": [
+      "video",
+      "game"
+     ],
+     "license_note": "",
+     "image_url": ""
+    }
+   ],
+   "prompts": [
+    {
+     "prompt": "Da Vinci style anatomical sketch of a dissected Monarch butterfly.",
+     "model": "Gemini 图像生成（官方文档示例）",
+     "source_url": "https://ai.google.dev/gemini-api/docs/image-generation",
+     "note_zh": "Google官方文档示例：用'达芬奇手稿式解剖素描'锁定笔记本草图语言，适合游戏图鉴/科普页。"
+    },
+    {
+     "prompt": "Ballpoint Pen Sketch style cat",
+     "model": "Midjourney",
+     "source_url": "https://docs.midjourney.com/hc/en-us/articles/32835253061645-Prompt-Basics",
+     "note_zh": "Midjourney官方 Prompt Basics 的媒介模板（「______ style cat」，此处填入其列出的 Ballpoint Pen Sketch）；用具体工具（圆珠笔）比笼统的'sketch'更可控，可换成 Pencil Sketch。"
+    },
+    {
+     "prompt": "An open sketchbook page filled with scattered doodles of varying sizes, margins filled with small sketches.",
+     "model": "Morphic 图像生成",
+     "source_url": "https://morphic.com/resources/images/doodle-ideas",
+     "note_zh": "满版速写本涂鸦页，适合网站背景纹理或游戏加载页。"
+    },
+    {
+     "prompt": "A page of handwritten notes surrounded by decorative doodles in the margins, little sketches framing text.",
+     "model": "Morphic 图像生成",
+     "source_url": "https://morphic.com/resources/images/doodle-ideas",
+     "note_zh": "手写笔记+页边涂鸦，适合独立网站的'笔记本'式版面参考。"
+    },
+    {
+     "prompt": "A large canvas or board filled with overlapping doodles from multiple hands, layers of different styles.",
+     "model": "Morphic 图像生成",
+     "source_url": "https://morphic.com/resources/images/doodle-ideas",
+     "note_zh": "多人叠加涂鸦墙，适合活动海报或视频转场素材。"
+    },
+    {
+     "prompt": "Pencil sketch of a serene forest landscape, detailed trees and foliage, realistic shading.",
+     "model": "Midjourney",
+     "source_url": "https://openart.ai/blog/post/midjourney-prompts-for-pencil-sketch",
+     "note_zh": "OpenArt 博客铅笔素描提示词；偏写实，若要涂鸦感需去掉 realistic shading，改为 loose lines/unfinished。"
+    }
+   ],
+   "sref": [
+    {
+     "code": "3521545739",
+     "source_url": "https://sref-midjourney.com/style/scribble",
+     "desc_zh": "Monochrome Scribble Art：单色乱线涂鸦（社区上传，注意 sref 在不同MJ版本下效果会漂移）。"
+    },
+    {
+     "code": "3819588992",
+     "source_url": "https://sref-midjourney.com/style/scribble",
+     "desc_zh": "Chaotic Cartoon Buzz：混乱卡通涂鸦线条。"
+    },
+    {
+     "code": "800035",
+     "source_url": "https://sref-midjourney.com/style/pencil%20sketch",
+     "desc_zh": "Sketchy Line Art Vibes：松散草图线稿。"
+    },
+    {
+     "code": "1246700902",
+     "source_url": "https://moodboard.beehiiv.com/p/10-more-styles-to-steal",
+     "desc_zh": "Storybook Ink：奶油色纸上的黑色墨水涂鸦，童书感。"
+    },
+    {
+     "code": "35639047",
+     "source_url": "https://moodboard.beehiiv.com/p/10-more-styles-to-steal",
+     "desc_zh": "Technical Sketch：带注释的黑白手稿/设计草图，类似文艺复兴笔记本。"
+    },
+    {
+     "code": "3455046537",
+     "source_url": "https://moodboard.beehiiv.com/p/10-midjourney-style-codes-you-can-copy-paste",
+     "desc_zh": "Minimalist Ink Illustration：高对比黑白手绘墨线。"
+    }
+   ],
+   "palettes": [],
+   "dont": [
+    {
+     "text_zh": "不要画过于细致写实的主体；涂鸦风适合简化、夸张、富表现力的造型，写实细节会变成普通素描插画。",
+     "source_url": "https://morphic.com/resources/images/doodle-ideas"
+    },
+    {
+     "text_zh": "只写'sketch'容易得到干净的灰度素描；要写明具体工具（圆珠笔、铅笔、马克笔）、纸面和线条状态。",
+     "source_url": "https://docs.midjourney.com/hc/en-us/articles/32835253061645-Prompt-Basics"
+    },
+    {
+     "text_zh": "抖线（line boil）不要每帧24fps乱抖：用3-4张描线循环、低帧率（教程作者用8fps），抖动幅度靠描线精度控制。",
+     "source_url": "https://www.premiumbeat.com/blog/how-to-create-line-boil-animations/"
+    },
+    {
+     "text_zh": "系列图要锁定线宽、配色和笔触（风格迁移/固定sref），否则同一项目里的涂鸦会像出自不同人之手。",
+     "source_url": "https://morphic.com/resources/images/doodle-ideas"
+    }
+   ],
+   "tools": [
+    {
+     "name": "rough.js",
+     "url": "[rough-stuff/rough](https://github.com/rough-stuff/rough)",
+     "license": "MIT",
+     "use": "网页手绘风图形",
+     "status": "已实测"
+    },
+    {
+     "name": "Rough Notation",
+     "url": "[rough-stuff/rough-notation](https://github.com/rough-stuff/rough-notation)",
+     "license": "MIT",
+     "use": "文字手绘圈注/下划线动画",
+     "status": "已核对"
+    },
+    {
+     "name": "roughViz",
+     "url": "[jwilber/roughViz](https://github.com/jwilber/roughViz)",
+     "license": "MIT",
+     "use": "手绘风图表",
+     "status": "已核对"
+    },
+    {
+     "name": "Excalidraw",
+     "url": "[excalidraw/excalidraw](https://github.com/excalidraw/excalidraw)",
+     "license": "MIT",
+     "use": "手绘白板，可嵌入",
+     "status": "已核对"
+    },
+    {
+     "name": "perfect-freehand",
+     "url": "[steveruizok/perfect-freehand](https://github.com/steveruizok/perfect-freehand)",
+     "license": "MIT",
+     "use": "有压感的笔触",
+     "status": "已核对"
+    },
+    {
+     "name": "Caveat / 站酷快乐体",
+     "url": "fontsource",
+     "license": "OFL",
+     "use": "手写字体",
+     "status": "已实测"
+    },
+    {
+     "name": "ImageMagick -sketch",
+     "url": "https://imagemagick.org",
+     "license": "Apache-2.0 风格",
+     "use": "照片转铅笔素描",
+     "status": "已实测"
+    }
+   ],
+   "files": [
+    {
+     "path": "styles/02-sketch-scribble/refs/20190819131226.gif",
+     "kind": "reference",
+     "title": "chart.xkcd 手绘图表演示",
+     "author": "Tim Qian",
+     "source_url": "https://github.com/timqian/chart.xkcd",
+     "license": "MIT",
+     "ai_used": false,
+     "sha256": "d3f69158fd8250393697ddc8ab187d26758cbb6e1795c88d027f2675a5e52b55",
+     "bytes": 612527,
+     "spdx": "MIT",
+     "attribution_required": false
+    },
+    {
+     "path": "styles/02-sketch-scribble/tool-tests/magick-pencil-sketch-chelsea.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "e04b369f5dd425ebccac2524829b45fc68e484e701369781a8145d6e9e3b4126",
+     "bytes": 35171,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/02-sketch-scribble/tool-tests/roughjs-ui-sketch.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "be4cf2896861b2bbc4cdd9d5127385ad6ebd571a88bc8be30489e1fcfe3d1fc2",
+     "bytes": 381111,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    }
+   ]
+  },
+  {
+   "kind": "styles",
+   "slug": "03-digital-impressionism",
+   "title": "数字印象派 · Digital Impressionism",
+   "path": "styles/03-digital-impressionism/",
+   "summary": "用数字手段再现印象派式的可见笔触、破碎色块与光色变化，画面像会动的油画或水彩，重光影氛围而轻精确轮廓。",
+   "principles": [
+    "§1 AI 味严重",
+    "§2 物理逻辑",
+    "§3 风格不一致"
+   ],
+   "references": [
+    {
+     "title": "Loving Vincent（至爱梵高）",
+     "creator": "Dorota Kobiela, Hugh Welchman",
+     "year": 2017,
+     "type": "video",
+     "url": "https://en.wikipedia.org/wiki/Loving_Vincent",
+     "why_zh": "65000帧全部由125位画师手绘油画完成，获欧洲电影奖最佳动画、奥斯卡提名，是'会动的梵高笔触'的终极参照。",
+     "use_for": [
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "The Old Man and the Sea（老人与海）",
+     "creator": "Aleksandr Petrov",
+     "year": 1999,
+     "type": "video",
+     "url": "https://en.wikipedia.org/wiki/The_Old_Man_and_the_Sea_(1999_film)",
+     "why_zh": "玻璃油彩动画，获奥斯卡最佳动画短片，展示了笔触在镜头运动中如何流动变形。",
+     "use_for": [
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "David Hockney: The Arrival of Spring, Normandy, 2020",
+     "creator": "David Hockney / Royal Academy of Arts",
+     "year": 2020,
+     "type": "artwork",
+     "url": "https://www.royalacademy.org.uk/exhibition/david-hockney",
+     "why_zh": "116幅在iPad上'绘制'后打印的作品，是真正意义上的数字印象派：明亮色块、简洁笔触、光线变化。",
+     "use_for": [
+      "site",
+      "game",
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "The Wild Robot（荒野机器人）",
+     "creator": "Chris Sanders / DreamWorks Animation",
+     "year": 2024,
+     "type": "video",
+     "url": "https://en.wikipedia.org/wiki/The_Wild_Robot_(film)",
+     "why_zh": "导演称目标是'宫崎骏森林里的莫奈画'，让成片保持概念画的笔触感，是3D绘画化渲染的当代标杆。",
+     "use_for": [
+      "video",
+      "game"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Arcane（双城之战）",
+     "creator": "Fortiche / Riot Games",
+     "year": 2021,
+     "type": "video",
+     "url": "https://en.wikipedia.org/wiki/Arcane_(TV_series)",
+     "why_zh": "2D/3D混合、每帧像手绘概念画，两获艾美奖最佳动画节目，可参考绘画质感贴图与光影。",
+     "use_for": [
+      "video",
+      "game"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "GRIS",
+     "creator": "Nomada Studio（Conrad Roset 联合创办）",
+     "year": 2018,
+     "type": "game",
+     "url": "https://nomada.studio/gris",
+     "why_zh": "水彩感的柔和色块与渐变，配合色彩逐步回归的叙事，是绘画风独立游戏的代表。",
+     "use_for": [
+      "game",
+      "site"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Dordogne",
+     "creator": "Un Je Ne Sais Quoi / Umanimation",
+     "year": 2023,
+     "type": "game",
+     "url": "https://en.wikipedia.org/wiki/Dordogne_(video_game)",
+     "why_zh": "整体画面像水彩画的叙事游戏，适合参考水彩印象风的场景与UI。",
+     "use_for": [
+      "game"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Eastshade",
+     "creator": "Eastshade Studios",
+     "year": 2019,
+     "type": "game",
+     "url": "https://en.wikipedia.org/wiki/Eastshade",
+     "why_zh": "扮演画家在岛上作画的第一人称游戏，3D世界以温暖、绘画般的光色呈现，适合'画中世界'题材参考。",
+     "use_for": [
+      "game"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Ōkami（大神）",
+     "creator": "Clover Studio / Capcom",
+     "year": 2006,
+     "type": "game",
+     "url": "https://en.wikipedia.org/wiki/%C5%8Ckami",
+     "why_zh": "受水墨与浮世绘启发的卡通渲染，'天之笔'让绘画本身成为玩法，是东方笔触数字化的经典。",
+     "use_for": [
+      "game"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "On Crafting Painterly Shaders",
+     "creator": "Maxime Heckel",
+     "year": 2024,
+     "type": "demo",
+     "url": "https://blog.maximeheckel.com/posts/on-crafting-painterly-shaders/",
+     "why_zh": "从基础到各向异性 Kuwahara 滤镜的实时WebGL绘画化着色器教程，网站和游戏可直接借鉴实现。",
+     "use_for": [
+      "site",
+      "game"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Painterly Rendering with Curved Brush Strokes of Multiple Sizes",
+     "creator": "Aaron Hertzmann",
+     "year": 1998,
+     "type": "demo",
+     "url": "https://mrl.cs.nyu.edu/publications/painterly98/",
+     "why_zh": "SIGGRAPH 98 经典论文：由粗到细多层曲线笔触重绘照片，是程序化印象派笔触的算法源头。",
+     "use_for": [
+      "game",
+      "site"
+     ],
+     "license_note": "",
+     "image_url": ""
+    }
+   ],
+   "prompts": [
+    {
+     "prompt": "Transform the provided photograph of a modern city street at night into the artistic style of Vincent van Gogh's 'Starry Night'. Preserve the original composition of buildings and cars, but render all elements with swirling, impasto brushstrokes and a dramatic palette of deep blues and bright yellows.",
+     "model": "Gemini 2.5 Flash Image (Nano Banana)",
+     "source_url": "https://developers.googleblog.com/en/how-to-prompt-gemini-2-5-flash-image-generation-for-the-best-results/",
+     "note_zh": "Google官方风格迁移示例：保留构图、指定笔触类型（swirling, impasto）和调色板，适合把游戏截图/实拍转成印象派。"
+    },
+    {
+     "prompt": "Style: Hand-painted 2D/3D hybrid animation with soft brush textures, warm tungsten lighting, and a tactile, stop-motion feel. The aesthetic evokes mid-2000s storybook animation — cozy, imperfect, full of mechanical charm. Subtle watercolor wash and painterly textures; warm–cool balance in grade; filmic motion blur for animated realism.",
+     "model": "Sora 2",
+     "source_url": "https://developers.openai.com/cookbook/examples/sora/sora2_prompting_guide",
+     "note_zh": "OpenAI Sora 2 官方提示指南中的 Style 段落，可作为AI视频'绘画感动画'的风格块整体复用。"
+    },
+    {
+     "prompt": "A wide riverside boating party at golden hour, women in summer dresses, men in straw boaters, broken reflections across the water, rowboats moored under willow.",
+     "model": "Morphic 图像生成",
+     "source_url": "https://morphic.com/resources/images/impressionism-images",
+     "note_zh": "雷诺阿式河畔聚会，'broken reflections' 强调破碎笔触倒影。"
+    },
+    {
+     "prompt": "A poppy field in afternoon wind, two figures with parasols moving down a path through scarlet flecks, breezy cobalt sky with high white cloud, soft painterly horizon.",
+     "model": "Morphic 图像生成",
+     "source_url": "https://morphic.com/resources/images/impressionism-images",
+     "note_zh": "莫奈《罂粟花田》式构图，'scarlet flecks' 指定点状色块。"
+    },
+    {
+     "prompt": "A green-painted Japanese-style garden bridge arcing over a pond of water lilies, willows reflected in broken daubs, soft mauve and rose-pink flowers, afternoon haze.",
+     "model": "Morphic 图像生成",
+     "source_url": "https://morphic.com/resources/images/impressionism-images",
+     "note_zh": "莫奈睡莲日本桥，'broken daubs' 是关键笔触词。"
+    },
+    {
+     "prompt": "Impressionist style landscape with soft, diffused light, capturing the essence of a serene countryside.",
+     "model": "Midjourney",
+     "source_url": "https://openart.ai/blog/post/midjourney-prompts-for-art-style",
+     "note_zh": "OpenArt 艺术风格提示词，较简短，可作为基础模板再补充笔触描述。"
+    },
+    {
+     "prompt": "Post-impressionist still life with vibrant colors, bold brushstrokes, and a focus on form.",
+     "model": "Midjourney",
+     "source_url": "https://openart.ai/blog/post/midjourney-prompts-for-art-style",
+     "note_zh": "后印象派静物，强调粗笔触与形体，适合道具/物件图。"
+    }
+   ],
+   "sref": [
+    {
+     "code": "3342922409",
+     "source_url": "https://moodboard.beehiiv.com/p/10-more-styles-to-steal",
+     "desc_zh": "Soft Impressionist：柔焦、可见笔触，玫瑰/鼠尾草绿/大地色的油画感。"
+    },
+    {
+     "code": "3176460494",
+     "source_url": "https://moodboard.beehiiv.com/p/10-more-styles-to-steal",
+     "desc_zh": "Psychedelic Swirl：高饱和、梵高式厚涂旋涡笔触。"
+    },
+    {
+     "code": "151289788",
+     "source_url": "https://sref-midjourney.com/style/impressionism",
+     "desc_zh": "Poetic Impressionism（社区上传）。"
+    },
+    {
+     "code": "1650724867",
+     "source_url": "https://sref-midjourney.com/style/impressionism",
+     "desc_zh": "Melancholic Impressionism：忧郁色调的印象派。"
+    },
+    {
+     "code": "3397305952",
+     "source_url": "https://sref-midjourney.com/style/impressionism",
+     "desc_zh": "Dreamy Impressionism：梦幻柔和印象派。"
+    },
+    {
+     "code": "772318403",
+     "source_url": "https://moodboard.beehiiv.com/p/10-midjourney-style-codes-you-can-copy-paste",
+     "desc_zh": "Classical Oil Painting：可见笔触、传统光影的厚重油画（偏古典，可与印象派sref混合）。"
+    }
+   ],
+   "palettes": [],
+   "dont": [
+    {
+     "text_zh": "不写明笔触技法（如 broken brushwork、visible short strokes）时，模型常给出平滑渐变，看起来像普通数字插画而不是印象派。",
+     "source_url": "https://morphic.com/resources/images/impressionism-images"
+    },
+    {
+     "text_zh": "基础方形 Kuwahara 滤镜会产生'方块状'笔触，核尺寸过大时画面会严重失真；做实时绘画化着色器要用圆形/各向异性版本并控制核大小。",
+     "source_url": "https://blog.maximeheckel.com/posts/on-crafting-painterly-shaders/"
+    },
+    {
+     "text_zh": "AI视频里风格描述不要放在最后或只写一个词；要在提示开头就确立风格并用具体视觉词，否则后续镜头会漂回写实。",
+     "source_url": "https://developers.openai.com/cookbook/examples/sora/sora2_prompting_guide"
+    },
+    {
+     "text_zh": "不要把'印象派'等同于'加个油画滤镜'：参考作品（Loving Vincent、荒野机器人）都是让笔触服务光线和氛围，而不是均匀铺满纹理。",
+     "source_url": "https://en.wikipedia.org/wiki/The_Wild_Robot_(film)"
+    }
+   ],
+   "tools": [
+    {
+     "name": "primitive",
+     "url": "[fogleman/primitive](https://github.com/fogleman/primitive)",
+     "license": "MIT",
+     "use": "用几何图形逐步重建图片（可出过程帧）",
+     "status": "已实测"
+    },
+    {
+     "name": "Geometrize",
+     "url": "[Tw1ddle/geometrize-haxe](https://github.com/Tw1ddle/geometrize-haxe)",
+     "license": "宽松许可（见仓库）",
+     "use": "同类工具，有网页版",
+     "status": "已核对"
+    },
+    {
+     "name": "p5.brush",
+     "url": "[acamposuribe/p5.brush](https://github.com/acamposuribe/p5.brush)",
+     "license": "MIT",
+     "use": "p5.js 真实笔刷/水彩",
+     "status": "已核对（npm 安装失败，未渲染）"
+    },
+    {
+     "name": "ImageMagick -paint",
+     "url": "https://imagemagick.org",
+     "license": "Apache-2.0 风格",
+     "use": "一键油画滤镜",
+     "status": "已实测"
+    }
+   ],
+   "files": [
+    {
+     "path": "styles/03-digital-impressionism/tool-tests/magick-oilpaint-coffee.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "d388f92191c956b370cf0157fd8d6ce0cd812fb0b7e3f2644d38d816f1d6e206",
+     "bytes": 238332,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/03-digital-impressionism/tool-tests/primitive-buildup-rocket.mp4",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "0d43650fca80e7a0a19089d06cc67f7413500734c5e0c5bd907e76e4026eefeb",
+     "bytes": 93768,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/03-digital-impressionism/tool-tests/primitive-ellipses-chelsea.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "d6a4ff45290ded7d91e0573f3a0bba2d3c79d445a64a002929199ea23281f9f6",
+     "bytes": 214592,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/03-digital-impressionism/tool-tests/primitive-triangles-coffee.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "23ef0f49932ed78286d332de061fcfad45907486ffdf6641f4b8975fd2c75328",
+     "bytes": 256463,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    }
+   ]
+  },
+  {
+   "kind": "styles",
+   "slug": "04-morphing-objects",
+   "title": "形变物体 · Morphing Objects",
+   "path": "styles/04-morphing-objects/",
+   "summary": "物体之间连续无剪辑地变形转化——液态金属、软体团块、矢量形状插值与面孔融合，强调平滑过渡和一个贯穿始终的视觉锚点。",
+   "principles": [
+    "§2 物理逻辑",
+    "§8 AI 视频专项",
+    "§7 减少动效"
+   ],
+   "references": [
+    {
+     "title": "Black or White（Michael Jackson）面孔融合段落",
+     "creator": "John Landis（导演）/ Pacific Data Images",
+     "year": 1991,
+     "type": "video",
+     "url": "https://en.wikipedia.org/wiki/Black_or_White",
+     "why_zh": "史上最著名的面孔 morph 序列之一，由 Pacific Data Images 制作，定义了'连续换脸'的视觉语言。",
+     "use_for": [
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Cry（Godley & Creme）音乐录像带",
+     "creator": "Godley & Creme",
+     "year": 1985,
+     "type": "video",
+     "url": "https://en.wikipedia.org/wiki/Cry_(Godley_%26_Creme_song)",
+     "why_zh": "用溶解与擦除把一张张面孔连续融合，获MTV VMA提名，是前数字时代的模拟 morph 鼻祖。",
+     "use_for": [
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "T-1000 液态金属（终结者2）",
+     "creator": "Industrial Light & Magic / Stan Winston",
+     "year": 1991,
+     "type": "video",
+     "url": "https://en.wikipedia.org/wiki/T-1000",
+     "why_zh": "ILM的液态金属CG变形，至今仍是'液体铬/汞'变形的标杆参照。",
+     "use_for": [
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Inside — The Huddle",
+     "creator": "Playdead",
+     "year": 2016,
+     "type": "game",
+     "url": "https://en.wikipedia.org/wiki/Inside_(video_game)",
+     "why_zh": "终章可操控的肉团'Huddle'是游戏中软体变形角色的经典，获TGA最佳美术指导。",
+     "use_for": [
+      "game"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "flubber",
+     "creator": "Noah Veltman",
+     "year": 2017,
+     "type": "demo",
+     "url": "https://github.com/veltman/flubber",
+     "why_zh": "2D形状之间平滑插值的JS库，支持任意SVG路径互相变形，网站动效可直接使用。",
+     "use_for": [
+      "site",
+      "game"
+     ],
+     "license_note": "MIT",
+     "image_url": ""
+    },
+    {
+     "title": "GSAP MorphSVGPlugin",
+     "creator": "GreenSock (GSAP)",
+     "year": null,
+     "type": "demo",
+     "url": "https://gsap.com/docs/v3/Plugins/MorphSVGPlugin/",
+     "why_zh": "业界最常用的SVG路径变形插件，提供 shapeIndex、rotational 等控制，适合精细的网页图形变形。",
+     "use_for": [
+      "site"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Blobmixer",
+     "creator": "14islands",
+     "year": null,
+     "type": "website",
+     "url": "https://tympanus.net/codrops/?p=102907",
+     "why_zh": "基于WebGL的3D软体'blob'生成玩具，可实时调节形变与材质，是网页液态变形的优秀交互范例。",
+     "use_for": [
+      "site"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Igloo Inc",
+     "creator": "abeto",
+     "year": 2024,
+     "type": "website",
+     "url": "https://www.awwwards.com/annual-awards-2024/site-of-the-year",
+     "why_zh": "Awwwards 2024年度网站，沉浸式3D与滚动叙事结合，可参考滚动驱动的形体/粒子转化。",
+     "use_for": [
+      "site"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Lusion",
+     "creator": "Lusion（英国Bristol）",
+     "year": null,
+     "type": "artist",
+     "url": "https://lusion.co/",
+     "why_zh": "以3D视觉叙事和沉浸式网站著称的获奖工作室，作品常含流体、软体与形体变形。",
+     "use_for": [
+      "site",
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Andreas Wannerstedt — Oddly Satisfying 系列",
+     "creator": "Andreas Wannerstedt",
+     "year": null,
+     "type": "artist",
+     "url": "https://www.andreaswannerstedt.se/",
+     "why_zh": "瑞典3D动态设计师，'Oddly Satisfying' 系列循环动画是物体运动与形变节奏的高质量参考。",
+     "use_for": [
+      "video",
+      "site"
+     ],
+     "license_note": "",
+     "image_url": ""
+    }
+   ],
+   "prompts": [
+    {
+     "prompt": "Abstract sculpture of liquid chrome morphing into impossible organic form, mercury-like surface reflecting distorted environment in funhouse mirror effect, flowing between solid and liquid states simultaneously, studio black background with three-point lighting creating multiple highlight reflections, form suggesting both human figure and ocean wave without being either, photorealistic material rendering with surreal impossible physics, contemporary art gallery installation aesthetic --ar 1:1 --s 500 --chaos 40 --v 7 --no text",
+     "model": "Midjourney v7",
+     "source_url": "https://sureprompts.com/prompt-libraries/midjourney-v7/897940eb-c55c-4b3f-b8f0-70c2f2fbf7a1",
+     "note_zh": "液态铬雕塑静帧，黑底三点布光强化反射；可作为AI视频首帧。"
+    },
+    {
+     "prompt": "Liquid chrome begins forming at the fingertips and slowly travels across the subject's body. The reflective metal flows like living mercury, coating every surface while maintaining realistic body movement. Sections of the body temporarily liquefy and reshape before hardening into polished metallic structures. The transformation concludes with the subject becoming a sleek biomechanical form. Cinematic realism, unchanged environment.",
+     "model": "Kling 2.5",
+     "source_url": "https://magichour.ai/templates/details/cmpve9o6300fcwy0zn4xygx58-metallic-flow-mutation",
+     "note_zh": "Magic Hour 模板'Metallic Flow Mutation'：从指尖起始、逐段液化再硬化，并锁定'unchanged environment'作为锚点。"
+    },
+    {
+     "prompt": "A rose morphing into a songbird, soft window light",
+     "model": "Morphic 视频生成",
+     "source_url": "https://morphic.com/resources/videos/morph-videos",
+     "note_zh": "最简 morph 结构：起点主体 + 终点主体 + 统一光线。"
+    },
+    {
+     "prompt": "Tight tabletop shot of a steaming coffee cup that slowly morphs into a blooming flower, the rim opening into petals and the steam curling into a stem, warm window light, shallow depth of field.",
+     "model": "Morphic 视频生成",
+     "source_url": "https://morphic.com/resources/videos/morph-videos",
+     "note_zh": "把杯沿对应花瓣、蒸汽对应花茎——用形状对应关系让变形可信。"
+    },
+    {
+     "prompt": "A single portrait holds dead center while the face morphs from childhood through old age, skin texture, hair color, and bone structure shifting in one unbroken take, soft even key light, slow push-in.",
+     "model": "Morphic 视频生成",
+     "source_url": "https://morphic.com/resources/videos/morph-videos",
+     "note_zh": "以画面中心为固定锚点的面孔老化 morph，致敬 Black or White 式换脸。"
+    },
+    {
+     "prompt": "Abstract shapes transforming into birds and dissolving into mist. Soft, flowing animation.",
+     "model": "Seedream",
+     "source_url": "https://picsart.com/blog/best-prompts-for-ai-video-generators/",
+     "note_zh": "抽象形状→鸟→雾的多段转化，适合网站 hero 背景循环。"
+    }
+   ],
+   "sref": [
+    {
+     "code": "4573",
+     "source_url": "https://sref-midjourney.com/style/liquid",
+     "desc_zh": "Fluid Chrome Elegance：流动铬金属质感（社区上传）。"
+    },
+    {
+     "code": "597333",
+     "source_url": "https://sref-midjourney.com/style/liquid",
+     "desc_zh": "Molten Heartscape：熔融液态形体。"
+    }
+   ],
+   "palettes": [],
+   "dont": [
+    {
+     "text_zh": "没有共同锚点（画面中心、地平线、视线、统一光线）时，变形会被读成硬切而不是平滑 morph。",
+     "source_url": "https://morphic.com/resources/videos/morph-videos"
+    },
+    {
+     "text_zh": "起点和终点主体描述含糊会让变形失控；要明确写出从什么变成什么，以及变化的质感（融化、液化、旋转中重塑）。",
+     "source_url": "https://morphic.com/resources/videos/morph-videos"
+    },
+    {
+     "text_zh": "网页SVG变形时，两条路径点位不对应会产生中途'打结'；用 shapeIndex 对齐起点，复杂形状拆成多条路径分别变形，必要时用 rotational 类型。",
+     "source_url": "https://gsap.com/docs/v3/Plugins/MorphSVGPlugin/"
+    },
+    {
+     "text_zh": "flubber 的 interpolate() 只取第一个外轮廓，带孔洞或复合路径的形状会被忽略；maxSegmentLength 越小越平滑但更耗性能。",
+     "source_url": "https://github.com/veltman/flubber"
+    }
+   ],
+   "tools": [
+    {
+     "name": "flubber",
+     "url": "[veltman/flubber](https://github.com/veltman/flubber)",
+     "license": "MIT",
+     "use": "任意 SVG 形状之间平滑插值",
+     "status": "已实测"
+    },
+    {
+     "name": "GSAP MorphSVG",
+     "url": "[greensock/GSAP](https://github.com/greensock/GSAP)",
+     "license": "GSAP 免费许可",
+     "use": "SVG 路径变形（现已免费）",
+     "status": "已核对"
+    },
+    {
+     "name": "blobs",
+     "url": "[g-harel/blobs](https://github.com/g-harel/blobs)",
+     "license": "MIT",
+     "use": "随机有机 blob 及其动画",
+     "status": "已核对"
+    },
+    {
+     "name": "three.js morph targets",
+     "url": "[mrdoob/three.js](https://github.com/mrdoob/three.js)",
+     "license": "MIT",
+     "use": "3D 网格变形",
+     "status": "已核对"
+    },
+    {
+     "name": "React Bits：MetaBalls / Ferrofluid / LiquidChrome / Orb",
+     "url": "[DavidHDev/react-bits](https://github.com/DavidHDev/react-bits)",
+     "license": "MIT + Commons Clause",
+     "use": "网页直接用的同风格组件",
+     "status": "已核对"
+    }
+   ],
+   "files": [
+    {
+     "path": "styles/04-morphing-objects/tool-tests/flubber-morph-frame.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "2a75f67dd8ce98d0971ab9f4d64af1c6632d1dc6521da10eb10944460d841a7e",
+     "bytes": 131764,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/04-morphing-objects/tool-tests/flubber-morph.mp4",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "a0ccbe60b488cb841d872a72d4a66c1708196350afc74d0dcc504284ce8be046",
+     "bytes": 315618,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    }
+   ]
+  },
+  {
+   "kind": "styles",
+   "slug": "05-lomo-imagery",
+   "title": "LOMO 胶片感 · Lomo Imagery",
+   "path": "styles/05-lomo-imagery/",
+   "summary": "Lomo 风格：LC-A/Holga/Diana 等玩具相机与交叉冲洗、过期胶片带来的高饱和偏色、暗角、漏光、柔焦和“快乐意外”式的随手抓拍感。",
+   "principles": [
+    "§1 AI 味严重",
+    "§7 商品图别用 AI"
+   ],
+   "references": [
+    {
+     "title": "The 10 Golden Rules of Lomography",
+     "creator": "Lomography (Lomographische GmbH)",
+     "year": "1992-",
+     "type": "website",
+     "url": "https://www.lomography.com/about/the-ten-golden-rules",
+     "why_zh": "Lomography 官方的十条金规（随身带、腰间盲拍、贴近、别多想、拥抱意外），是这种风格“拍法和心态”的源头说明。",
+     "use_for": [
+      "video",
+      "site",
+      "game"
+     ],
+     "license_note": "Lomography 官网页面，版权归 Lomography",
+     "image_url": ""
+    },
+    {
+     "title": "Lomography（词条：LC-A 与 Lomographic Society 历史）",
+     "creator": "Wikipedia",
+     "year": "",
+     "type": "website",
+     "url": "https://en.wikipedia.org/wiki/Lomography",
+     "why_zh": "说明 1992 年维也纳学生发起、LOMO LC-A 相机来源，以及漏光、镜头不正、非标准冲洗等核心视觉特征。",
+     "use_for": [
+      "site",
+      "video"
+     ],
+     "license_note": "CC BY-SA 4.0（Wikipedia 文本）",
+     "image_url": ""
+    },
+    {
+     "title": "Iowa",
+     "creator": "Nancy Rexroth",
+     "year": "1976/1977（2017 UT Press 再版）",
+     "type": "photo",
+     "url": "https://en.wikipedia.org/wiki/Nancy_Rexroth",
+     "why_zh": "第一本用塑料 Diana 相机完成的摄影专著，柔焦+暗角+梦境般的中西部童年记忆，是玩具相机审美的经典原点。",
+     "use_for": [
+      "video",
+      "game"
+     ],
+     "license_note": "作品版权归摄影师",
+     "image_url": ""
+    },
+    {
+     "title": "Holga 拍摄的 Al Gore 竞选照（获 2001 WHNPA Eyes of History 大奖）",
+     "creator": "David Burnett",
+     "year": "2000",
+     "type": "photo",
+     "url": "https://en.wikipedia.org/wiki/Holga",
+     "why_zh": "顶级新闻摄影师用 Holga 拍政治新闻并获奖，证明玩具相机的柔焦与暗角可以承载严肃叙事。",
+     "use_for": [
+      "video",
+      "site"
+     ],
+     "license_note": "照片版权归摄影师；链接为 Wikipedia Holga 词条",
+     "image_url": ""
+    },
+    {
+     "title": "Euphoria 第二季（全片 35mm 胶片，核心为交叉冲洗的 Ektachrome）",
+     "creator": "Marcell Rév / HBO",
+     "year": "2022",
+     "type": "video",
+     "url": "https://www.kodak.com/en/motion/blog-post/euphoria",
+     "why_zh": "Kodak 官方访谈：交叉冲洗的 Ektachrome 带来“过饱和、怪异的颜色和不寻常的反差”，颗粒更粗、高光以奶油般方式溢出，是当代影视版 X-pro 的最佳参考。",
+     "use_for": [
+      "video"
+     ],
+     "license_note": "Kodak 官网文章",
+     "image_url": ""
+    },
+    {
+     "title": "Three Kings（三个国王）",
+     "creator": "David O. Russell / 摄影 Newton Thomas Sigel",
+     "year": "1999",
+     "type": "video",
+     "url": "https://web.library.yale.edu/film/notes/fn00001",
+     "why_zh": "用 Ektachrome 反转片并跳过漂白（bleach bypass）模仿报纸战地彩照，高反差、粗颗粒、褪色偏色，是影视里“过冲洗”颜色的经典范本。",
+     "use_for": [
+      "video"
+     ],
+     "license_note": "Yale Film Archive 影片笔记",
+     "image_url": ""
+    },
+    {
+     "title": "LomoChrome Purple 35mm 用户作品库（10 万+张）",
+     "creator": "Lomography 社区",
+     "year": "2013-",
+     "type": "photo",
+     "url": "https://www.lomography.com/films/871954447-lomochrome-purple-35mm-100-400/photos",
+     "why_zh": "绿色植被变紫、蓝天变绿的彩色红外式偏色，海量真实样张可直接做调色/LUT 和 AI 风格参考。",
+     "use_for": [
+      "video",
+      "game",
+      "site"
+     ],
+     "license_note": "照片版权归各上传者",
+     "image_url": ""
+    },
+    {
+     "title": "Community Gallery: Lomography's Ode to Expired Film",
+     "creator": "Lomography Magazine (lynnyi)",
+     "year": "2025",
+     "type": "photo",
+     "url": "https://www.lomography.com/magazine/356109-community-gallery-lomographys-ode-to-expired-film",
+     "why_zh": "按胶卷型号展示过期胶片的具体变化：颗粒变粗、反差变软、雾化、色偏漂移、漏光和高光晕开，适合当“过期感”细节清单。",
+     "use_for": [
+      "video",
+      "game"
+     ],
+     "license_note": "照片版权归各摄影师",
+     "image_url": ""
+    },
+    {
+     "title": "What is Cross Processing?（Lomography School）",
+     "creator": "Lomography",
+     "year": "",
+     "type": "website",
+     "url": "https://www.lomography.com/school/what-is-cross-processing-fa-bne2kolj",
+     "why_zh": "官方解释 C-41/E-6 互冲：正片走负片药水→高饱和、高反差、偏黄绿或紫红；负片走正片药水→整体色罩，可作为调色规则依据。",
+     "use_for": [
+      "video",
+      "site"
+     ],
+     "license_note": "Lomography 官网页面",
+     "image_url": ""
+    },
+    {
+     "title": "Firewatch（游戏内一次性相机 + 可冲印实体照片）",
+     "creator": "Campo Santo",
+     "year": "2016",
+     "type": "game",
+     "url": "https://petapixel.com/2016/02/20/firewatch-turns-game-camera-snapshots-real-life-photo-prints/",
+     "why_zh": "游戏内捡到一次性胶片相机，拍的照片可冲印邮寄，是把“有限胶卷+不可预知成片”做成游戏机制的经典案例。",
+     "use_for": [
+      "game"
+     ],
+     "license_note": "PetaPixel 报道",
+     "image_url": ""
+    },
+    {
+     "title": "Umurangi Generation（摄影玩法游戏）",
+     "creator": "Origame Digital",
+     "year": "2020",
+     "type": "game",
+     "url": "https://automaton-media.com/en/playism/20200602-535/",
+     "why_zh": "以 24 张胶卷为限、需寻找胶卷补给、可调曝光色温对比的摄影游戏，适合参考胶片稀缺感与低保真画面的结合。",
+     "use_for": [
+      "game"
+     ],
+     "license_note": "AUTOMATON 文章",
+     "image_url": ""
+    },
+    {
+     "title": "CSSgram（含 Lo-fi、Toaster、X-Pro II 等 26 种滤镜）",
+     "creator": "Una Kravets",
+     "year": "",
+     "type": "demo",
+     "url": "https://github.com/una/CSSgram",
+     "why_zh": "纯 CSS 实现的 Instagram 式滤镜库（含 xpro2/lofi/toaster 等交叉冲洗/玩具相机感预设），网页里零依赖做 lomo 调色。",
+     "use_for": [
+      "site"
+     ],
+     "license_note": "MIT License",
+     "image_url": ""
+    }
+   ],
+   "prompts": [
+    {
+     "prompt": "Lomography --v 6.1",
+     "model": "Midjourney v6.1",
+     "source_url": "https://midlibrary.io/styles/lomography",
+     "note_zh": "Midlibrary 风格词条：该风格在 MJ 里默认偏梦幻高饱和、带双重曝光、漏光和动态模糊；需要更克制时要追加具体约束。"
+    },
+    {
+     "prompt": "Holga photography --v 6.1",
+     "model": "Midjourney v6.1",
+     "source_url": "https://midlibrary.io/styles/holga-photography",
+     "note_zh": "Midlibrary 词条：Holga 风格给出暖调、柔焦、漫射光、中心主体、逆光、颗粒和漏光，比 Lomography 更柔和怀旧。"
+    },
+    {
+     "prompt": "shot in Lomography Color 100 film colors Lomography Color 100 --v 6.1",
+     "model": "Midjourney v6.1",
+     "source_url": "https://midlibrary.io/styles/lomography-color-100",
+     "note_zh": "Midlibrary 胶卷型号词条：用具体胶卷名锁定色彩（鲜艳饱和、细颗粒），可替换为 LomoChrome Purple 等其他型号。"
+    },
+    {
+     "prompt": "a young woman in a flowy floral dress riding a bicycle down a tree-lined lane, Lomo LC-A",
+     "model": "Midjourney",
+     "source_url": "https://myaiforce.com/midjourney-camera-prompts/",
+     "note_zh": "MyAIForce 相机提示词对比文：同一场景只换相机名（Lomo LC-A / Instax 等）观察差异，是“主体 + 相机型号”的简洁模板。"
+    },
+    {
+     "prompt": "<lora:Toy_Camera:0.8>, film, bokeh, professional, blur, lomo",
+     "model": "Stable Diffusion XL + Toy Camera LoRA",
+     "source_url": "https://civarchive.com/models/248225",
+     "note_zh": "作者 andreac75 的 SDXL 玩具相机 LoRA 示例；建议权重 0.8 并必须加 lomo 关键词。负面词：big hands, fake, fake hands, distorted, drawing, painting, crayon, sketch, impressionist。页面未注明许可证。"
+    },
+    {
+     "prompt": "Turn [YOUR PHOTO] into a Lomography portrait: a Lomo cross-process still with green shadows and magenta highlights.",
+     "model": "ChatGPT 图像生成（GPT-4o 类）",
+     "source_url": "https://academy.techpresso.co/prompts/chatgpt-prompts-lomo-photos",
+     "note_zh": "节选：这是“Cross Process Green”提示词的首句原文（全文约 361 字符，见来源）。同页 30 条按 LC-A/Holga/偏色/事故/修正分类，均为照片转 lomo 的具体约束写法。"
+    }
+   ],
+   "sref": [],
+   "palettes": [],
+   "dont": [
+    {
+     "text_zh": "不要给所有画面套同一套“暗角+漏光+偏色”预设：这正是 2011 年 Hipstamatic/Instagram 式“伪复古”被批评的原因，只剩怀旧外壳，失去真实感。",
+     "source_url": "https://thesocietypages.org/cyborgology/2011/05/14/the-faux-vintage-photo-full-essay-parts-i-ii-and-iii/"
+    },
+    {
+     "text_zh": "交叉冲洗的偏色不要失控到人脸：Euphoria 摄影师指出交叉冲洗 Ektachrome 需要细致调色；人物镜头应单独校正肤色，偏色留给环境。",
+     "source_url": "https://www.kodak.com/en/motion/blog-post/euphoria"
+    },
+    {
+     "text_zh": "别忽略反转片只有约 4–5 档宽容度：高光可以奶油般溢出，但不要整张过曝或阴影全部死黑，关键信息要在宽容度内。",
+     "source_url": "https://www.kodak.com/en/motion/blog-post/euphoria"
+    },
+    {
+     "text_zh": "漏光、光斑不要压在主体脸上或铺满全画面；Holga/LC-A 的特征是中心清晰、边缘衰减，漏光多出现在角落或片边。",
+     "source_url": "https://academy.techpresso.co/prompts/chatgpt-prompts-lomo-photos"
+    },
+    {
+     "text_zh": "在 Midjourney 里不要只写 “Lomography” 一个词：默认会叠加双重曝光和动态模糊，画面容易过度；需加胶卷型号、相机、构图等具体约束。",
+     "source_url": "https://midlibrary.io/styles/lomography"
+    }
+   ],
+   "tools": [
+    {
+     "name": "CamanJS（自带 lomo 预设）",
+     "url": "[meltingice/CamanJS](https://github.com/meltingice/CamanJS)",
+     "license": "BSD-3",
+     "use": "网页图片滤镜",
+     "status": "已核对"
+    },
+    {
+     "name": "glfx.js",
+     "url": "[evanw/glfx.js](https://github.com/evanw/glfx.js)",
+     "license": "MIT",
+     "use": "WebGL 实时滤镜（暗角/曲线/噪点）",
+     "status": "已核对"
+    },
+    {
+     "name": "ffmpeg vignette + lut3d",
+     "url": "https://ffmpeg.org",
+     "license": "LGPL/GPL",
+     "use": "视频批量调色",
+     "status": "未测"
+    },
+    {
+     "name": "RawTherapee 胶片模拟 HaldCLUT",
+     "url": "https://rawpedia.rawtherapee.com/Film_Simulation",
+     "license": "CC BY-SA 4.0",
+     "use": "几百种胶片 LUT",
+     "status": "未测"
+    }
+   ],
+   "files": [
+    {
+     "path": "styles/05-lomo-imagery/tool-tests/lomo-coffee.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "d8942b3dca0126b3c35a2f5edeb28d6c2255539ff061cad8bae8770d8a8fbb54",
+     "bytes": 475929,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/05-lomo-imagery/tool-tests/lomo-rocket.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "d444d8581d3326910007831c41671fac75e9d27f3467ea45d0b3852c89976e81",
+     "bytes": 621868,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    }
+   ]
+  },
+  {
+   "kind": "styles",
+   "slug": "06-generative-art",
+   "title": "生成艺术 · Generative Art",
+   "path": "styles/06-generative-art/",
+   "summary": "由代码与规则生成的图像：流场、粒子、噪声等高线、Voronoi、笔式绘图仪线稿等，强调系统性、可变参数与'同一算法的一组变体'。",
+   "principles": [
+    "§3 风格不一致",
+    "§4 质量不稳定"
+   ],
+   "references": [
+    {
+     "title": "Fidenza",
+     "creator": "Tyler Hobbs",
+     "year": 2021,
+     "type": "artwork",
+     "url": "https://www.tylerxhobbs.com/words/fidenza",
+     "why_zh": "Art Blocks 上最具代表性的流场生成艺术：不重叠的粗曲线条带沿流场排布，是流场美学的标杆。",
+     "use_for": [
+      "site",
+      "video",
+      "game"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Flow Fields（教程文章）",
+     "creator": "Tyler Hobbs",
+     "year": 2020,
+     "type": "demo",
+     "url": "https://www.tylerxhobbs.com/words/flow-fields",
+     "why_zh": "Fidenza作者亲写的流场原理与参数讲解（步长、曲线长度、起点分布、噪声变形），落地实现必读。",
+     "use_for": [
+      "site",
+      "game"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Zach Lieberman",
+     "creator": "Zach Lieberman",
+     "year": null,
+     "type": "artist",
+     "url": "https://zach.li/",
+     "why_zh": "openFrameworks 联合创建者、诗意计算学校创办人，日更的代码动画草图是生成艺术动态表现的重要参考。",
+     "use_for": [
+      "video",
+      "site"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Vera Molnár",
+     "creator": "Vera Molnár",
+     "year": 1968,
+     "type": "artist",
+     "url": "https://en.wikipedia.org/wiki/Vera_Moln%C3%A1r",
+     "why_zh": "1968年起用计算机做算法绘画的先驱，几何网格+微小随机扰动是极简生成艺术的源头。",
+     "use_for": [
+      "site",
+      "game"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Inconvergent（Anders Hoff）",
+     "creator": "Anders Hoff",
+     "year": null,
+     "type": "artist",
+     "url": "https://inconvergent.net/",
+     "why_zh": "以简单规则生成复杂形态、大量笔式绘图仪作品著称，适合'有机生长线条'参考。",
+     "use_for": [
+      "site",
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "differential-line",
+     "creator": "Anders Hoff (inconvergent)",
+     "year": null,
+     "type": "demo",
+     "url": "https://github.com/inconvergent/differential-line",
+     "why_zh": "差分生长线条算法的开源实现，产出类似珊瑚/肠道的有机褶皱线条。",
+     "use_for": [
+      "site",
+      "game",
+      "video"
+     ],
+     "license_note": "MIT",
+     "image_url": "https://raw.githubusercontent.com/inconvergent/differential-line/master/img/img.jpg"
+    },
+    {
+     "title": "Refik Anadol: Unsupervised",
+     "creator": "Refik Anadol / MoMA",
+     "year": 2022,
+     "type": "artwork",
+     "url": "https://www.moma.org/calendar/exhibitions/5535",
+     "why_zh": "MoMA展出的实时AI数据雕塑，基于馆藏数据生成流体般影像，是大屏生成影像的顶级案例。",
+     "use_for": [
+      "video",
+      "site"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Generated Space",
+     "creator": "Kjetil Golid",
+     "year": null,
+     "type": "website",
+     "url": "https://generated.space/",
+     "why_zh": "生成艺术家的作品集网站，每件作品都是可交互的生成草图，网站与作品合一的优秀范例。",
+     "use_for": [
+      "site"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Field Play",
+     "creator": "Andrei Kashcha (anvaka)",
+     "year": null,
+     "type": "demo",
+     "url": "https://anvaka.github.io/fieldplay/",
+     "why_zh": "在浏览器里实时编辑向量场方程并观察粒子流动，适合快速探索流场视觉。",
+     "use_for": [
+      "site",
+      "video"
+     ],
+     "license_note": "MIT（GitHub: anvaka/fieldplay）",
+     "image_url": ""
+    },
+    {
+     "title": "canvas-sketch",
+     "creator": "Matt DesLauriers",
+     "year": null,
+     "type": "demo",
+     "url": "https://github.com/mattdesl/canvas-sketch",
+     "why_zh": "专为生成艺术设计的JS框架，支持高分辨率导出、打印尺寸与动画录制。",
+     "use_for": [
+      "site",
+      "video"
+     ],
+     "license_note": "MIT",
+     "image_url": "https://raw.githubusercontent.com/mattdesl/canvas-sketch/master/docs/assets/images/gradient.png"
+    },
+    {
+     "title": "No Man's Sky",
+     "creator": "Hello Games",
+     "year": 2016,
+     "type": "game",
+     "url": "https://en.wikipedia.org/wiki/No_Man%27s_Sky",
+     "why_zh": "用单一种子程序化生成星球、植物与动物，配合70-80年代科幻封面配色，是游戏里程序化生成的代表。",
+     "use_for": [
+      "game"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Nervous System",
+     "creator": "Nervous System",
+     "year": null,
+     "type": "artist",
+     "url": "https://n-e-r-v-o-u-s.com/",
+     "why_zh": "用计算机模拟生成自然形态的设计工作室（拼图、首饰等），展示生成艺术如何落到实体产品。",
+     "use_for": [
+      "site"
+     ],
+     "license_note": "",
+     "image_url": ""
+    }
+   ],
+   "prompts": [
+    {
+     "prompt": "A full composition, a large flow-field of thousands of curving lines drifting across the frame in a muted palette, density gathering into a soft central band.",
+     "model": "Morphic 图像生成",
+     "source_url": "https://morphic.com/resources/images/generative-art-image",
+     "note_zh": "流场海报；'density gathering into a soft central band' 主动控制疏密，避免均匀铺满。"
+    },
+    {
+     "prompt": "A full composition, a wall-scale Voronoi mosaic packed edge to edge, flat gradient tones per shard, thin dark seams tracing the cell boundaries.",
+     "model": "Morphic 图像生成",
+     "source_url": "https://morphic.com/resources/images/generative-art-image",
+     "note_zh": "Voronoi 镶嵌墙面，适合网站背景或游戏地面纹理。"
+    },
+    {
+     "prompt": "A full composition, a wide spread of nested noise contour lines flowing like a height map, warm sand tones on pale ground, denser loops toward the peaks.",
+     "model": "Morphic 图像生成",
+     "source_url": "https://morphic.com/resources/images/generative-art-image",
+     "note_zh": "噪声等高线地形图，暖沙色+浅底，适合米白/纸感版面。"
+    },
+    {
+     "prompt": "A full composition, a dark field with a bright particle swarm collapsing into a smoky attractor shape,",
+     "model": "Morphic 图像生成",
+     "source_url": "https://morphic.com/resources/images/generative-art-image",
+     "note_zh": "粒子吸引子（页面上为节选开头，完整版见来源页）；适合AI视频的粒子聚合镜头。"
+    },
+    {
+     "prompt": "Flow-field generative art, drifting lines, muted pastel palette",
+     "model": "Morphic 图像生成",
+     "source_url": "https://morphic.com/resources/images/generative-art-image",
+     "note_zh": "最短风格关键词组合，可附加在其他提示后作为风格修饰。"
+    }
+   ],
+   "sref": [],
+   "palettes": [],
+   "dont": [
+    {
+     "text_zh": "不要直接'用 Perlin 噪声就完事'——它已被用滥；应设计自己的场变形方式（Fidenza 作者原话建议）。",
+     "source_url": "https://www.tylerxhobbs.com/words/flow-fields"
+    },
+    {
+     "text_zh": "流场起点纯均匀随机会产生不想要的结块和空洞；步长过大会出现尖角，曲线过长会把一种颜色拖进另一种颜色的区域。",
+     "source_url": "https://www.tylerxhobbs.com/words/flow-fields"
+    },
+    {
+     "text_zh": "不要让图案密度处处一致；要指定哪里变密、哪里变疏，以此引导构图。",
+     "source_url": "https://morphic.com/resources/images/generative-art-image"
+    },
+    {
+     "text_zh": "系列作品不锁定调色板和母题，会变成一组互不相关的抽象图；生成艺术的价值在于'同一系统的变体'。",
+     "source_url": "https://morphic.com/resources/images/generative-art-image"
+    },
+    {
+     "text_zh": "不要停在第一版'白底黑色流线'的默认效果；改变笔触形状、端点、透明度、配色逻辑和噪声尺度，而不只是增加粒子数。",
+     "source_url": "https://sighack.com/post/getting-creative-with-perlin-noise-fields"
+    }
+   ],
+   "tools": [
+    {
+     "name": "p5.js",
+     "url": "[processing/p5.js](https://github.com/processing/p5.js)",
+     "license": "LGPL-2.1",
+     "use": "最好上手的创意编程库",
+     "status": "已实测"
+    },
+    {
+     "name": "canvas-sketch",
+     "url": "[mattdesl/canvas-sketch](https://github.com/mattdesl/canvas-sketch)",
+     "license": "MIT",
+     "use": "生成艺术工作流（导出高清/视频）",
+     "status": "已核对"
+    },
+    {
+     "name": "three.js",
+     "url": "[mrdoob/three.js](https://github.com/mrdoob/three.js)",
+     "license": "MIT",
+     "use": "3D 生成",
+     "status": "已核对"
+    },
+    {
+     "name": "Hydra",
+     "url": "[hydra-synth/hydra](https://github.com/hydra-synth/hydra)",
+     "license": "AGPL-3.0（改了代码要开源）",
+     "use": "实时视频合成，做 VJ 视觉",
+     "status": "已核对"
+    },
+    {
+     "name": "React Bits：Galaxy / Threads / Particles / Waves 等 60 个背景",
+     "url": "[DavidHDev/react-bits](https://github.com/DavidHDev/react-bits)",
+     "license": "MIT + Commons Clause",
+     "use": "网页直接用的同风格组件",
+     "status": "已核对"
+    }
+   ],
+   "files": [
+    {
+     "path": "styles/06-generative-art/refs/img.jpg",
+     "kind": "reference",
+     "title": "differential-line",
+     "author": "Anders Hoff (inconvergent)",
+     "source_url": "https://github.com/inconvergent/differential-line",
+     "license": "MIT",
+     "ai_used": false,
+     "sha256": "77cce313c3e163848aec31a0d2228582e154f90d659b40ab6883a76cdb36692b",
+     "bytes": 509582,
+     "spdx": "MIT",
+     "attribution_required": false
+    },
+    {
+     "path": "styles/06-generative-art/refs/gradient.png",
+     "kind": "reference",
+     "title": "canvas-sketch 示例",
+     "author": "Matt DesLauriers",
+     "source_url": "https://github.com/mattdesl/canvas-sketch",
+     "license": "MIT",
+     "ai_used": false,
+     "sha256": "22a64a518bd6946a072be4937d165875de95020bdfa6487f6f7acacb8f0f3878",
+     "bytes": 111125,
+     "spdx": "MIT",
+     "attribution_required": false
+    },
+    {
+     "path": "styles/06-generative-art/tool-tests/gen.html",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "1c93fdd5656e5c46342e3aa9fb205534d3e3d1b13e3480c79c76406563ed1e75",
+     "bytes": 1413,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/06-generative-art/tool-tests/p5-circle-packing.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "558ac1c83ee570396d87b87714d14e28ad4ccb9f07371ccb1e81fa750435366f",
+     "bytes": 237898,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/06-generative-art/tool-tests/p5-flowfield-grow.mp4",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "3c9e281cfb01cb4669f2eef28b4b42543b5d4849a8fa203ed559aa9c3f75eab9",
+     "bytes": 3616126,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/06-generative-art/tool-tests/p5-flowfield.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "cfa13bdba55bd6f3949bd722c4c59db1d0be1a2e99d9eea74caafafbb0ca2360",
+     "bytes": 1908557,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/06-generative-art/tool-tests/p5-truchet-tiles.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "5c4bff0c543c8f70af47b916fe758b490b3c355581adbb635d3802bff2c58419",
+     "bytes": 166463,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    }
+   ]
+  },
+  {
+   "kind": "styles",
+   "slug": "07-shades-of-off-white",
+   "title": "米白层次 · Shades of Off-white",
+   "path": "styles/07-shades-of-off-white/",
+   "summary": "米白/象牙/奶油色极简：用带温度的非纯白做底，大量留白、克制排版和自然材质，营造安静、高级、纸质感的界面与画面。",
+   "principles": [
+    "§1 AI 味严重（网页默认模板）",
+    "§7 独立站专项"
+   ],
+   "references": [
+    {
+     "title": "White",
+     "creator": "Kenya Hara（原研哉）/ Lars Müller Publishers",
+     "year": "",
+     "type": "artwork",
+     "url": "https://minimalissimo.com/white-by-kenya-hara/",
+     "why_zh": "原研哉关于“白”与“空”的设计论著，是米白极简背后思想的源头，适合定调品牌与界面的留白哲学。",
+     "use_for": [
+      "site",
+      "game",
+      "video"
+     ],
+     "license_note": "书籍，版权归作者/出版社",
+     "image_url": ""
+    },
+    {
+     "title": "MUJI 艺术总监工作（2002 年起）",
+     "creator": "Kenya Hara / MUJI",
+     "year": "2002-",
+     "type": "artwork",
+     "url": "https://www.dezeen.com/awards/2019/judges/kenya-hara/",
+     "why_zh": "无印良品“无品牌”的克制视觉系统：本色纸、米白、极少用色，是 off-white 品牌识别最被广泛认知的案例。",
+     "use_for": [
+      "site",
+      "video"
+     ],
+     "license_note": "Dezeen 页面",
+     "image_url": ""
+    },
+    {
+     "title": "Kinfolk 杂志官网",
+     "creator": "Kinfolk",
+     "year": "",
+     "type": "website",
+     "url": "https://www.kinfolk.com/",
+     "why_zh": "慢生活编辑风的代表：大留白、细衬线、柔和自然光摄影，适合做 off-white 编辑型网站和内容排版参考。",
+     "use_for": [
+      "site",
+      "video"
+     ],
+     "license_note": "官网",
+     "image_url": ""
+    },
+    {
+     "title": "Aesop 官网与门店识别",
+     "creator": "Aesop",
+     "year": "",
+     "type": "website",
+     "url": "https://www.aesop.com/",
+     "why_zh": "琥珀瓶+米色/浅灰中性底+克制衬线排版，电商页面依然安静高级，是 off-white 品牌电商的标杆。",
+     "use_for": [
+      "site"
+     ],
+     "license_note": "官网（theme-color 为 #e9e9e9）",
+     "image_url": ""
+    },
+    {
+     "title": "John Pawson 建筑与设计作品",
+     "creator": "John Pawson",
+     "year": "",
+     "type": "artist",
+     "url": "https://www.johnpawson.com/",
+     "why_zh": "极简主义建筑师，白灰泥、石材、木材和自然光构成的室内空间，可作 off-white 场景与游戏/影像空间的情绪板。",
+     "use_for": [
+      "game",
+      "video",
+      "site"
+     ],
+     "license_note": "官网，图片版权归事务所",
+     "image_url": ""
+    },
+    {
+     "title": "PANTONE 11-4201 Cloud Dancer（2026 年度色）",
+     "creator": "Pantone",
+     "year": "2026",
+     "type": "website",
+     "url": "https://www.pantone.com/color-of-the-year/2026",
+     "why_zh": "Pantone 2026 年度色是一种“轻盈的白”，代表当下 off-white 的主流趋势，可作为色彩系统的锚点色。",
+     "use_for": [
+      "site",
+      "video",
+      "game"
+     ],
+     "license_note": "Pantone 官网；屏幕 hex 由第三方给出，见 palettes",
+     "image_url": ""
+    },
+    {
+     "title": "Gris",
+     "creator": "Nomada Studio（导演/美术 Conrad Roset）/ Devolver Digital",
+     "year": "2018",
+     "type": "game",
+     "url": "https://en.wikipedia.org/wiki/Gris",
+     "why_zh": "从“无色”的白色大地开始、随进程逐步恢复色彩的水彩风平台游戏，获 GDC 最佳视觉、Annie 等奖，是留白型游戏美术标杆。",
+     "use_for": [
+      "game",
+      "video"
+     ],
+     "license_note": "Wikipedia（CC BY-SA）",
+     "image_url": ""
+    },
+    {
+     "title": "Mini Metro",
+     "creator": "Dinosaur Polo Club",
+     "year": "2015",
+     "type": "game",
+     "url": "https://dinopoloclub.com/press/index.php",
+     "why_zh": "以 Harry Beck 地铁图为灵感的“超极简”策略游戏，浅色底+纯色线条，展示 off-white 底色在 UI 型游戏中的可读性。",
+     "use_for": [
+      "game",
+      "site"
+     ],
+     "license_note": "官方 press kit",
+     "image_url": ""
+    },
+    {
+     "title": "Her（她）美术设计",
+     "creator": "Spike Jonze / 美术指导 K.K. Barrett",
+     "year": "2013",
+     "type": "video",
+     "url": "https://www.thewrap.com/oscarwrap-production-design/",
+     "why_zh": "美术指导刻意营造“温暖、舒适”的未来，去掉蓝色、偏暖的浅色调，适合做暖白/奶油色影像调色参考。",
+     "use_for": [
+      "video"
+     ],
+     "license_note": "TheWrap 访谈",
+     "image_url": ""
+    },
+    {
+     "title": "Anthropic 风格卡（Refero Styles）",
+     "creator": "Refero",
+     "year": "",
+     "type": "website",
+     "url": "https://styles.refero.design/ai-agents/landing-page-design-prompts",
+     "why_zh": "Refero 整理的品牌风格卡把 Anthropic/Claude 的“暖色羊皮纸”页面归纳为 Ivory Light #faf9f5、Ivory Medium #f0eee6，可直接借鉴为网页底色体系。",
+     "use_for": [
+      "site"
+     ],
+     "license_note": "Refero 页面",
+     "image_url": ""
+    }
+   ],
+   "prompts": [
+    {
+     "prompt": "A minimalist composition featuring a single, delicate red maple leaf positioned in the bottom-right of the frame. The background is a vast, empty off-white canvas, creating significant negative space for text. Soft, diffused lighting from the top left. Square image.",
+     "model": "Gemini 2.5 Flash Image（Nano Banana）",
+     "source_url": "https://developers.googleblog.com/en/how-to-prompt-gemini-2-5-flash-image-generation-for-the-best-results/",
+     "note_zh": "Google 官方提示指南第 5 类“极简与负空间”示例：明确主体位置、off-white 背景、给文字留白、光线方向和画幅，可直接改主体复用。"
+    },
+    {
+     "prompt": "A minimalist composition featuring a single [subject] positioned in the [bottom-right/top-left/etc.] of the frame.",
+     "model": "Gemini 2.5 Flash Image（Nano Banana）",
+     "source_url": "https://developers.googleblog.com/en/how-to-prompt-gemini-2-5-flash-image-generation-for-the-best-results/",
+     "note_zh": "节选：同一节模板的首句原文；后续为空背景制造负空间、柔和光线、画幅占位（见来源）。"
+    },
+    {
+     "prompt": "Minimalism --v 6.1",
+     "model": "Midjourney v6.1",
+     "source_url": "https://midlibrary.io/styles/minimalism",
+     "note_zh": "Midlibrary 词条：几何/抽象形体、柔和粉彩与低饱和色、大量负空间；可追加 off-white、ivory 等色彩词收窄。"
+    },
+    {
+     "prompt": "Wabi-sabi --v 6.1",
+     "model": "Midjourney v6.1",
+     "source_url": "https://midlibrary.io/styles/wabi-sabi",
+     "note_zh": "Midlibrary 词条：不完美、纹理、裂痕、土质低饱和色和不对称留白，适合 off-white 中加入手工质感与自然材质。"
+    }
+   ],
+   "sref": [],
+   "palettes": [
+    {
+     "name": "PANTONE 11-4201 Cloud Dancer（2026 年度色，屏幕近似值）",
+     "hex": [
+      "#F0EEE9"
+     ],
+     "source_url": "https://www.vistaprint.com/hub/pantone-color-of-the-year"
+    },
+    {
+     "name": "Radix Colors – Sand（暖灰 1–12，MIT）",
+     "hex": [
+      "#fdfdfc",
+      "#f9f9f8",
+      "#f1f0ef",
+      "#e9e8e6",
+      "#e2e1de",
+      "#dad9d6",
+      "#cfceca",
+      "#bcbbb5",
+      "#8d8d86",
+      "#82827c",
+      "#63635e",
+      "#21201c"
+     ],
+     "source_url": "https://raw.githubusercontent.com/radix-ui/colors/main/src/light.ts"
+    },
+    {
+     "name": "Tailwind CSS v3 – Stone（暖灰 50–950）",
+     "hex": [
+      "#fafaf9",
+      "#f5f5f4",
+      "#e7e5e4",
+      "#d6d3d1",
+      "#a8a29e",
+      "#78716c",
+      "#57534e",
+      "#44403c",
+      "#292524",
+      "#1c1917",
+      "#0c0a09"
+     ],
+     "source_url": "https://v3.tailwindcss.com/docs/customizing-colors"
+    },
+    {
+     "name": "Anthropic Ivory（Refero 风格卡）",
+     "hex": [
+      "#faf9f5",
+      "#f0eee6"
+     ],
+     "source_url": "https://styles.refero.design/ai-agents/landing-page-design-prompts"
+    }
+   ],
+   "dont": [
+    {
+     "text_zh": "不要在米白底上用浅灰小字：正文对比度至少 4.5:1（大字 3:1），米白底会进一步降低浅灰文字的对比度，务必实测。",
+     "source_url": "https://www.w3.org/WAI/WCAG21/Understanding/contrast-minimum.html"
+    },
+    {
+     "text_zh": "不要把 ivory 和 cream 放在相邻元素上：两者都偏暖，挨在一起像“配错色”；要么拉开层级（背景 vs 卡片），要么只用一种。",
+     "source_url": "https://madegooddesigns.com/ivory-vs-cream-vs-off-white/"
+    },
+    {
+     "text_zh": "不要把 “off-white” 当成一个颜色：先定冷暖倾向（偏黄/偏粉/偏灰），并让强调色与之匹配，冷白配暖强调色会显得不对劲。",
+     "source_url": "https://madegooddesigns.com/ivory-vs-cream-vs-off-white/"
+    },
+    {
+     "text_zh": "需要干净利落的场景不要用偏黄的奶油色，否则会显得陈旧、发黄；奶油色只用于刻意追求温暖感的设计。",
+     "source_url": "https://madegooddesigns.com/ivory-vs-cream-vs-off-white/"
+    },
+    {
+     "text_zh": "不要把 Pantone 纺织色号直接当屏幕色：Pantone 官网未给 Cloud Dancer 的 hex，网上的 #F0EEE9 只是近似值，跨屏幕/印刷要实物比对。",
+     "source_url": "https://www.pantone.com/color-of-the-year/2026"
+    }
+   ],
+   "tools": [
+    {
+     "name": "本库调色板",
+     "url": "见 palette.json",
+     "license": "—",
+     "use": "9 色：Paper #FBF9F4 → Ink #2B2925",
+     "status": "已实测"
+    },
+    {
+     "name": "Radix Colors（sand / mauve）",
+     "url": "[radix-ui/colors](https://github.com/radix-ui/colors)",
+     "license": "MIT",
+     "use": "成套暖灰色阶",
+     "status": "已核对"
+    },
+    {
+     "name": "Instrument Serif / Fraunces",
+     "url": "fontsource",
+     "license": "OFL",
+     "use": "米白风标题字体",
+     "status": "已实测"
+    },
+    {
+     "name": "纸张颗粒贴图",
+     "url": "见 grain-riso 文件夹",
+     "license": "自制，随便用",
+     "use": "背景纹理",
+     "status": "已实测"
+    }
+   ],
+   "files": [
+    {
+     "path": "styles/07-shades-of-off-white/tool-tests/offwhite-demo.html",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "d7adc1adbbb479289d1f430191f53a95ec15cbbb9bd1c6c4b1a736dd750eaae0",
+     "bytes": 1979,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/07-shades-of-off-white/tool-tests/offwhite-palette-ui.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "6022c5c16cf2764b18f9c9995083da20848c6de7164e959089e3b860790363d6",
+     "bytes": 403938,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/07-shades-of-off-white/palette.json",
+     "kind": "asset",
+     "title": "米白色板（机器可读）",
+     "author": "本库",
+     "source_url": "",
+     "license": "自制",
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "ai_used": false,
+     "sha256": "28fc564b0a2e933cafd2d6f745fecc1f15094e3a99cba491a482cebe372064ad",
+     "bytes": 410
+    }
+   ]
+  },
+  {
+   "kind": "styles",
+   "slug": "08-dither-halftone",
+   "title": "抖动与半调 · Dither & Halftone（补充）",
+   "path": "styles/08-dither-halftone/",
+   "summary": "用黑白（或极少色）点阵的疏密排列——有序/Bayer 抖动、误差扩散或网点——来模拟灰阶与光影的印刷/早期屏幕质感。",
+   "principles": [
+    "§5 像素图是假像素（抖动同样要整数倍缩放、固定调色板）"
+   ],
+   "references": [
+    {
+     "title": "Return of the Obra Dinn",
+     "creator": "Lucas Pope",
+     "year": 2018,
+     "type": "game",
+     "url": "https://obradinn.com/",
+     "why_zh": "1-bit 抖动 3D 游戏的终极标杆，证明抖动可承载完整叙事与氛围。",
+     "use_for": [
+      "game",
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Obra Dinn 开发日志：抖动稳定化帖子",
+     "creator": "Lucas Pope（dukope）",
+     "year": "",
+     "type": "artwork",
+     "url": "https://forums.tigsource.com/index.php?topic=40832.msg1363742#msg1363742",
+     "why_zh": "作者亲述如何让抖动在镜头移动时不闪烁，是 3D 抖动着色器的必读技术参考。",
+     "use_for": [
+      "game"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "WORLD OF HORROR",
+     "creator": "panstasz",
+     "year": 2023,
+     "type": "game",
+     "url": "https://store.steampowered.com/app/913740/WORLD_OF_HORROR/",
+     "why_zh": "全部用 MS Paint 绘制的“stark 1-bit”恐怖风，伊藤润二式网点/抖动阴影参考。",
+     "use_for": [
+      "game",
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Playdate",
+     "creator": "Panic",
+     "year": "",
+     "type": "game",
+     "url": "https://play.date/",
+     "why_zh": "400×240 1-bit 掌机，整个生态都是 1-bit 抖动美术的活样本库。",
+     "use_for": [
+      "game"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Low-tech Magazine 太阳能网站",
+     "creator": "Low-tech Magazine",
+     "year": "",
+     "type": "website",
+     "url": "https://solar.lowtechmagazine.com/about/the-solar-website/",
+     "why_zh": "把所有图片做成抖动图再按栏目着色，体积约降为 1/10，网站用抖动的经典案例。",
+     "use_for": [
+      "site"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Ditherpunk — The article I wish I had about monochrome image dithering",
+     "creator": "Surma",
+     "year": 2021,
+     "type": "artwork",
+     "url": "https://surma.dev/things/ditherpunk/",
+     "why_zh": "系统讲解阈值、Bayer、蓝噪声、Floyd-Steinberg、Atkinson 等算法并附对比图，是团队技术基准。",
+     "use_for": [
+      "site",
+      "game"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "didder",
+     "creator": "makew0rld",
+     "year": "",
+     "type": "demo",
+     "url": "https://github.com/makew0rld/didder",
+     "why_zh": "命令行精确抖动工具（多种算法/自定义调色板），可批量把素材转为统一抖动风。",
+     "use_for": [
+      "site",
+      "game",
+      "video"
+     ],
+     "license_note": "GPL-3.0",
+     "image_url": "https://raw.githubusercontent.com/makew0rld/didder/main/david_dithered.png"
+    },
+    {
+     "title": "Surface-Stable Fractal Dithering（Dither3D）",
+     "creator": "Rune Skovbo Johansen",
+     "year": "",
+     "type": "demo",
+     "url": "https://runevision.com/tech/dither3d",
+     "why_zh": "在 Obra Dinn 基础上让抖动点贴合表面、移动不游走，3D 抖动游戏/视频的开源方案。",
+     "use_for": [
+      "game",
+      "video"
+     ],
+     "license_note": "源码 github.com/runevision/Dither3D，MPL-2.0",
+     "image_url": ""
+    },
+    {
+     "title": "Spider-Man: Into the Spider-Verse（网点/Ben-Day 点与排线渲染）",
+     "creator": "Sony Pictures Animation / Imageworks",
+     "year": 2018,
+     "type": "video",
+     "url": "https://www.awn.com/print/animationworld/rewriting-visual-rule-book-spider-man-spider-verse",
+     "why_zh": "把印刷网点、排线做成动画渲染语言，是“半调网点做动态影像”的顶级参考。",
+     "use_for": [
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Drowning Girl",
+     "creator": "Roy Lichtenstein",
+     "year": 1963,
+     "type": "artwork",
+     "url": "https://en.wikipedia.org/wiki/Drowning_Girl",
+     "why_zh": "波普艺术中 Ben-Day 网点的代表作（MoMA 藏），半调网点海报/主视觉的源头参考。",
+     "use_for": [
+      "site",
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    }
+   ],
+   "prompts": [
+    {
+     "prompt": "a lighthouse standing tall against the ocean waves in ATKSN style",
+     "model": "FLUX.1-dev + glif/dithering LoRA（Yerko Lucic）",
+     "source_url": "https://huggingface.co/glif/dithering",
+     "note_zh": "1-bit Atkinson 抖动 LoRA，触发词 \"in ATKSN style\"，强度 1.0；许可 CC0-1.0。"
+    },
+    {
+     "prompt": "illustration, a large black cat sitting on a windowsill in ATKSN style",
+     "model": "FLUX.1-dev + glif/dithering LoRA",
+     "source_url": "https://huggingface.co/glif/dithering",
+     "note_zh": "模型卡提示：插画类提示词可能输出彩色但仍保留抖动纹理。"
+    },
+    {
+     "prompt": "Draw a 512x342 pixel image with a maximum resolution of 72 dots per inch in 1 bit black and white.",
+     "model": "Midjourney（论坛用户 retr01 实测）",
+     "source_url": "https://tinkerdifferent.com/threads/mu0ns-midjourney-outputs.2684/",
+     "note_zh": "用原版 Macintosh 的 512×342 分辨率与 1-bit 作为硬约束。"
+    },
+    {
+     "prompt": "32 x 32 bitmap icons, using only pure white and pure black, in the style of Susan Kare….",
+     "model": "Midjourney（论坛用户 Crutch 实测）",
+     "source_url": "https://tinkerdifferent.com/threads/mu0ns-midjourney-outputs.2684/",
+     "note_zh": "明确尺寸+纯黑白+Susan Kare 早期 Mac 图标风，适合做网站/UI 1-bit 图标。"
+    },
+    {
+     "prompt": "Halftone Recraft, A black and white photograph of a white sports car on a road. The car is facing the left side of the frame. There is a yellow bus behind the car. The bus has a red stripe on the side of it. There are black letters on the top of the bus.",
+     "model": "FLUX.1-dev + Halftone-Recraft-Flux LoRA（strangerzonehf）",
+     "source_url": "https://huggingface.co/strangerzonehf/Halftone-Recraft-Flux",
+     "note_zh": "半调网点 LoRA，触发词 \"Halftone Recraft\"；许可 creativeml-openrail-m。"
+    }
+   ],
+   "sref": [
+    {
+     "code": "--sref 2395769938",
+     "source_url": "https://moodboard.beehiiv.com/p/10-midjourney-style-codes-you-can-copy-paste",
+     "desc_zh": "“Geometric Collage Mix”：分层几何形+半调网点纹理，黑/青/浅粉配色（偏拼贴，非纯 1-bit）。"
+    }
+   ],
+   "palettes": [],
+   "dont": [
+    {
+     "text_zh": "不要在 sRGB（gamma）空间直接抖动：会让渐变整体偏亮，应先转线性 RGB 再量化。",
+     "source_url": "https://surma.dev/things/ditherpunk/"
+    },
+    {
+     "text_zh": "警惕 Bayer 有序抖动的十字/网格纹（crosshatch）：大面积平滑渐变可改用蓝噪声阈值图。",
+     "source_url": "https://en.wikipedia.org/wiki/Ordered_dithering"
+    },
+    {
+     "text_zh": "3D/镜头运动时不要用屏幕空间固定抖动：点阵会“游走”闪烁，需把抖动锚定到场景/表面。",
+     "source_url": "https://forums.tigsource.com/index.php?topic=40832.msg1363742#msg1363742"
+    },
+    {
+     "text_zh": "不要让 2×2 棋盘格等抖动图案每次滚动 1 像素：黑白互换会造成闪屏，应按 2 像素倍数滚动或用不随位移变化的图案。",
+     "source_url": "https://help.play.date/developer/designing-for-playdate/"
+    },
+    {
+     "text_zh": "自动转换的抖动图往往很“噪”，关键素材要手工清理；细笔画至少 2px，小于约 32×32 的精灵难以辨认。",
+     "source_url": "https://help.play.date/developer/designing-for-playdate/"
+    }
+   ],
+   "tools": [
+    {
+     "name": "didder",
+     "url": "[makew0rld/didder](https://github.com/makew0rld/didder)",
+     "license": "GPL-3.0",
+     "use": "命令行各种抖动算法",
+     "status": "已核对"
+    },
+    {
+     "name": "ImageMagick -ordered-dither",
+     "url": "https://imagemagick.org",
+     "license": "Apache-2.0 风格",
+     "use": "一行命令抖动",
+     "status": "已实测（等效实现）"
+    },
+    {
+     "name": "React Bits：Dither / HalftoneReveal / DotGrid",
+     "url": "[DavidHDev/react-bits](https://github.com/DavidHDev/react-bits)",
+     "license": "MIT + Commons Clause",
+     "use": "网页直接用的同风格组件",
+     "status": "已核对"
+    }
+   ],
+   "files": [
+    {
+     "path": "styles/08-dither-halftone/refs/david_dithered.png",
+     "kind": "reference",
+     "title": "didder 抖动示例（大卫像）",
+     "author": "makew0rld",
+     "source_url": "https://github.com/makew0rld/didder",
+     "license": "GPL-3.0",
+     "ai_used": false,
+     "sha256": "6f6913bf9ba0f71bd7fa299a7147be3f27d1f9c6ffdb70bbbfa91fead68250c7",
+     "bytes": 11623,
+     "spdx": "GPL-3.0-only",
+     "attribution_required": false
+    },
+    {
+     "path": "styles/08-dither-halftone/tool-tests/bayer-duotone.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "abd455b4bb19da5f58e9374d4dc4892c5d190f50c987a7bd75ad60ddb3e618cd",
+     "bytes": 33543,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/08-dither-halftone/tool-tests/floyd-steinberg-1bit.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "4f20120995d049e1784d1bec09a48bf2af815516c74ee44f92c8ba936d51eab8",
+     "bytes": 64412,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/08-dither-halftone/tool-tests/halftone-dots.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "e38df1797738ef95272dc1d2217a317448744d265f68f27977dda26bc879c833",
+     "bytes": 21972,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    }
+   ]
+  },
+  {
+   "kind": "styles",
+   "slug": "09-glitch-crt",
+   "title": "故障与 CRT · Glitch & CRT（补充）",
+   "path": "styles/09-glitch-crt/",
+   "summary": "借用数字压缩错误、数据混合（datamosh）、RGB 错位与 CRT/VHS 扫描线、荧光、磁带噪声等“媒介故障”作为美学语言的风格。",
+   "principles": [
+    "§7 独立站专项（减少动效）",
+    "§1 AI 味严重"
+   ],
+   "references": [
+    {
+     "title": "Rosa Menkman（A Vernacular of File Formats / Glitch Studies Manifesto / The Glitch Moment(um)）",
+     "creator": "Rosa Menkman",
+     "year": 2011,
+     "type": "artist",
+     "url": "https://en.wikipedia.org/wiki/Rosa_Menkman",
+     "why_zh": "故障艺术理论与实践的核心人物，其文件格式故障图谱被 Stedelijk 收藏，是分类各种压缩伪影的源头参考。",
+     "use_for": [
+      "site",
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "wwwwwwwww.jodi.org",
+     "creator": "JODI（Joan Heemskerk & Dirk Paesmans）",
+     "year": "",
+     "type": "website",
+     "url": "https://en.wikipedia.org/wiki/Jodi_(art_collective)",
+     "why_zh": "最早的网络艺术之一，用“坏掉的”HTML 造出视觉景观，故障风网站的祖师级参考。",
+     "use_for": [
+      "site"
+     ],
+     "license_note": "作品站点 wwwwwwwww.jodi.org（本环境未能直接抓取，经维基百科确认）",
+     "image_url": ""
+    },
+    {
+     "title": "Monster Movie",
+     "creator": "Takeshi Murata",
+     "year": 2005,
+     "type": "video",
+     "url": "https://www.eai.org/titles/monster-movie",
+     "why_zh": "逐帧处理 1981 年电影《Caveman》使画面每秒“分解重组”30 次，datamosh 视频艺术代表作（EAI 发行）。",
+     "use_for": [
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Kanye West – Welcome to Heartbreak（MV）",
+     "creator": "导演 Nabil Elderkin",
+     "year": 2009,
+     "type": "video",
+     "url": "https://en.wikipedia.org/wiki/Welcome_to_Heartbreak",
+     "why_zh": "把 datamosh 带入主流 MV 的标志性作品，像素拖影/帧间融合的范本。",
+     "use_for": [
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Chairlift – Evident Utensil（MV）",
+     "creator": "导演 Ray Tintori",
+     "year": 2009,
+     "type": "video",
+     "url": "https://motionographer.com/2009/02/19/tintori-and-nabil-breaking-your-internets/",
+     "why_zh": "Motionographer 评为把 datamosh 用得“轻盈、迷幻”的代表，与上条形成粗粝/明快两种参照。",
+     "use_for": [
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Kung Fury",
+     "creator": "David Sandberg",
+     "year": 2015,
+     "type": "video",
+     "url": "https://en.wikipedia.org/wiki/Kung_Fury",
+     "why_zh": "全片加入录像带磨损效果，模拟老 VCR 播放的 VHS 质感，80s 复古视频的高完成度参考。",
+     "use_for": [
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "SIGNALIS",
+     "creator": "rose-engine",
+     "year": 2022,
+     "type": "game",
+     "url": "https://store.steampowered.com/app/1262350/SIGNALIS/",
+     "why_zh": "“retrotech”复古科技恐怖游戏，低保真 3D+屏幕干扰与界面噪声的现代参考。",
+     "use_for": [
+      "game"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "cool-retro-term",
+     "creator": "Swordfish90",
+     "year": "",
+     "type": "demo",
+     "url": "https://github.com/Swordfish90/cool-retro-term",
+     "why_zh": "模拟老式阴极射线管终端（荧光拖影、扫描线、弧面、琥珀/绿色配色）的开源终端。",
+     "use_for": [
+      "site",
+      "video"
+     ],
+     "license_note": "仓库含 GPL-2.0/GPL-3.0 文件",
+     "image_url": ""
+    },
+    {
+     "title": "libretro slang-shaders（crt 目录：crt-royale、crt-geom 等）",
+     "creator": "libretro 社区",
+     "year": "",
+     "type": "demo",
+     "url": "https://github.com/libretro/slang-shaders",
+     "why_zh": "RetroArch 的 CRT 着色器合集，游戏中做真实 CRT 遮罩/扫描线的工业级实现参考。",
+     "use_for": [
+      "game",
+      "video"
+     ],
+     "license_note": "",
+     "image_url": ""
+    },
+    {
+     "title": "Hydra",
+     "creator": "Olivia Jack 与社区",
+     "year": "",
+     "type": "demo",
+     "url": "https://github.com/hydra-synth/hydra",
+     "why_zh": "浏览器实时视频合成/直播编码，可做 RGB 错位、反馈、调制等故障视觉，网站与 VJ 视频皆可用。",
+     "use_for": [
+      "site",
+      "video"
+     ],
+     "license_note": "AGPL-3.0",
+     "image_url": "https://raw.githubusercontent.com/hydra-synth/hydra/main/docs/assets/hydra-3-01.png"
+    }
+   ],
+   "prompts": [
+    {
+     "prompt": "lo-fi analog vhs glitch aesthetic, a winding path beside silhouettes of trees, a still body of water, a lone isolated structure, heavy horizontal crt scan lines, chromatic aberration with cyan and magenta fringing, horizontal tracking errors, digital signal noise, muted palette with pink and yellow light leaks, deep contrast with thick black bands, grainy texture, distorted horizon, haunting atmospheric cinematography, glowing highlights, nostalgic and eerie surveillance footage feel",
+     "model": "Krea（页面未注明具体模型）",
+     "source_url": "https://www.krea.ai/feed/lo-fi-analog-vhs-glitch-aesthetic-a-winding-path-beside-00832394-349d-5b7e-b356-7507778fdd94",
+     "note_zh": "逐项点名扫描线、青/品红色差、跟踪误差、漏光等具体伪影，是写 VHS 提示词的好模板。"
+    },
+    {
+     "prompt": "vhs glitch man on a mountain looking at the sunset, cinematic, black background",
+     "model": "SDXL + Aether Glitch LoRA（joachimsallstrom）",
+     "source_url": "https://huggingface.co/joachimsallstrom/aether-glitch-lora-for-sdxl",
+     "note_zh": "触发词 \"vhs glitch\"；模型卡称调节 LoRA 权重可在“故障”与“CRT 电视”效果之间平衡。"
+    },
+    {
+     "prompt": "vhs glitch found footage of horror girl in the woods, cinematic, hires 8k, intricate, black background",
+     "model": "SDXL + Aether Glitch LoRA",
+     "source_url": "https://huggingface.co/joachimsallstrom/aether-glitch-lora-for-sdxl",
+     "note_zh": "“found footage”语境可强化录像带恐怖感。"
+    },
+    {
+     "prompt": "crtanim, a dense CRT terminal typing \"$ claude --continue\" in glowing green pixel font, scanlines, phosphor glow, low choppy frame rate.",
+     "model": "LTX-2.3 22B + crtanim 视频 LoRA（lovis93）",
+     "source_url": "https://huggingface.co/lovis93/crt-animation-terminal-ltx-2.3-lora",
+     "note_zh": "AI 视频用：触发词放首位；1024×1024；屏幕文字保持 1–3 个词；需关闭 prompt expansion。Apache-2.0。"
+    },
+    {
+     "prompt": "vh5_c4m3r4 old VHS style, the video shows a sandy beach with large rocks and a blue sky with some clouds. The waves are …",
+     "model": "Wan2.1-T2V-14B + vintage-vhs LoRA（remade-ai）",
+     "source_url": "https://huggingface.co/remade-ai/vintage-vhs",
+     "note_zh": "（节选，完整原文见来源页）AI 视频用；原文后续描述浪花、行人与“水平线条+边缘彩点”的失真。Apache-2.0。"
+    },
+    {
+     "prompt": "photograph. A frame from paused VHS tape on CRT. Horizontal scan lines. RGB fringing. … heavy RGB channel separation, pixel sorting artifacts, datamosh distortions, neon cyan and magenta color shifts, …",
+     "model": "GPT Image 2（Carat 提示词库 #13649）",
+     "source_url": "https://carat.im/en/prompt-gallery/p/13649",
+     "note_zh": "（节选，完整原文见来源页）把“暂停的 VHS 帧在 CRT 上”作为介质设定，再叠加像素排序/datamosh；原文含 4:3 与 no text/no watermark 等排除项。"
+    }
+   ],
+   "sref": [],
+   "palettes": [],
+   "dont": [
+    {
+     "text_zh": "故障闪烁不得超过每秒 3 次（超过一般/红色闪光阈值时），否则有光敏性癫痫风险。",
+     "source_url": "https://www.w3.org/WAI/WCAG21/Understanding/three-flashes-or-below-threshold.html"
+    },
+    {
+     "text_zh": "网站上的故障/扫描线动效必须响应 prefers-reduced-motion，为减少动态的用户关闭或降级。",
+     "source_url": "https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion"
+    },
+    {
+     "text_zh": "CRT 扫描线不要配非整数缩放：光束轮廓采样错位会导致扫描线粗细不均、出现摩尔纹，应使用整数纵向缩放。",
+     "source_url": "https://forums.libretro.com/t/uneven-scanlines-when-integer-is-disabled/1290"
+    },
+    {
+     "text_zh": "AI 生成 CRT/终端画面时屏幕文字不要太长（约 1–3 个词），且默认负面词可能破坏文字可读性。",
+     "source_url": "https://huggingface.co/lovis93/crt-animation-terminal-ltx-2.3-lora"
+    }
+   ],
+   "tools": [
+    {
+     "name": "glitch-canvas",
+     "url": "[snorpey/glitch-canvas](https://github.com/snorpey/glitch-canvas)",
+     "license": "MIT",
+     "use": "网页图片故障化",
+     "status": "已核对"
+    },
+    {
+     "name": "postprocessing（GlitchEffect / ScanlineEffect）",
+     "url": "[pmndrs/postprocessing](https://github.com/pmndrs/postprocessing)",
+     "license": "Zlib",
+     "use": "three.js 后期",
+     "status": "已核对"
+    },
+    {
+     "name": "React Bits：FaultyTerminal / LetterGlitch / CRTWarp / GlitchText",
+     "url": "[DavidHDev/react-bits](https://github.com/DavidHDev/react-bits)",
+     "license": "MIT + Commons Clause",
+     "use": "网页直接用的同风格组件",
+     "status": "已核对"
+    }
+   ],
+   "files": [
+    {
+     "path": "styles/09-glitch-crt/refs/hydra-3-01.png",
+     "kind": "reference",
+     "title": "Hydra 实时视觉",
+     "author": "Olivia Jack 与社区",
+     "source_url": "https://github.com/hydra-synth/hydra",
+     "license": "AGPL-3.0",
+     "ai_used": false,
+     "sha256": "e30698345a82566244595b64e142f93aed121c206d53a0bfb0279cc5f250760a",
+     "bytes": 378611,
+     "spdx": "AGPL-3.0-only",
+     "attribution_required": false
+    },
+    {
+     "path": "styles/09-glitch-crt/tool-tests/crt-glitch-astronaut.mp4",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "10abd3facdd94e2ddcd8ab73d109ce6e93d3b6c0caf1c6f6f565f111be22e94d",
+     "bytes": 816481,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/09-glitch-crt/tool-tests/glitch-rgbsplit-scanlines.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "53333cd03d051548250e05fccc8e7dafee315a79ce91c9123ad0b2e899204366",
+     "bytes": 441545,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    }
+   ]
+  },
+  {
+   "kind": "styles",
+   "slug": "10-grain-riso",
+   "title": "Riso 印刷与颗粒 · Risograph & Grain（补充）",
+   "path": "styles/10-grain-riso/",
+   "summary": "Risograph 孔版印刷与胶片/纸张颗粒：有限的专色油墨叠印、半调网点、轻微错版和未涂布纸纹理，带来温暖、手工、略带瑕疵的印刷质感。",
+   "principles": [
+    "§3 风格不一致（全项目统一颗粒/专色）"
+   ],
+   "references": [
+    {
+     "title": "Hato Press",
+     "creator": "Jackson Lam & Ken Kirton",
+     "year": "2009-",
+     "type": "artist",
+     "url": "https://en.wikipedia.org/wiki/Hato_Press",
+     "why_zh": "伦敦代表性 Riso 印刷与出版工作室，长期出版艺术家 zine 并开设 Riso 工作坊，是 riso 出版物视觉的标杆来源。",
+     "use_for": [
+      "site",
+      "game"
+     ],
+     "license_note": "Wikipedia（CC BY-SA）",
+     "image_url": ""
+    },
+    {
+     "title": "RISOTTO Studio",
+     "creator": "Gabriella Marcella（格拉斯哥）",
+     "year": "2012-",
+     "type": "artist",
+     "url": "https://risottostudio.com/",
+     "why_zh": "英国运营最久的 Riso 专业工作室之一，大胆的图形系统与图案，并提供教程、免费模板和印刷档案。",
+     "use_for": [
+      "site",
+      "game"
+     ],
+     "license_note": "官网",
+     "image_url": ""
+    },
+    {
+     "title": "The Rise of Riso",
+     "creator": "Garrick Webster / Communication Arts",
+     "year": "2018",
+     "type": "website",
+     "url": "https://www.commarts.com/columns/the-rise-of-riso",
+     "why_zh": "系统梳理 riso 美学：单色逐次过版、专色叠印、陷印对位、80% 饱和度上限、未涂布纸纹理，并列出全球代表工作室与艺术家。",
+     "use_for": [
+      "site",
+      "game",
+      "video"
+     ],
+     "license_note": "Communication Arts 文章",
+     "image_url": ""
+    },
+    {
+     "title": "Spider-Man: Into the Spider-Verse（半调网点与印刷错位）",
+     "creator": "Sony Pictures Animation",
+     "year": "2018",
+     "type": "video",
+     "url": "https://kottke.org/19/03/how-animators-created-the-spider-verse",
+     "why_zh": "用半调网点和胶印错版伪影代替景深与动态模糊，是把印刷质感做进动画的最强参考（页内附主创讲解视频）。",
+     "use_for": [
+      "video",
+      "game"
+     ],
+     "license_note": "Kottke 文章；影片版权归 Sony",
+     "image_url": ""
+    },
+    {
+     "title": "Risograph animation",
+     "creator": "Magdalene Kennedy",
+     "year": "2025",
+     "type": "video",
+     "url": "https://magdalenekennedy.substack.com/p/risograph-animation",
+     "why_zh": "先数字动画，再逐帧用 Federal Blue、Bubblegum Pink、Yellow 等油墨 riso 印出、扫描回视频，真实的套色错位就是动画质感来源。",
+     "use_for": [
+      "video"
+     ],
+     "license_note": "作者 Substack，版权归作者",
+     "image_url": ""
+    },
+    {
+     "title": "Pentiment（美术总监 Hannah Kennedy 深度解析）",
+     "creator": "Obsidian Entertainment",
+     "year": "2022",
+     "type": "game",
+     "url": "https://www.gamedeveloper.com/art/deep-dive-the-art-of-pentiment",
+     "why_zh": "以欧洲木刻版画和手抄本为参考的叙事游戏，展示“版画/印刷”语言如何转译为游戏角色与场景。",
+     "use_for": [
+      "game"
+     ],
+     "license_note": "Game Developer 文章",
+     "image_url": ""
+    },
+    {
+     "title": "p5.riso",
+     "creator": "Sam Lavigne & Tega Brain",
+     "year": "",
+     "type": "demo",
+     "url": "https://github.com/antiboredom/p5.riso",
+     "why_zh": "p5.js 的 Risograph 分色库：在代码里按油墨分层、做半调和叠印，可导出真实印刷用分色，也可直接用于网页生成艺术。",
+     "use_for": [
+      "site",
+      "game"
+     ],
+     "license_note": "Anti-Capitalist License（非标准开源许可，限制营利性公司使用）",
+     "image_url": ""
+    },
+    {
+     "title": "riso-colors",
+     "creator": "Matt DesLauriers",
+     "year": "",
+     "type": "demo",
+     "url": "https://github.com/mattdesl/riso-colors",
+     "why_zh": "RISO 官方油墨的名称/HEX/Pantone 数据集（来源 stencil.wiki），可直接作为游戏或网站的 riso 色板 token。",
+     "use_for": [
+      "site",
+      "game",
+      "video"
+     ],
+     "license_note": "MIT License",
+     "image_url": ""
+    },
+    {
+     "title": "Spectrolite（Mac 分色软件）",
+     "creator": "spectrolite.app",
+     "year": "",
+     "type": "demo",
+     "url": "https://blogs.denison.edu/riso/2024/10/25/working-with-spectrolite/",
+     "why_zh": "免费 Mac 应用，把图像按油墨拆成灰度分色，带半调、色调分离和油墨预览，适合快速验证 riso 配色。",
+     "use_for": [
+      "site",
+      "video"
+     ],
+     "license_note": "Denison 大学 Riso 实验室教程",
+     "image_url": ""
+    },
+    {
+     "title": "Grainy Gradients",
+     "creator": "Jimmy Chion / CSS-Tricks",
+     "year": "2021",
+     "type": "website",
+     "url": "https://css-tricks.com/grainy-gradients/",
+     "why_zh": "用 SVG feTurbulence 噪声 + CSS 渐变与滤镜做出带颗粒的渐变，是网页实现 riso/胶片颗粒最常被引用的教程。",
+     "use_for": [
+      "site"
+     ],
+     "license_note": "CSS-Tricks 文章",
+     "image_url": ""
+    },
+    {
+     "title": "grained.js",
+     "creator": "sarathsaleem",
+     "year": "",
+     "type": "demo",
+     "url": "https://github.com/sarathsaleem/grained",
+     "why_zh": "零依赖的网页动态颗粒库，用 CSS 关键帧+生成的噪点 PNG 给任意元素加会动的胶片颗粒。",
+     "use_for": [
+      "site"
+     ],
+     "license_note": "MIT License",
+     "image_url": ""
+    }
+   ],
+   "prompts": [
+    {
+     "prompt": "Risograph --v 6.1",
+     "model": "Midjourney v6.1",
+     "source_url": "https://midlibrary.io/styles/risograph",
+     "note_zh": "Midlibrary 词条：层叠高饱和色、半调网点和渐变，主色为荧光粉、电光蓝和黄；建议再加具体油墨名和纸张描述。"
+    },
+    {
+     "prompt": "a lighthouse on a rocky cliff. cyan pink risograph style",
+     "model": "Krea-2-Turbo + cyan-pink-risograph LoRA",
+     "source_url": "https://huggingface.co/ilkerzgi/krea-2-cyan-pink-risograph-lora",
+     "note_zh": "触发词 “cyan pink risograph style”，双色（青+粉）限制色板；Krea 2 Community License。"
+    },
+    {
+     "prompt": "A risograph print style poster of a photograph of purple mountains with blue and pink circles floating, grainy gradients in the style of RISOG",
+     "model": "FLUX.1-dev + shouldis/risograph LoRA",
+     "source_url": "https://huggingface.co/shouldis/risograph",
+     "note_zh": "触发词 RISOG；“grainy gradients”是 riso 渐变颗粒的关键描述。页面未注明许可证。"
+    },
+    {
+     "prompt": "[theme], bold central composition, negative space for typography, neon palette, halftone texture --ar 24:36 --s 250 --q 2",
+     "model": "Midjourney",
+     "source_url": "https://www.awesomic.com/blog/the-best-midjourney-prompts-for-print-design-guide",
+     "note_zh": "Awesomic 印刷设计指南的海报/演出海报模板：中心构图+给字留白+半调纹理，适合 riso 风格海报。"
+    },
+    {
+     "prompt": "A woman, 35mm portrait, blue and grey duotones",
+     "model": "Imagen（Vertex AI）",
+     "source_url": "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/image/img-gen-prompt-guide",
+     "note_zh": "Google Imagen 官方提示指南示例：用 duotone 限定双色，是 riso 双色印刷感最简的官方写法。"
+    },
+    {
+     "prompt": "moody portrait, cinematic lighting, shallow depth of field, teal & orange grade, film grain --ar 8:10 --v 5.1 --q 2",
+     "model": "Midjourney v5.1",
+     "source_url": "https://www.awesomic.com/blog/the-best-midjourney-prompts-for-print-design-guide",
+     "note_zh": "Awesomic 的编辑封面模板，含 film grain；用于胶片颗粒向而非 riso 向。"
+    },
+    {
+     "prompt": "Create a standalone 3:4 vertical contemporary risograph-style art poster based on the original photograph.",
+     "model": "GPT Image 2.5",
+     "source_url": "https://youmind.com/ar/prompts/risograph-poster-style-transfer-34544",
+     "note_zh": "节选：照片转 riso 海报提示词的首句原文（全文更长，见来源；原作者 X @saniaspeaks_）。"
+    }
+   ],
+   "sref": [
+    {
+     "code": "--sref 7462501467",
+     "source_url": "https://promptsref.com/srefcodedetail/--sref%207462501467",
+     "desc_zh": "“Playful Misregistered Risograph”：明亮有限色块略微溢出粗糙手绘线，riso + 素朴艺术 + 涂鸦，颗粒纹理与错版感（另见 underwoodxie Substack 介绍）。"
+    },
+    {
+     "code": "--sref 261695377",
+     "source_url": "https://underwoodxie.substack.com/p/3-photography-style-sref-codes-we",
+     "desc_zh": "纪实写实+魔幻现实的电影感摄影，细腻 35mm/中画幅胶片颗粒、低饱和复古调色；用于胶片颗粒向。"
+    }
+   ],
+   "palettes": [
+    {
+     "name": "RISO 标准油墨（riso-colors / stencil.wiki 数据，MIT）",
+     "hex": [
+      "#000000",
+      "#ff48b0",
+      "#ffe800",
+      "#0078bf",
+      "#f15060",
+      "#ff665e",
+      "#00838a",
+      "#3d5588",
+      "#3255a4",
+      "#ff6c2f",
+      "#00a95c",
+      "#5ec8e5",
+      "#ffb511",
+      "#765ba7",
+      "#82d8d5",
+      "#88898a"
+     ],
+     "source_url": "https://raw.githubusercontent.com/mattdesl/riso-colors/master/riso-colors.json"
+    }
+   ],
+   "dont": [
+    {
+     "text_zh": "不要用 CMYK 全彩思路做 riso：每种油墨一张灰度分色（黑=100% 墨量，白=0%），只用计划印刷的专色。",
+     "source_url": "https://typeshop.risd.gd/preparing-files"
+    },
+    {
+     "text_zh": "不要大面积 100% 满版：实际印刷建议饱和度不超过约 80%，否则容易蹭脏；数字模拟时也应保留油墨不均和透纸感。",
+     "source_url": "https://www.commarts.com/columns/the-rise-of-riso"
+    },
+    {
+     "text_zh": "不要追求像素级完美对位：riso 每色单独过版，色块需留陷印并会轻微错位；完全对齐的矢量叠色看起来就是数字插画。",
+     "source_url": "https://www.commarts.com/columns/the-rise-of-riso"
+    },
+    {
+     "text_zh": "不要只靠一层均匀噪点冒充纸感：riso 的质感来自未涂布纸纹理、网点/抖动和墨色不匀，应分层叠加。",
+     "source_url": "https://www.commarts.com/columns/the-rise-of-riso"
+    },
+    {
+     "text_zh": "网页颗粒效果不要只在一个浏览器验收：mix-blend-mode 在 Chromium 和 WebKit 中渲染有差异，需跨浏览器检查。",
+     "source_url": "https://css-tricks.com/grainy-gradients/"
+    }
+   ],
+   "tools": [
+    {
+     "name": "grained.js",
+     "url": "[sarathsaleem/grained](https://github.com/sarathsaleem/grained)",
+     "license": "MIT",
+     "use": "网页动态颗粒",
+     "status": "已核对"
+    },
+    {
+     "name": "p5.riso",
+     "url": "[antiboredom/p5.riso](https://github.com/antiboredom/p5.riso)",
+     "license": "Anti-Capitalist License（公司商用受限）",
+     "use": "p5 做 Riso 分色",
+     "status": "已核对，商用慎用"
+    },
+    {
+     "name": "本库纸张颗粒贴图",
+     "url": "paper-grain-tile.png",
+     "license": "自制",
+     "use": "可平铺背景",
+     "status": "已实测"
+    }
+   ],
+   "files": [
+    {
+     "path": "styles/10-grain-riso/tool-tests/paper-grain-tile.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "d420d4e263c7e646f1cb880c2284815074147c7974098d27659b41ffe7c56a38",
+     "bytes": 296751,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    },
+    {
+     "path": "styles/10-grain-riso/tool-tests/riso-pink-blue.png",
+     "kind": "tool-test",
+     "author": "本库用开源工具生成",
+     "source_url": "",
+     "license": "自制，随便用",
+     "ai_used": false,
+     "note": "工具能力验证，不是风格标杆",
+     "sha256": "cabeec73aa9e063a4e60d39cae5ce5dc04da63af053457c313cc416ead4c820a",
+     "bytes": 1153996,
+     "spdx": "LicenseRef-own-work",
+     "attribution_required": false,
+     "title": "工具能力验证，不是风格标杆"
+    }
+   ]
+  }
+ ],
+ "schema": "catalog.schema.json"
+}

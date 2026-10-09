@@ -1,0 +1,11 @@
+<!doctype html><meta charset=utf-8><style>body{margin:0;background:#f4efe6}</style>
+<script src="node_modules/p5/lib/p5.min.js"></script><script>
+let P=[],mode=new URLSearchParams(location.search).get('m')||'flow';
+function setup(){createCanvas(1200,800);pixelDensity(1);noiseSeed(7);randomSeed(7);background('#f4efe6');
+ if(mode=='flow'){for(let i=0;i<2500;i++)P.push({x:random(width),y:random(height),c:random(['#e63946','#1d3557','#457b9d','#f4a261','#2a9d8f'])})}
+ if(mode=='truchet'){noLoop();const s=40;strokeWeight(6);noFill();for(let y=0;y<height;y+=s)for(let x=0;x<width;x+=s){stroke(random(['#1d3557','#e63946','#2a9d8f']));if(random()<.5){arc(x,y,s,s,0,HALF_PI);arc(x+s,y+s,s,s,PI,PI+HALF_PI)}else{arc(x+s,y,s,s,HALF_PI,PI);arc(x,y+s,s,s,PI+HALF_PI,TWO_PI)}}window.DONE=1}
+ if(mode=='circles'){noLoop();noStroke();let C=[];for(let k=0;k<6000&&C.length<700;k++){let x=random(width),y=random(height),r=random(4,60);if(C.every(c=>dist(c.x,c.y,x,y)>c.r+r+3)){C.push({x,y,r});fill(random(['#264653','#2a9d8f','#e9c46a','#f4a261','#e76f51']));circle(x,y,r*2)}}window.DONE=1}
+}
+function draw(){if(mode!='flow')return;strokeWeight(1.2);for(const p of P){const a=noise(p.x*0.0025,p.y*0.0025)*TAU*2;const nx=p.x+cos(a)*2,ny=p.y+sin(a)*2;stroke(p.c+'30');line(p.x,p.y,nx,ny);p.x=nx;p.y=ny;if(p.x<0||p.x>width||p.y<0||p.y>height){p.x=random(width);p.y=random(height)}}
+ if(frameCount==400)window.DONE=1}
+</script>

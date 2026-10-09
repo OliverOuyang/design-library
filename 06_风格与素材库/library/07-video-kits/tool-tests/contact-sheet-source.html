@@ -1,0 +1,29 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:Smiley;src:url(a/smiley.woff2)}@font-face{font-family:LXGW;src:url(a/lxgw.ttf)}
+body{margin:0;width:1280px;background:#0f1220;color:#e8e8f0;font-family:LXGW;padding:28px;box-sizing:border-box}
+h1{font-family:Smiley;font-size:56px;margin:0 0 4px}h2{font-family:Smiley;font-size:26px;margin:18px 0 8px;color:#ffd166}
+.row{display:flex;gap:18px;align-items:center;flex-wrap:wrap}.c{background:#1b2036;border-radius:12px;padding:12px;text-align:center;font-size:13px}
+.c img{width:64px;height:64px;display:block;margin:0 auto 6px}.inv img{filter:invert(1)}#lb .c{background:#fff;color:#333}.gi img{filter:invert(1) sepia(1) saturate(4) hue-rotate(5deg)}
+#gl{width:360px;height:360px;border-radius:12px;background:#1b2036}.wrap{display:flex;gap:24px}
+p{margin:2px 0;font-size:18px}</style></head><body>
+<h1>GitHub 设计素材库 · 实测</h1><p>标题：得意黑 Smiley Sans（OFL）｜正文：霞鹜文楷 LXGW WenKai（OFL）</p>
+<div class="wrap"><div style="flex:1">
+<h2>UI 图标 · Lucide / Tabler（独立站）</h2><div class="row inv" id="ui"></div>
+<h2>3D Emoji · Fluent Emoji（站点 / 视频贴纸）</h2><div class="row" id="em"></div>
+<h2>游戏图标 · game-icons.net（CC BY 3.0）</h2><div class="row gi" id="gi"></div>
+<h2>AI 品牌 Logo · Lobe Icons</h2><div class="row" id="lb"></div>
+</div><div><h2>3D 角色 · KayKit Knight.glb（CC0，76 个动画）</h2><canvas id="gl" width="720" height="720"></canvas><p id="st"></p></div></div>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+<script type="module">
+const add=(id,src,label)=>document.getElementById(id).insertAdjacentHTML('beforeend',`<div class="c"><img src="a/${src}">${label}</div>`);
+['gamepad-2','shopping-cart','video','sparkles'].forEach(n=>add('ui',n+'.svg','lucide/'+n));['device-gamepad-2','shopping-cart','movie'].forEach(n=>add('ui','tb-'+n+'.svg','tabler/'+n));
+['rocket_3d','video_game_3d','fire_3d','sparkles_3d','shopping_cart_3d','crossed_swords_3d'].forEach(n=>add('em',n+'.png',n.replace('_3d','')));
+['broadsword','dragon-head','treasure-map','crossed-swords','health-potion'].forEach(n=>add('gi','gi-'+n+'.svg',n));
+['claude-color','openai','midjourney','kling-color'].forEach(n=>add('lb',n+'.png','<span style="color:#333">'+n+'</span>'));
+import * as THREE from 'three';import {GLTFLoader} from 'three/addons/loaders/GLTFLoader.js';
+const r=new THREE.WebGLRenderer({canvas:gl,antialias:true,preserveDrawingBuffer:true});r.setClearColor(0x1b2036);
+const sc=new THREE.Scene();sc.add(new THREE.HemisphereLight(0xffffff,0x334,2.5));const dl=new THREE.DirectionalLight(0xffffff,2);dl.position.set(3,5,4);sc.add(dl);
+const cam=new THREE.PerspectiveCamera(35,1,0.1,100);cam.position.set(2.2,1.8,3.6);cam.lookAt(0,1,0);
+new GLTFLoader().load('a/Knight.glb',g=>{sc.add(g.scene);const m=new THREE.AnimationMixer(g.scene);const clip=g.animations.find(a=>/Cheer|Idle/.test(a.name))||g.animations[0];m.clipAction(clip).play();m.update(0.6);r.render(sc,cam);
+st.textContent=`已加载：${g.animations.length} 个动画，播放 "${clip.name}"`;window.DONE=1},undefined,e=>{st.textContent='ERR '+e;window.DONE=1});
+</script></body></html>

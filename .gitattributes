@@ -1,0 +1,27 @@
+# 文本统一用 LF
+* text=auto eol=lf
+
+# 媒体与字体：二进制，不做 diff
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.webp binary
+*.gif  binary
+*.mp4  binary
+*.mov  binary
+*.webm binary
+*.wav  binary
+*.mp3  binary
+*.ogg  binary
+*.glb  binary
+*.ttf  binary
+*.otf  binary
+*.woff binary
+*.woff2 binary
+*.gz   binary
+*.zip  binary
+
+# 暂不启用 Git LFS（整库约 50MB，单文件最大 8MB）。
+# 当单文件超过 50MB 或仓库超过 1GB 时，先装 git-lfs，再把对应行改成：
+#   *.mp4 filter=lfs diff=lfs merge=lfs -text
+# 详见 项目治理/11_素材库结构调研与改进.md
