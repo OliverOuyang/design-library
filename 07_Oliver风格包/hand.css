@@ -1,0 +1,60 @@
+/* Hand-drawn layer. Requires tokens.css. All motion turns off for prefers-reduced-motion. */
+
+/* Highlighter behind a phrase */
+.oo-mark { background: linear-gradient(transparent 55%, var(--oo-highlight) 55%); padding: 0 2px; }
+
+/* Handwritten note: tilt with --tilt, e.g. style="--tilt:-2deg" */
+.oo-note { font-family: var(--oo-hand); font-size: var(--oo-note); color: var(--oo-green); display: inline-block; transform: rotate(var(--tilt, -1.5deg)); line-height: 1.25; }
+.oo-note--muted { color: var(--oo-muted); }
+.oo-note--yellow { color: var(--oo-highlight); }   /* on dark sections */
+.oo-note--red { color: var(--oo-red); }
+/* Chinese notes: add lang="zh" on the element or any parent */
+:lang(zh) .oo-note, .oo-note:lang(zh) { font-family: var(--oo-hand-zh); font-size: calc(var(--oo-note) * 1.1); }
+:lang(zh) body, body:lang(zh) { font-family: var(--oo-font-zh); }
+
+/* Wrap a word to underline / circle it: <span class="oo-ink-wrap">word<svg ...></svg></span> */
+.oo-ink-wrap { position: relative; display: inline-block; white-space: nowrap; }
+.oo-ink-wrap > svg { position: absolute; overflow: visible; pointer-events: none; }
+.oo-ink-wrap > svg.oo-under { left: -2%; bottom: -10px; width: 104%; height: 18px; }
+.oo-ink-wrap > svg.oo-circle { left: -10px; top: -6px; width: calc(100% + 20px); height: calc(100% + 12px); }
+
+/* Self-drawing strokes: add to <path>. --delay sets the start. */
+@keyframes oo-draw { to { stroke-dashoffset: 0; } }
+.oo-draw { stroke-dasharray: 420; stroke-dashoffset: 420; animation: oo-draw 1.2s var(--delay, .5s) ease forwards; }
+
+/* Stroke that draws when a parent gets .is-on (step-by-step flows) */
+.oo-draw-on { stroke-dasharray: 90; stroke-dashoffset: 90; transition: stroke-dashoffset .6s ease; }
+.is-on .oo-draw-on, .oo-draw-on.is-on { stroke-dashoffset: 0; }
+
+/* Gentle sway for 1-2 notes per page, no more */
+@keyframes oo-wiggle { 0%,100% { transform: rotate(-3deg); } 50% { transform: rotate(2deg); } }
+.oo-wiggle { display: inline-block; animation: oo-wiggle 2.6s ease-in-out infinite; }
+
+/* Results popping in, staggered */
+@keyframes oo-pop { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.oo-pop { animation: oo-pop .5s ease both; }
+.oo-pop-2 { animation: oo-pop .5s .25s ease both; }
+.oo-pop-3 { animation: oo-pop .5s .5s ease both; }
+
+/* Step states for a "watch it run" flow */
+.oo-step { border: var(--oo-border); border-radius: var(--oo-radius); background: #FAFAF8; padding: 12px; transition: background-color .3s, border-color .3s, transform .3s, opacity .3s; }
+.oo-step.is-idle { opacity: .5; }
+.oo-step.is-active { background: var(--oo-active-soft); transform: translateY(-6px); }
+.oo-step.is-done { background: var(--oo-green-soft); border-color: var(--oo-green); }
+.oo-step.is-error { background: var(--oo-red-soft); border-color: var(--oo-red); }
+
+/* Buttons and frames */
+.oo-btn { display: inline-flex; align-items: center; min-height: 54px; padding: 0 28px; border-radius: var(--oo-radius); background: var(--oo-ink); color: var(--oo-paper); font-weight: 700; font-size: 17px; text-decoration: none; border: none; cursor: pointer; }
+.oo-btn--ghost { background: transparent; color: var(--oo-ink); border: var(--oo-border); min-height: 44px; padding: 0 18px; font-weight: 600; }
+.oo-frame { border: var(--oo-border); border-radius: var(--oo-radius); background: var(--oo-surface); overflow: hidden; }
+.oo-tag { font-size: 13px; color: var(--oo-muted); border: 1px solid #BDBDB6; border-radius: 4px; padding: 6px 10px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .oo-draw, .oo-draw-on { animation: none; transition: none; stroke-dashoffset: 0; }
+  .oo-wiggle, .oo-pop, .oo-pop-2, .oo-pop-3 { animation: none; }
+  .oo-step { transition: none; } .oo-step.is-active { transform: none; }
+}
+
+/* Photo slots (files from photo/) */
+.oo-avatar { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; border: var(--oo-border); }
+.oo-portrait { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: var(--oo-radius); border: var(--oo-border); }

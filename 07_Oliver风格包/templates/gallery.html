@@ -1,0 +1,122 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Gallery template</title>
+<!--
+  Gallery slides, 1280x769 (Fiverr / Upwork gallery), in Oliver's style. Render with render.js.
+
+  v=ba   before / after
+         gallery.html?v=ba&title=From copy-paste to [automatic]&tag=Sample · fictional shop
+                     &before=messy.png&beforeCap=Orders pasted by hand...&after=dashboard.png&afterCap=Type the order once...
+         (no "before" image → a messy-sheet stand-in is drawn)
+  v=get  what you get: a handwritten-check list + up to 3 thumbnails
+         gallery.html?v=get&title=What you get&items=Your working sheet::In your own Google account|A video walkthrough::Every package
+                     &thumbs=guide.png,email.png,video.jpg&play=3&note=the video comes with every order
+  lang=zh for Chinese fonts; font=private to load 平方江南体 when rendering locally.
+-->
+<link rel="stylesheet" href="../tokens.css">
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; width: 1280px; height: 769px; font-family: var(--oo-font); background: var(--oo-paper); color: var(--oo-ink); overflow: hidden; position: relative; }
+body.zh { font-family: var(--oo-font-zh); }
+h1 { margin: 0; position: absolute; left: 70px; top: 56px; font-size: 56px; letter-spacing: -.035em; font-weight: 800; line-height: 1; }
+body.zh h1 { letter-spacing: 0; }
+mark { background: linear-gradient(transparent 58%, var(--oo-highlight) 58%); color: inherit; padding: 0 2px; }
+.v { display: none; }
+.hand { font-family: var(--oo-hand); font-weight: 400; color: var(--oo-green); white-space: nowrap; }
+body.zh .hand { font-family: var(--oo-hand-zh); }
+.frame { border: 1.5px solid var(--oo-ink); border-radius: 6px; background: #fff; overflow: hidden; }
+.frame img { display: block; width: 100%; }
+.tag { position: absolute; right: 70px; top: 70px; font-size: 16px; color: var(--oo-muted); border: 1px solid #BDBDB6; border-radius: 4px; padding: 6px 10px; }
+/* before / after */
+.col { position: absolute; top: 178px; }
+.lab { font-size: 34px; margin-bottom: 10px; transform: rotate(-2deg); display: inline-block; }
+.b { left: 70px; width: 420px; } .b .lab { color: var(--oo-muted); }
+.a { left: 590px; width: 620px; }
+.messy { background: #f1f1f1; border: 1.5px solid #9A9A92; border-radius: 6px; filter: grayscale(1); transform: rotate(-2deg); padding: 6px; overflow: hidden; }
+.messy img { display: block; width: 100%; }
+.messy table { border-collapse: collapse; width: 100%; font-size: 15px; } .messy td { border: 1px solid #cfcfcf; padding: 8px 7px; color: #555; } .messy .r { color: #B3261E; font-weight: 700; }
+.cap { margin-top: 22px; font-size: 21px; line-height: 1.38; color: var(--oo-ink-2); }
+.b .cap { color: var(--oo-muted); }
+.arrow { position: absolute; left: 470px; top: 330px; width: 120px; height: 110px; }
+/* what you get */
+.sheet { position: absolute; left: 70px; top: 170px; width: 640px; min-height: 420px; background: #fff; border: 1.5px solid var(--oo-ink); border-radius: 6px; transform: rotate(-1deg); padding: 26px 34px; }
+.sheet ul { list-style: none; margin: 0; padding: 0; }
+.sheet li { display: grid; grid-template-columns: 52px 1fr; gap: 6px; align-items: start; padding: 14px 0; border-bottom: 1px dashed #D0D0C8; }
+.sheet li:last-child { border-bottom: 0; }
+.sheet svg { width: 42px; height: 42px; margin-top: -2px; }
+.sheet b { font-size: 25px; letter-spacing: -.01em; display: block; line-height: 1.2; }
+.sheet span { font-size: 16.5px; color: var(--oo-muted); }
+.thumbs { position: absolute; left: 770px; top: 170px; width: 440px; height: 520px; }
+.thumbs .frame { position: absolute; }
+.t1 { left: 0; top: 0; width: 250px; transform: rotate(2deg); }
+.t2 { left: 180px; top: 150px; width: 260px; transform: rotate(-2deg); }
+.t3 { left: 20px; top: 320px; width: 300px; transform: rotate(1deg); }
+.play { position: relative; }
+.play::after { content: ""; position: absolute; left: 50%; top: 50%; width: 0; height: 0; transform: translate(-35%, -50%); border-left: 30px solid var(--oo-ink); border-top: 19px solid transparent; border-bottom: 19px solid transparent; }
+.n1 { position: absolute; left: 800px; top: 690px; font-size: 30px; transform: rotate(-3deg); }
+</style>
+</head>
+<body>
+<span class="tag" id="tag"></span>
+
+<div class="v" id="ba">
+  <h1 class="title"></h1>
+  <div class="col b"><div class="lab hand" id="beforeLab">before</div>
+    <div class="messy" id="beforeBox"><table>
+      <tr><td>order</td><td>date??</td><td>item</td><td>$</td><td>TOTAL</td></tr>
+      <tr><td>1225</td><td>10/4</td><td>mug oat</td><td>24</td><td class="r">#N/A</td></tr>
+      <tr><td>1227</td><td>oct 5</td><td>Mug-Oat</td><td></td><td class="r">#REF!</td></tr>
+      <tr><td>1230</td><td>6.10</td><td>latte cndl</td><td>32</td><td>32</td></tr>
+      <tr><td>1233</td><td>10/6</td><td>towels</td><td>22</td><td class="r">#VALUE!</td></tr>
+      <tr><td>1237</td><td></td><td>cedar</td><td>28</td><td>28</td></tr>
+      <tr><td>1238</td><td>10/8</td><td>??</td><td>22</td><td class="r">#N/A</td></tr>
+    </table></div>
+    <div class="cap" id="beforeCap"></div>
+  </div>
+  <svg class="arrow" viewBox="0 0 80 90" aria-hidden="true"><path d="M8 20 C 40 0, 75 20, 66 62 M54 52 L66 66 L74 50" fill="none" stroke="#1B6B3F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <div class="col a"><div class="lab hand" id="afterLab">after</div>
+    <div class="frame"><img id="after" alt=""></div>
+    <div class="cap" id="afterCap"></div>
+  </div>
+</div>
+
+<div class="v" id="get">
+  <h1 class="title"></h1>
+  <div class="sheet"><ul id="items"></ul></div>
+  <div class="thumbs" id="thumbs"></div>
+  <span class="hand n1" id="note"></span>
+</div>
+
+<script>
+const q = new URLSearchParams(location.search);
+const v = q.get('v') === 'get' ? 'get' : 'ba';
+const zh = q.get('lang') === 'zh';
+const $ = (id) => document.getElementById(id);
+const esc = (t) => t.replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+if (zh) { document.body.classList.add('zh'); document.documentElement.lang = 'zh'; }
+if (q.get('font') === 'private') {
+  const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = '../fonts-private/jiangnan.css'; document.head.appendChild(l);
+}
+$(v).style.display = 'block';
+const title = q.get('title') || (v === 'ba' ? 'From copy-paste to [automatic]' : 'What you get');
+document.querySelectorAll('#' + v + ' .title').forEach((el) => { el.innerHTML = esc(title).replace(/\[(.+?)\]/g, '<mark>$1</mark>'); });
+q.get('tag') ? ($('tag').textContent = q.get('tag')) : $('tag').remove();
+
+if (v === 'ba') {
+  if (zh) { $('beforeLab').textContent = q.get('beforeLab') || '以前'; $('afterLab').textContent = q.get('afterLab') || '现在'; }
+  if (q.get('before')) $('beforeBox').innerHTML = '<img alt="" src="' + esc(q.get('before')) + '">';
+  $('after').src = q.get('after') || 'placeholder-shot.svg';
+  $('beforeCap').textContent = q.get('beforeCap') || 'Orders pasted by hand, broken totals, and a summary written every Monday.';
+  $('afterCap').textContent = q.get('afterCap') || 'Type the order once. The dashboard updates itself, and the weekly email goes out at 8 AM.';
+} else {
+  const tick = (k) => '<svg viewBox="0 0 40 40"><path d="M6 ' + (20 + k % 2) + ' C 10 24, 13 28, 16 32 C 21 20, 27 12, 35 ' + (5 + k % 3) + '" fill="none" stroke="#1B6B3F" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+  const items = (q.get('items') || 'Your working build::In your own account|A video walkthrough::Every package|A short written guide::How to use and edit it').split('|').slice(0, 5);
+  $('items').innerHTML = items.map((it, k) => { const [a, b] = it.split('::'); return '<li>' + tick(k) + '<div><b>' + esc(a) + '</b>' + (b ? '<span>' + esc(b) + '</span>' : '') + '</div></li>'; }).join('');
+  const thumbs = (q.get('thumbs') || 'placeholder-shot.svg,placeholder-shot.svg,placeholder-shot.svg').split(',').slice(0, 3);
+  const play = +q.get('play') || 0;
+  $('thumbs').innerHTML = thumbs.map((src, k) => '<div class="frame t' + (k + 1) + (play === k + 1 ? ' play' : '') + '"><img alt="" src="' + esc(src) + '"></div>').join('');
+  q.get('note') ? ($('note').textContent = q.get('note')) : $('note').remove();
+}
+addEventListener('load', () => document.fonts.ready.then(() => { document.body.dataset.ready = '1'; }));
+</script>
+</body></html>
