@@ -1,0 +1,111 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<title>Cover template</title>
+<!--
+  Package / listing cover in Oliver's style: paper background, one headline with a highlighter word,
+  a real result screenshot in an ink frame, one hand-drawn circle with a handwritten note.
+
+  Everything is set in the URL, then rendered to PNG with render.js:
+    cover.html?w=1280&h=769&title=Your sales report, sent [every Monday]&sub=Google Sheets + Apps Script
+             &tag=Sample · fictional shop&shot=placeholder-shot.svg&circle=0.53,0.12,0.22,0.2
+             &note=compared with last week&avatar=avatar.jpg
+
+  w, h      size in px. Presets: Fiverr 1280x769 · Upwork 1000x750 · 闲鱼 800x800 (square stacks vertically)
+  lang      en (default) or zh (Chinese fonts: Noto Sans SC + 平方江南体 / 马善政)
+  title     headline, ≤10 words; wrap the one word to highlight in [brackets]
+  sub       one line under the headline (optional)
+  tag       small label, e.g. "Sample · fictional shop" (optional)
+  shot      screenshot URL (a real result; placeholder-shot.svg is only a stand-in)
+  circle    x,y,w,h of the thing to circle, as fractions of the screenshot (optional)
+  note      handwritten note next to the circle, 2–6 words (optional)
+  avatar    small round photo bottom-right (optional; Fiverr only)
+  font      "private" loads ../fonts-private/jiangnan.css for 平方江南体 when rendering locally
+-->
+<link rel="stylesheet" href="../tokens.css">
+<style>
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body { background: var(--oo-paper); color: var(--oo-ink); font-family: var(--oo-font); position: relative; overflow: hidden; }
+body.zh { font-family: var(--oo-font-zh); }
+h1 { position: absolute; margin: 0; font-weight: 800; line-height: 1.04; letter-spacing: -.035em; }
+body.zh h1 { letter-spacing: 0; line-height: 1.2; }
+mark { background: linear-gradient(transparent 58%, var(--oo-highlight) 58%); color: inherit; padding: 0 2px; }
+.sub { position: absolute; margin: 0; font-weight: 600; color: var(--oo-ink-2); }
+.tag { position: absolute; color: var(--oo-muted); border: 1px solid #BDBDB6; border-radius: 4px; padding: .35em .7em; }
+.frame { position: absolute; border: 1.5px solid var(--oo-ink); border-radius: 6px; background: #fff; overflow: hidden; }
+.frame img { display: block; width: 100%; }
+.ann { position: absolute; overflow: visible; pointer-events: none; }
+.note { position: absolute; font-family: var(--oo-hand); font-weight: 400; color: var(--oo-green); transform: rotate(-3deg); white-space: nowrap; }
+body.zh .note { font-family: var(--oo-hand-zh); }
+.face { position: absolute; border-radius: 50%; border: 1.5px solid var(--oo-ink); object-fit: cover; }
+</style>
+</head>
+<body>
+<h1 id="title"></h1>
+<p class="sub" id="sub"></p>
+<span class="tag" id="tag"></span>
+<div class="frame" id="frame"><img id="shot" alt=""></div>
+<svg class="ann" id="circ" viewBox="0 0 200 60" preserveAspectRatio="none"><path d="M14 30 C 12 8, 120 2, 176 14 C 206 24, 198 52, 118 55 C 46 58, 4 48, 18 24" fill="none" stroke="#1B6B3F" stroke-width="3" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+<span class="note" id="note"></span>
+<img class="face" id="face" alt="">
+<script>
+const q = new URLSearchParams(location.search);
+const w = +q.get('w') || 1280, h = +q.get('h') || 769;
+const zh = q.get('lang') === 'zh';
+const wide = w / h >= 1.15;
+const $ = (id) => document.getElementById(id);
+const esc = (t) => t.replace(/[&<>]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]));
+if (zh) { document.body.classList.add('zh'); document.documentElement.lang = 'zh'; }
+if (q.get('font') === 'private') {
+  const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = '../fonts-private/jiangnan.css'; document.head.appendChild(l);
+}
+const s = document.body.style;
+s.width = w + 'px'; s.height = h + 'px';
+const unit = Math.min(w, h * 1.66);
+
+$('title').innerHTML = esc(q.get('title') || 'Your sales report, sent [every Monday]').replace(/\[(.+?)\]/g, '<mark>$1</mark>');
+const sub = q.get('sub'), tag = q.get('tag'), note = q.get('note'), avatar = q.get('avatar');
+sub ? ($('sub').textContent = sub) : $('sub').remove();
+tag ? ($('tag').textContent = tag) : $('tag').remove();
+note ? ($('note').textContent = note) : $('note').remove();
+avatar ? ($('face').src = avatar) : $('face').remove();
+$('shot').src = q.get('shot') || 'placeholder-shot.svg';
+
+const t = $('title').style;
+if (wide) {
+  Object.assign(t, { left: '5.5%', top: '13%', width: '38%', fontSize: Math.round(unit * (zh ? 0.047 : 0.051)) + 'px' });
+  Object.assign($('frame').style, { left: '46%', top: '15%', width: '50%' });
+} else {
+  Object.assign(t, { left: '7%', top: '7%', width: '86%', fontSize: Math.round(w * (zh ? 0.075 : 0.08)) + 'px' });
+  Object.assign($('frame').style, { left: '7%', width: '86%' });
+}
+if ($('sub')) $('sub').style.fontSize = Math.round(unit * 0.02 * (wide ? 1 : 1.5)) + 'px';
+if ($('tag')) Object.assign($('tag').style, { left: wide ? '5.5%' : '7%', bottom: '6%', fontSize: Math.round(unit * 0.013 * (wide ? 1 : 1.4)) + 'px' });
+if ($('note')) $('note').style.fontSize = Math.round(unit * (zh ? 0.03 : 0.026) * (wide ? 1 : 1.4)) + 'px';
+if ($('face')) { const f = Math.round(unit * 0.075); Object.assign($('face').style, { right: '3.2%', bottom: '5%', width: f + 'px', height: f + 'px' }); }
+
+function layout() {
+  const tb = $('title').getBoundingClientRect();
+  let y = tb.bottom;
+  if ($('sub')) { $('sub').style.left = t.left; $('sub').style.top = (tb.bottom + unit * 0.018) + 'px'; y = $('sub').getBoundingClientRect().bottom; }
+  if (!wide) $('frame').style.top = (y + h * 0.06) + 'px';
+  else { const fh = $('frame').getBoundingClientRect().height; $('frame').style.top = Math.max(h * 0.13, (h - fh) / 2 - h * 0.03) + 'px'; }
+  const fr = $('frame').getBoundingClientRect();
+  const c = (q.get('circle') || '').split(',').map(Number);
+  if (c.length === 4 && c.every((v) => !isNaN(v))) {
+    const r = { x: fr.left + c[0] * fr.width, y: fr.top + c[1] * fr.height, w: c[2] * fr.width, h: c[3] * fr.height };
+    Object.assign($('circ').style, { left: r.x + 'px', top: r.y + 'px', width: r.w + 'px', height: r.h + 'px' });
+    if ($('note')) {
+      const n = $('note');
+      n.style.left = Math.min(r.x, w - n.offsetWidth - w * 0.03) + 'px';
+      n.style.top = Math.max(r.y - n.offsetHeight - 4, 4) + 'px';
+    }
+  } else {
+    $('circ').remove();
+    if ($('note')) { $('note').style.left = fr.left + 'px'; $('note').style.top = (fr.top - $('note').offsetHeight - 6) + 'px'; }
+  }
+  document.body.dataset.ready = '1';
+}
+addEventListener('load', () => document.fonts.ready.then(layout));
+</script>
+</body></html>

@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brand Kit Preview</title>
+<link rel="stylesheet" href="tokens.css">
+<link rel="stylesheet" href="hand.css">
+<style>
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 56px 24px; display: flex; flex-direction: column; gap: 56px; }
+  .row { display: flex; flex-wrap: wrap; gap: 16px; align-items: center; }
+  .sw { width: 120px; border: var(--oo-border); border-radius: var(--oo-radius); overflow: hidden; font-size: 13px; background: #fff; }
+  .sw div { height: 60px; }
+  .sw span { display: block; padding: 8px; }
+  section { display: flex; flex-direction: column; gap: 18px; }
+  .label { font-weight: 700; font-size: 15px; color: var(--oo-muted); }
+  .steps { display: flex; flex-wrap: wrap; align-items: center; gap: 4px; }
+  .steps .oo-step { width: 150px; min-height: 90px; }
+  .dark { background: var(--oo-ink); color: var(--oo-paper); padding: 32px; border-radius: var(--oo-radius); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <section>
+    <span class="oo-note" style="--tilt:-2deg">Oliver's style kit</span>
+    <h1>I automate the <span class="oo-ink-wrap">busywork<svg class="oo-under" viewBox="0 0 260 20" preserveAspectRatio="none" aria-hidden="true"><path class="oo-draw" d="M2 12 C 40 5, 90 16, 140 8 S 220 4, 258 10" fill="none" stroke="#E2A400" stroke-width="5" stroke-linecap="round"/></svg></span> of a small store.</h1>
+    <p style="font-size: var(--oo-body); line-height: 1.55; color: var(--oo-ink-2); max-width: 640px;">Body copy in Schibsted Grotesk. Use the <span class="oo-mark">highlighter</span> on the one phrase that carries the result.</p>
+    <div class="row"><a class="oo-btn" href="#">Primary action</a><a href="#" style="position:relative;font-weight:600;padding:0 6px" class="oo-ink-wrap">Packages from $25<svg class="oo-circle" viewBox="0 0 200 60" preserveAspectRatio="none" aria-hidden="true"><path class="oo-draw" style="--delay:1.4s" d="M14 30 C 12 8, 120 2, 176 14 C 206 24, 198 52, 118 55 C 46 58, 4 48, 18 24" fill="none" stroke="#1B6B3F" stroke-width="2.5" stroke-linecap="round"/></svg></a><span class="oo-note oo-wiggle">← one sway per page</span></div>
+  </section>
+
+  <section>
+    <span class="label">Colours</span>
+    <div class="row">
+      <div class="sw"><div style="background:#F4F4F1"></div><span>Paper #F4F4F1</span></div>
+      <div class="sw"><div style="background:#141414"></div><span>Ink #141414</span></div>
+      <div class="sw"><div style="background:#FFE45C"></div><span>Highlight #FFE45C</span></div>
+      <div class="sw"><div style="background:#E2A400"></div><span>Underline #E2A400</span></div>
+      <div class="sw"><div style="background:#1B6B3F"></div><span>Green #1B6B3F</span></div>
+      <div class="sw"><div style="background:#B3261E"></div><span>Error #B3261E</span></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="label">Handwritten notes</span>
+    <div class="row" style="gap:40px">
+      <span class="oo-note">nothing goes out without your OK ↑</span>
+      <span class="oo-note oo-note--muted" style="--tilt:1deg">try the failure switch too</span>
+      <span class="oo-note oo-note--red">errors shouldn't vanish quietly</span>
+      <span class="oo-note" lang="zh">中文批注：每周一自动发周报 ✓（网页上显示马善政，本机装了平方江南体则用它）</span>
+    </div>
+  </section>
+
+  <section>
+    <span class="label">Hand-drawn marks (svg/)</span>
+    <div class="row" style="gap:32px">
+      <img src="svg/underline.svg" alt="underline" width="160" height="20">
+      <img src="svg/circle.svg" alt="circle" width="140" height="50">
+      <img src="svg/arrow-right.svg" alt="arrow" width="40" height="34">
+      <img src="svg/arrow-curve-down.svg" alt="curved arrow" width="60" height="68">
+      <img src="svg/check.svg" alt="check" width="36" height="36">
+      <img src="svg/star-burst.svg" alt="burst" width="48" height="48">
+    </div>
+  </section>
+
+  <section>
+    <span class="label">Step flow (“watch it run”)</span>
+    <div class="steps">
+      <div class="oo-step is-done"><b>1. Email arrives</b></div>
+      <svg class="is-on" width="34" height="30" viewBox="0 0 34 30" aria-hidden="true"><path class="oo-draw-on" d="M3 16 C 10 9, 18 22, 28 14 M22 8 L29 14 L22 21" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="oo-step is-active"><b>2. AI tags it</b></div>
+      <svg width="34" height="30" viewBox="0 0 34 30" aria-hidden="true"><path class="oo-draw-on" d="M3 16 C 10 9, 18 22, 28 14 M22 8 L29 14 L22 21" fill="none" stroke="#141414" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div class="oo-step is-idle"><b>3. Logged</b></div>
+      <div class="oo-step is-error" style="margin-left:38px"><b>Error state</b></div>
+    </div>
+  </section>
+
+  <section class="dark">
+    <h2 style="color:var(--oo-paper)">On dark sections</h2>
+    <span class="oo-note oo-note--yellow">notes switch to yellow here</span>
+  </section>
+</div>
+</body>
+</html>

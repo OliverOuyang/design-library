@@ -1,0 +1,46 @@
+/* Oliver Ouyang brand tokens. Concept: an analyst's marked-up report. */
+@import url('https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:ital,wght@0,400..900;1,400..700&family=Sedgwick+Ave&family=Ma+Shan+Zheng&family=Noto+Sans+SC:wght@400..900&display=swap');
+
+/* Chinese handwriting: 平方江南体 when it is installed on this machine (images, covers, videos).
+   It is NOT served as a web font: its licence forbids modification and does not grant redistribution.
+   On web pages the stack falls through to Ma Shan Zheng (OFL). Latin letters always use Sedgwick Ave. */
+@font-face { font-family: 'OO Jiangnan'; src: local('平方江南体'), local('PING FANG JIANG NAN TI'), local('平方江南体 Regular'); }
+
+:root {
+  /* Type */
+  --oo-font: 'Schibsted Grotesk', system-ui, sans-serif;  /* headings + body */
+  --oo-hand: 'Sedgwick Ave', cursive;                           /* handwritten notes only */
+  --oo-font-zh: 'Schibsted Grotesk', 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;  /* Chinese headings + body */
+  --oo-hand-zh: 'Sedgwick Ave', 'OO Jiangnan', 'Ma Shan Zheng', cursive;  /* Chinese handwritten notes */
+
+  /* Colour */
+  --oo-paper: #F4F4F1;      /* page background */
+  --oo-surface: #FFFFFF;    /* cards, tables */
+  --oo-ink: #141414;        /* text, borders, dark sections */
+  --oo-ink-2: #33332F;      /* body text */
+  --oo-muted: #55554F;      /* captions (passes 4.5:1 on paper) */
+  --oo-line: #E4E4DF;       /* table rules */
+  --oo-highlight: #FFE45C;  /* highlighter yellow: key phrases, CTA band */
+  --oo-highlight-ink: #E2A400; /* hand-drawn underline stroke */
+  --oo-green: #1B6B3F;      /* "done", handwritten notes, links on hover */
+  --oo-green-soft: #F1F8F3;
+  --oo-red: #B3261E;        /* errors only */
+  --oo-red-soft: #FFF0EE;
+  --oo-active-soft: #FFF7C2;
+
+  /* Shape */
+  --oo-radius: 6px;         /* one tight radius everywhere, never pills */
+  --oo-border: 1.5px solid var(--oo-ink);
+
+  /* Type scale */
+  --oo-h1: clamp(44px, 6vw, 84px);
+  --oo-h2: clamp(36px, 4.4vw, 60px);
+  --oo-body: 19px;
+  --oo-small: 14px;
+  --oo-note: 21px;          /* Sedgwick Ave runs large; notes 18-25px, regular weight only */
+}
+
+body { margin: 0; background: var(--oo-paper); color: var(--oo-ink); font-family: var(--oo-font); }
+h1, h2, h3 { font-weight: 800; letter-spacing: -0.03em; line-height: 1.02; margin: 0; }
+h1 { font-size: var(--oo-h1); }
+h2 { font-size: var(--oo-h2); }

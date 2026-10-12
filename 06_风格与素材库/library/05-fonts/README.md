@@ -1,4 +1,4 @@
-# 字体（全部可商用）
+# 字体（全部可商用，注意各自的使用边界）
 
 中文为主的免费可商用字体，按场景挑。
 
@@ -16,6 +16,9 @@
 | 站酷快乐体 ZCOOL KuaiLe | [fontsource](https://fontsource.org/fonts/zcool-kuaile) | OFL 1.1 | 手绘、可爱风 | 已实测 |
 | Caveat | [fontsource](https://fontsource.org/fonts/caveat) | OFL 1.1 | 英文手写批注 | 已实测 |
 | Instrument Serif | [fontsource](https://fontsource.org/fonts/instrument-serif) | OFL 1.1 | 米白高级感英文标题 | 已实测 |
+| Sedgwick Ave | [Google Fonts](https://fonts.google.com/specimen/Sedgwick+Ave) | OFL 1.1 | 英文手写批注（Oliver 风格包） | 已实测 |
+| 马善政 Ma Shan Zheng | [Google Fonts](https://fonts.google.com/specimen/Ma+Shan+Zheng) | OFL 1.1 | 中文手写批注，网页可用 | 已实测 |
+| 平方江南体 | [猫啃网](https://www.maoken.com/freefonts/21901.html) | 作者声明免费商用；不许修改、未授权再分发 | 中文手写批注，只用于图片、封面、视频；不做网页字体，文件不入库 | 已实测 |
 
 ## 怎么复现示例
 
