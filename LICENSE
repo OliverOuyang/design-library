@@ -1,0 +1,46 @@
+本仓库的许可证 / License of this repository
+==========================================
+
+本仓库自己写的内容按下面两种许可证开放；第三方素材不在此列，保留各自原许可证。
+
+1. 文档与笔记（.md 文件、卡片、索引、模板、提示词、风格说明等）
+   CC BY 4.0（署名 4.0 国际）
+   https://creativecommons.org/licenses/by/4.0/
+   原文：06_风格与素材库/LICENSES/CC-BY-4.0.txt
+   署名写法：Oliver Ouyang / design-library
+
+2. 代码与脚本（.py / .js / .css / .html / .sh 等本库自己写的程序、样式和模板）
+   MIT License，全文见下。
+
+3. 第三方素材（例外，不适用上面两条）
+   - 06_风格与素材库/ 里的图片、字体、模型、图标等：逐个文件的作者、来源和
+     SPDX 许可证见 06_风格与素材库/catalog.json，许可证原文在
+     06_风格与素材库/LICENSES/，需要署名的见 06_风格与素材库/ATTRIBUTION.md。
+   - 素材资产/音效/ 的 WAV：Kenney UI Audio，CC0 1.0，原文见
+     素材资产/音效/LICENSE-Kenney-CC0-1.0.txt。
+   - 素材资产/动效/ 的 CSS motion 样本：按 素材资产/素材清单与许可.md 的声明为 CC0 1.0。
+   - 索引和卡片里链接的外部网站、作品、截图：版权归原作者，本库只做引用。
+
+--------------------------------------------------------------------------
+
+MIT License
+
+Copyright (c) 2026 Oliver Ouyang
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
